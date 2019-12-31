@@ -14,26 +14,26 @@ namespace ProjectStockManagement.Data
         /// <summary>
         /// Name of the client.
         /// </summary>
-        public string ClientName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// ID number of client.
         /// </summary>
-        public ulong ClientID { get; set; }
+        public ulong ID { get; set; }
 
         /// <summary>
         /// Contact number of client.
         /// </summary>
-        public string ClientContactNumber { get; set; }
+        public string ContactNumber { get; set; }
 
         /// <summary>
         /// Address details of client.
         /// </summary>
-        public string ClientAddress { get; set; }
+        public string Address { get; set; }
 
         /// <summary>
         /// Email ID of client.
         /// </summary>
-        public string ClientEmailID { get; set; }
+        public string EmailID { get; set; }
     }
 }
