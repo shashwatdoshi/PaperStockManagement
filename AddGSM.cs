@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectStockManagement
 {
-    public partial class Form1 : Form
+    public partial class AddGSM : Form
     {
-        public Form1()
+        public AddGSM()
         {
             InitializeComponent();
         }
