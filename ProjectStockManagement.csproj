@@ -110,6 +110,7 @@
     <Compile Include="Data\Client.cs" />
     <Compile Include="Data\DateTracker.cs" />
     <Compile Include="Data\Driver.cs" />
+    <Compile Include="Data\IDataAccessor.cs" />
     <Compile Include="Data\Order.cs" />
     <Compile Include="Data\Stock.cs" />
     <Compile Include="Data\Vehicle.cs" />
