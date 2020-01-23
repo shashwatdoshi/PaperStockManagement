@@ -12,13 +12,13 @@ namespace ProjectStockManagement.Data
         /// Add breaking force
         /// </summary>
         /// <param name="breakingForce"></param>
-        void AddBreakingForce(int breakingForce);
+        bool AddBreakingForce(int breakingForce);
 
         /// <summary>
         /// Adds GSM
         /// </summary>
         /// <param name="GSM"></param>
-        void AddGSM(int GSM);
+        bool  AddGSM(int GSM);
 
         /// <summary>
         /// Gets list of breaking force 
@@ -32,16 +32,26 @@ namespace ProjectStockManagement.Data
         /// <returns></returns>
         IList<int> GetGSMList();
 
-        void AddClient(Client client);
+        bool  AddClient(Client client);
 
-        void AddVehicle(Vehicle vehicle);
+        IList<Client> GetClients();
 
-        void AddOrder(Order order);
+        bool  AddVehicle(Vehicle vehicle);
 
-        void AddOrders(IList<Order> orders);
+        IList<Vehicle> GetVehicles();
 
-        void AddStock(Stock stock);
+        bool  AddOrder(Order order);
 
-        void AddStocks(IList<Stock> stocks);
+        bool  AddOrders(IList<Order> orders);
+
+        IList<Order> GetOrders();
+
+        bool  AddStock(Stock stock);
+
+        bool  AddStocks(IList<Stock> stocks);
+
+        IList<Stock> GetStocks();
+
+
     }
 }
