@@ -98,44 +98,6 @@ GO
 ALTER TABLE [dbo].[StockInventory] CHECK CONSTRAINT [FK_Stock]
 GO
 
-CREATE TABLE [dbo].[Order](
-	[ID] [int] NOT NULL,
-	[ClientID] [int] NOT NULL,
-	[StockID] [int] NOT NULL,
-	[StartDate] [datetime] NOT NULL,
-	[EndDate] [datetime] NULL,
-	[Deleted] [bit] NOT NULL,
- CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[Order] ADD  CONSTRAINT [DF_Order_Deleted]  DEFAULT ((0)) FOR [Deleted]
-GO
-
-ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Client] FOREIGN KEY([ClientID])
-REFERENCES [dbo].[Client] ([ID])
-GO
-
-ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Client]
-GO
-
-ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Stock] FOREIGN KEY([StockID])
-REFERENCES [dbo].[Stock] ([ID])
-GO
-
-ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Stock]
-GO
-
-ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Vehicle] FOREIGN KEY([VehicleID])
-REFERENCES [dbo].[Vehicle] ([ID])
-GO
-
-ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Vehicle]
-GO
-
 CREATE TABLE [dbo].[Driver](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
 	[Name] [nchar](50) NOT NULL,
@@ -179,4 +141,42 @@ CREATE TABLE [dbo].[AuthenticationUser](
 	[Username] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[Order](
+	[ID] [int] NOT NULL,
+	[ClientID] [int] NOT NULL,
+	[StockID] [int] NOT NULL,
+	[StartDate] [datetime] NOT NULL,
+	[EndDate] [datetime] NULL,
+	[Deleted] [bit] NOT NULL,
+ CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Order] ADD  CONSTRAINT [DF_Order_Deleted]  DEFAULT ((0)) FOR [Deleted]
+GO
+
+ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Client] FOREIGN KEY([ClientID])
+REFERENCES [dbo].[Client] ([ID])
+GO
+
+ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Client]
+GO
+
+ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Stock] FOREIGN KEY([StockID])
+REFERENCES [dbo].[Stock] ([ID])
+GO
+
+ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Stock]
+GO
+
+ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Vehicle] FOREIGN KEY([VehicleID])
+REFERENCES [dbo].[Vehicle] ([ID])
+GO
+
+ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Vehicle]
 GO
