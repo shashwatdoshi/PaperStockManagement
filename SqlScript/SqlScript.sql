@@ -150,6 +150,7 @@ CREATE TABLE [dbo].[Order](
 	[StartDate] [datetime] NOT NULL,
 	[EndDate] [datetime] NULL,
 	[Deleted] [bit] NOT NULL,
+	[VehicleID] [bigint] NULL,
  CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
