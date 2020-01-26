@@ -51,7 +51,5 @@ namespace ProjectStockManagement.Data
         bool  AddStocks(IList<Stock> stocks);
 
         IList<Stock> GetStocks();
-
-
     }
 }

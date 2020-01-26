@@ -129,6 +129,13 @@ GO
 ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Stock]
 GO
 
+ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Vehicle] FOREIGN KEY([VehicleID])
+REFERENCES [dbo].[Vehicle] ([ID])
+GO
+
+ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Vehicle]
+GO
+
 CREATE TABLE [dbo].[Driver](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
 	[Name] [nchar](50) NOT NULL,
@@ -157,4 +164,19 @@ REFERENCES [dbo].[Driver] ([ID])
 GO
 
 ALTER TABLE [dbo].[Vehicle] CHECK CONSTRAINT [FK_Table_Vehicle_Driver]
+GO
+
+CREATE TABLE [dbo].[AuthenticationUser](
+	[ID] [int] NOT NULL,
+	[Username] [nchar](20) NOT NULL,
+	[Password] [char](128) NOT NULL,
+ CONSTRAINT [PK_AuthenticationUser] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IX_AuthenticationUser] UNIQUE NONCLUSTERED 
+(
+	[Username] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
