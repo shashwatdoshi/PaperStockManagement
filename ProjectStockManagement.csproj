@@ -68,6 +68,12 @@
     <Reference Include="DevExpress.XtraScheduler.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeMap.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
     </Reference>
@@ -76,6 +82,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -126,6 +134,48 @@
     <Compile Include="AddBF.Designer.cs">
       <DependentUpon>AddBF.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaperStockManagementDB\AuthenticationUser.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\BreakingForce.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\Client.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\Driver.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\GSM.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\Order.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\PaperStockManagementDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaperStockManagementDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\PaperStockManagementDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\PaperStockManagementDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaperStockManagementDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\Stock.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\StockInventory.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperStockManagementDB\Vehicle.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddGSM.resx">
@@ -154,6 +204,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <EntityDeploy Include="PaperStockManagementDB\PaperStockManagementDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PaperStockManagementDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PaperStockManagementDB\PaperStockManagementDB.edmx.diagram">
+      <DependentUpon>PaperStockManagementDB.edmx</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,7 +225,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PaperStockManagementDB\PaperStockManagementDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PaperStockManagementDB.edmx</DependentUpon>
+      <LastGenOutput>PaperStockManagementDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PaperStockManagementDB\PaperStockManagementDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PaperStockManagementDB.edmx</DependentUpon>
+      <LastGenOutput>PaperStockManagementDB.cs</LastGenOutput>
+    </Content>
     <Content Include="SqlScript\SqlScript.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

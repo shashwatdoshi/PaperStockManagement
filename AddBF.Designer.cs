@@ -61,6 +61,7 @@
             this.txtAddBF.Size = new System.Drawing.Size(162, 23);
             this.txtAddBF.TabIndex = 1;
             this.txtAddBF.UseSystemPasswordChar = false;
+            this.txtAddBF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddBF_KeyPress);
             // 
             // btnAddBF
             // 
@@ -76,6 +77,7 @@
             this.btnAddBF.TabIndex = 2;
             this.btnAddBF.Text = "ADD BF";
             this.btnAddBF.UseVisualStyleBackColor = true;
+            this.btnAddBF.Click += new System.EventHandler(this.btnAddBF_Click);
             // 
             // btnCancleBF
             // 
@@ -92,6 +94,7 @@
             this.btnCancleBF.TabIndex = 3;
             this.btnCancleBF.Text = "CANCLE";
             this.btnCancleBF.UseVisualStyleBackColor = true;
+            this.btnCancleBF.Click += new System.EventHandler(this.btnCancleBF_Click);
             // 
             // AddBF
             // 

@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PaperStockManagementDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AuthenticationUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="char" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BreakingForce">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="10" />
+          <Property Name="Image" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="GSM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="StockID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="VehicleID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GSM" Type="int" Nullable="false" />
+          <Property Name="BreakingForce" Type="int" Nullable="false" />
+          <Property Name="Size" Type="float" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="StockID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="bigint" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Driver" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_BF">
+          <End Role="BreakingForce" Type="Self.BreakingForce" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BreakingForce">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="BreakingForce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GSM">
+          <End Role="GSM" Type="Self.GSM" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GSM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="GSM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Stock">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="StockID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Vehicle">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="VehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+          <End Role="StockInventory" Type="Self.StockInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StockInventory">
+              <PropertyRef Name="StockID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Vehicle_Driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PaperStockManagementDBModelStoreContainer">
+          <EntitySet Name="AuthenticationUser" EntityType="Self.AuthenticationUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BreakingForce" EntityType="Self.BreakingForce" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GSM" EntityType="Self.GSM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockInventory" EntityType="Self.StockInventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BF" Association="Self.FK_BF">
+            <End Role="BreakingForce" EntitySet="BreakingForce" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GSM" Association="Self.FK_GSM">
+            <End Role="GSM" EntitySet="GSM" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Stock" Association="Self.FK_Order_Stock">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Vehicle" Association="Self.FK_Order_Vehicle">
+            <End Role="Vehicle" EntitySet="Vehicle" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock" Association="Self.FK_Stock">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="StockInventory" EntitySet="StockInventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Vehicle_Driver" Association="Self.FK_Table_Vehicle_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="Vehicle" EntitySet="Vehicle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PaperStockManagementDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AuthenticationUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BreakingForce">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Stocks" Relationship="Self.FK_BF" FromRole="BreakingForce" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Client" FromRole="Client" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK_Table_Vehicle_Driver" FromRole="Driver" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="GSM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Stocks" Relationship="Self.FK_GSM" FromRole="GSM" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="StockID" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="VehicleID" Type="Int64" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK_Order_Stock" FromRole="Order" ToRole="Stock" />
+          <NavigationProperty Name="Vehicle" Relationship="Self.FK_Order_Vehicle" FromRole="Order" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GSM" Type="Int32" Nullable="false" />
+          <Property Name="BreakingForce" Type="Int32" Nullable="false" />
+          <Property Name="Size" Type="Double" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <NavigationProperty Name="BreakingForce1" Relationship="Self.FK_BF" FromRole="Stock" ToRole="BreakingForce" />
+          <NavigationProperty Name="GSM1" Relationship="Self.FK_GSM" FromRole="Stock" ToRole="GSM" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Stock" FromRole="Stock" ToRole="Order" />
+          <NavigationProperty Name="StockInventories" Relationship="Self.FK_Stock" FromRole="Stock" ToRole="StockInventory" />
+        </EntityType>
+        <EntityType Name="StockInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="StockID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int64" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK_Stock" FromRole="StockInventory" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Driver" Type="Int64" />
+          <NavigationProperty Name="Driver1" Relationship="Self.FK_Table_Vehicle_Driver" FromRole="Vehicle" ToRole="Driver" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Vehicle" FromRole="Vehicle" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_BF">
+          <End Role="BreakingForce" Type="Self.BreakingForce" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BreakingForce">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="BreakingForce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Vehicle_Driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GSM">
+          <End Role="GSM" Type="Self.GSM" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GSM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="GSM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Stock">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="StockID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Vehicle">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="VehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+          <End Role="StockInventory" Type="Self.StockInventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StockInventory">
+              <PropertyRef Name="StockID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PaperStockManagementDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AuthenticationUsers" EntityType="Self.AuthenticationUser" />
+          <EntitySet Name="BreakingForces" EntityType="Self.BreakingForce" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Drivers" EntityType="Self.Driver" />
+          <EntitySet Name="GSMs" EntityType="Self.GSM" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="StockInventories" EntityType="Self.StockInventory" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+          <AssociationSet Name="FK_BF" Association="Self.FK_BF">
+            <End Role="BreakingForce" EntitySet="BreakingForces" />
+            <End Role="Stock" EntitySet="Stocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Vehicle_Driver" Association="Self.FK_Table_Vehicle_Driver">
+            <End Role="Driver" EntitySet="Drivers" />
+            <End Role="Vehicle" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GSM" Association="Self.FK_GSM">
+            <End Role="GSM" EntitySet="GSMs" />
+            <End Role="Stock" EntitySet="Stocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Stock" Association="Self.FK_Order_Stock">
+            <End Role="Stock" EntitySet="Stocks" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Vehicle" Association="Self.FK_Order_Vehicle">
+            <End Role="Vehicle" EntitySet="Vehicles" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock" Association="Self.FK_Stock">
+            <End Role="Stock" EntitySet="Stocks" />
+            <End Role="StockInventory" EntitySet="StockInventories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PaperStockManagementDBModelStoreContainer" CdmEntityContainer="PaperStockManagementDBEntities">
+          <EntitySetMapping Name="AuthenticationUsers">
+            <EntityTypeMapping TypeName="PaperStockManagementDBModel.AuthenticationUser">
+              <MappingFragment StoreEntitySet="AuthenticationUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BreakingForces">
+            <EntityTypeMapping TypeName="PaperStockManagementDBModel.BreakingForce">
+              <MappingFragment StoreEntitySet="BreakingForce">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="PaperStockManagementDBModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="PaperStockManagementDBModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GSMs">
+            <EntityTypeMapping TypeName="PaperStockManagementDBModel.GSM">
+              <MappingFragment StoreEntitySet="GSM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="PaperStockManagementDBModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="PaperStockManagementDBModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GSM" ColumnName="GSM" />
+                <ScalarProperty Name="BreakingForce" ColumnName="BreakingForce" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockInventories">
+            <EntityTypeMapping TypeName="PaperStockManagementDBModel.StockInventory">
+              <MappingFragment StoreEntitySet="StockInventory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="PaperStockManagementDBModel.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

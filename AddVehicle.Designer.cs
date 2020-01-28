@@ -50,6 +50,7 @@
             this.btnCancleVehicle.TabIndex = 7;
             this.btnCancleVehicle.Text = "CANCLE";
             this.btnCancleVehicle.UseVisualStyleBackColor = true;
+            this.btnCancleVehicle.Click += new System.EventHandler(this.btnCancleVehicle_Click);
             // 
             // btnAddVehicle
             // 
@@ -65,6 +66,7 @@
             this.btnAddVehicle.TabIndex = 6;
             this.btnAddVehicle.Text = "ADD Vehicle";
             this.btnAddVehicle.UseVisualStyleBackColor = true;
+            this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
             // 
             // txtAddVehicle
             // 
@@ -109,6 +111,7 @@
             this.MinimumSize = new System.Drawing.Size(320, 320);
             this.Name = "AddVehicle";
             this.Text = "Add Vehicle Details";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddVehicle_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

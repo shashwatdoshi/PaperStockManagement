@@ -36,8 +36,8 @@
             this.txtAddress = new System.Windows.Forms.RichTextBox();
             this.txtEmail = new System.Windows.Forms.MaskedTextBox();
             this.lblEmail = new MaterialSkin.Controls.MaterialLabel();
-            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnCancleVehicle = new MaterialSkin.Controls.MaterialFlatButton();
+            this.addPartyDetails = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnCanclePartyDetail = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // lblName
@@ -125,45 +125,47 @@
             this.lblEmail.TabIndex = 6;
             this.lblEmail.Text = "E-mail:";
             // 
-            // materialFlatButton1
+            // addPartyDetails
             // 
-            this.materialFlatButton1.AutoSize = true;
-            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(34, 288);
-            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton1.Name = "materialFlatButton1";
-            this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(135, 36);
-            this.materialFlatButton1.TabIndex = 8;
-            this.materialFlatButton1.Text = "ADD PARTY DETAIL";
-            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            this.addPartyDetails.AutoSize = true;
+            this.addPartyDetails.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.addPartyDetails.Depth = 0;
+            this.addPartyDetails.Location = new System.Drawing.Point(34, 288);
+            this.addPartyDetails.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.addPartyDetails.MouseState = MaterialSkin.MouseState.HOVER;
+            this.addPartyDetails.Name = "addPartyDetails";
+            this.addPartyDetails.Primary = false;
+            this.addPartyDetails.Size = new System.Drawing.Size(135, 36);
+            this.addPartyDetails.TabIndex = 8;
+            this.addPartyDetails.Text = "ADD PARTY DETAIL";
+            this.addPartyDetails.UseVisualStyleBackColor = true;
+            this.addPartyDetails.Click += new System.EventHandler(this.addPartyDetails_Click);
             // 
-            // btnCancleVehicle
+            // btnCanclePartyDetail
             // 
-            this.btnCancleVehicle.AutoSize = true;
-            this.btnCancleVehicle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnCancleVehicle.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnCancleVehicle.Depth = 0;
-            this.btnCancleVehicle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancleVehicle.Location = new System.Drawing.Point(242, 288);
-            this.btnCancleVehicle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnCancleVehicle.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancleVehicle.Name = "btnCancleVehicle";
-            this.btnCancleVehicle.Primary = false;
-            this.btnCancleVehicle.Size = new System.Drawing.Size(64, 36);
-            this.btnCancleVehicle.TabIndex = 9;
-            this.btnCancleVehicle.Text = "CANCLE";
-            this.btnCancleVehicle.UseVisualStyleBackColor = true;
+            this.btnCanclePartyDetail.AutoSize = true;
+            this.btnCanclePartyDetail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCanclePartyDetail.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnCanclePartyDetail.Depth = 0;
+            this.btnCanclePartyDetail.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCanclePartyDetail.Location = new System.Drawing.Point(242, 288);
+            this.btnCanclePartyDetail.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCanclePartyDetail.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCanclePartyDetail.Name = "btnCanclePartyDetail";
+            this.btnCanclePartyDetail.Primary = false;
+            this.btnCanclePartyDetail.Size = new System.Drawing.Size(64, 36);
+            this.btnCanclePartyDetail.TabIndex = 9;
+            this.btnCanclePartyDetail.Text = "CANCLE";
+            this.btnCanclePartyDetail.UseVisualStyleBackColor = true;
+            this.btnCanclePartyDetail.Click += new System.EventHandler(this.btnCanclePartyDetail_Click);
             // 
             // AddPartyDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 381);
-            this.Controls.Add(this.btnCancleVehicle);
-            this.Controls.Add(this.materialFlatButton1);
+            this.Controls.Add(this.btnCanclePartyDetail);
+            this.Controls.Add(this.addPartyDetails);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.txtAddress);
@@ -174,6 +176,7 @@
             this.Controls.Add(this.lblName);
             this.Name = "AddPartyDetail";
             this.Text = "Add Party Details";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddPartyDetail_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,7 +192,7 @@
         private System.Windows.Forms.RichTextBox txtAddress;
         private System.Windows.Forms.MaskedTextBox txtEmail;
         private MaterialSkin.Controls.MaterialLabel lblEmail;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
-        private MaterialSkin.Controls.MaterialFlatButton btnCancleVehicle;
+        private MaterialSkin.Controls.MaterialFlatButton addPartyDetails;
+        private MaterialSkin.Controls.MaterialFlatButton btnCanclePartyDetail;
     }
 }

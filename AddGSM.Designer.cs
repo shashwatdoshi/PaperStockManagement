@@ -49,6 +49,7 @@
             this.btnCancleGSM.TabIndex = 7;
             this.btnCancleGSM.Text = "CANCLE";
             this.btnCancleGSM.UseVisualStyleBackColor = true;
+            this.btnCancleGSM.Click += new System.EventHandler(this.btnCancleGSM_Click);
             // 
             // btnAddGSM
             // 
@@ -64,6 +65,7 @@
             this.btnAddGSM.TabIndex = 6;
             this.btnAddGSM.Text = "ADD GSM";
             this.btnAddGSM.UseVisualStyleBackColor = true;
+            this.btnAddGSM.Click += new System.EventHandler(this.btnAddGSM_Click);
             // 
             // txtAddGSM
             // 
@@ -79,6 +81,7 @@
             this.txtAddGSM.Size = new System.Drawing.Size(162, 23);
             this.txtAddGSM.TabIndex = 5;
             this.txtAddGSM.UseSystemPasswordChar = false;
+            this.txtAddGSM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddGSM_KeyPress);
             // 
             // lblAddGSM
             // 

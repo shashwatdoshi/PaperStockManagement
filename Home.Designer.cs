@@ -30,68 +30,68 @@
         {
             this.mainNavigation = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.addStockNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.addOrderNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.dispatchNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.reportsNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.homeNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.btnAddParty = new System.Windows.Forms.Button();
-            this.btnAddGSM = new System.Windows.Forms.Button();
-            this.btnAddVehicle = new System.Windows.Forms.Button();
-            this.btnAddGF = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lblDate = new MaterialSkin.Controls.MaterialLabel();
-            this.txtSize = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtWeight = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.btnSave = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnCancle = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnReset = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.cmbBF = new System.Windows.Forms.ComboBox();
             this.cmbGSM = new System.Windows.Forms.ComboBox();
+            this.cmbBF = new System.Windows.Forms.ComboBox();
+            this.btnReset = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnCancle = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnSave = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.txtWeight = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtSize = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lblDate = new MaterialSkin.Controls.MaterialLabel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.addOrderNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.btnCancelOrder = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnSaveOrder = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnAddOrder = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lblOrderDate = new MaterialSkin.Controls.MaterialLabel();
             this.dtpStockDate = new System.Windows.Forms.DateTimePicker();
-            this.btnAddOrder = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnSaveOrder = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnCancelOrder = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.cmbSelectOrder = new System.Windows.Forms.ComboBox();
-            this.cmbPartyName = new System.Windows.Forms.ComboBox();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.grpAutoDispatch = new DevExpress.XtraEditors.GroupControl();
-            this.rdbDispatch = new MaterialSkin.Controls.MaterialRadioButton();
+            this.dispatchNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.txtDriverContactNo = new System.Windows.Forms.MaskedTextBox();
+            this.txtDriverName = new System.Windows.Forms.MaskedTextBox();
+            this.cmbVehicleInfo = new System.Windows.Forms.ComboBox();
             this.grpManualDispatch = new DevExpress.XtraEditors.GroupControl();
-            this.materialRadioButton1 = new MaterialSkin.Controls.MaterialRadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.cmbVehicleInfo = new System.Windows.Forms.ComboBox();
-            this.txtDriverName = new System.Windows.Forms.MaskedTextBox();
-            this.txtDriverContactNo = new System.Windows.Forms.MaskedTextBox();
-            this.lblFromDate = new MaterialSkin.Controls.MaterialLabel();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.lblToDate = new MaterialSkin.Controls.MaterialLabel();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.materialRadioButton1 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.grpAutoDispatch = new DevExpress.XtraEditors.GroupControl();
+            this.rdbDispatch = new MaterialSkin.Controls.MaterialRadioButton();
+            this.cmbPartyName = new System.Windows.Forms.ComboBox();
+            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.cmbSelectOrder = new System.Windows.Forms.ComboBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.reportsNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.btnPrintReport = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnShowDispatchedOrder = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnShowAddedProduct = new MaterialSkin.Controls.MaterialRaisedButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.btnShowAddedProduct = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnShowDispatchedOrder = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnPrintReport = new MaterialSkin.Controls.MaterialFlatButton();
+            this.lblToDate = new MaterialSkin.Controls.MaterialLabel();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.lblFromDate = new MaterialSkin.Controls.MaterialLabel();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.homeNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.btnAddParty = new System.Windows.Forms.Button();
+            this.btnAddGSM = new System.Windows.Forms.Button();
+            this.btnAddVehicle = new System.Windows.Forms.Button();
+            this.btnAddGF = new System.Windows.Forms.Button();
             this.dlgPrintReport = new System.Windows.Forms.PrintDialog();
             ((System.ComponentModel.ISupportInitialize)(this.mainNavigation)).BeginInit();
             this.mainNavigation.SuspendLayout();
             this.addStockNavigationPage.SuspendLayout();
             this.addOrderNavigationPage.SuspendLayout();
             this.dispatchNavigationPage.SuspendLayout();
-            this.reportsNavigationPage.SuspendLayout();
-            this.homeNavigationPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grpAutoDispatch)).BeginInit();
-            this.grpAutoDispatch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpManualDispatch)).BeginInit();
             this.grpManualDispatch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grpAutoDispatch)).BeginInit();
+            this.grpAutoDispatch.SuspendLayout();
+            this.reportsNavigationPage.SuspendLayout();
+            this.homeNavigationPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainNavigation
@@ -134,133 +134,64 @@
             this.addStockNavigationPage.Size = new System.Drawing.Size(670, 309);
             this.addStockNavigationPage.ToolTip = "Add Stock";
             // 
-            // addOrderNavigationPage
+            // cmbGSM
             // 
-            this.addOrderNavigationPage.AutoSize = true;
-            this.addOrderNavigationPage.Caption = "Add Order";
-            this.addOrderNavigationPage.Controls.Add(this.btnCancelOrder);
-            this.addOrderNavigationPage.Controls.Add(this.btnSaveOrder);
-            this.addOrderNavigationPage.Controls.Add(this.btnAddOrder);
-            this.addOrderNavigationPage.Controls.Add(this.lblOrderDate);
-            this.addOrderNavigationPage.Controls.Add(this.dtpStockDate);
-            this.addOrderNavigationPage.Name = "addOrderNavigationPage";
-            this.addOrderNavigationPage.Size = new System.Drawing.Size(670, 309);
+            this.cmbGSM.DisplayMember = "10";
+            this.cmbGSM.FormattingEnabled = true;
+            this.cmbGSM.Location = new System.Drawing.Point(167, 70);
+            this.cmbGSM.Name = "cmbGSM";
+            this.cmbGSM.Size = new System.Drawing.Size(100, 21);
+            this.cmbGSM.TabIndex = 3;
+            this.cmbGSM.Text = "GSM";
+            this.cmbGSM.ValueMember = "10,12,15,20";
+            this.cmbGSM.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // dispatchNavigationPage
+            // cmbBF
             // 
-            this.dispatchNavigationPage.Caption = "Dispatch Order";
-            this.dispatchNavigationPage.Controls.Add(this.txtDriverContactNo);
-            this.dispatchNavigationPage.Controls.Add(this.txtDriverName);
-            this.dispatchNavigationPage.Controls.Add(this.cmbVehicleInfo);
-            this.dispatchNavigationPage.Controls.Add(this.grpManualDispatch);
-            this.dispatchNavigationPage.Controls.Add(this.grpAutoDispatch);
-            this.dispatchNavigationPage.Controls.Add(this.materialLabel1);
-            this.dispatchNavigationPage.Controls.Add(this.dateTimePicker2);
-            this.dispatchNavigationPage.Name = "dispatchNavigationPage";
-            this.dispatchNavigationPage.Size = new System.Drawing.Size(670, 309);
+            this.cmbBF.DisplayMember = "10";
+            this.cmbBF.FormattingEnabled = true;
+            this.cmbBF.Location = new System.Drawing.Point(19, 70);
+            this.cmbBF.Name = "cmbBF";
+            this.cmbBF.Size = new System.Drawing.Size(100, 21);
+            this.cmbBF.TabIndex = 2;
+            this.cmbBF.Text = "BF";
             // 
-            // reportsNavigationPage
+            // btnReset
             // 
-            this.reportsNavigationPage.Caption = "Reports";
-            this.reportsNavigationPage.Controls.Add(this.btnPrintReport);
-            this.reportsNavigationPage.Controls.Add(this.btnShowDispatchedOrder);
-            this.reportsNavigationPage.Controls.Add(this.btnShowAddedProduct);
-            this.reportsNavigationPage.Controls.Add(this.comboBox3);
-            this.reportsNavigationPage.Controls.Add(this.comboBox4);
-            this.reportsNavigationPage.Controls.Add(this.comboBox5);
-            this.reportsNavigationPage.Controls.Add(this.materialSingleLineTextField4);
-            this.reportsNavigationPage.Controls.Add(this.materialSingleLineTextField5);
-            this.reportsNavigationPage.Controls.Add(this.lblToDate);
-            this.reportsNavigationPage.Controls.Add(this.dateTimePicker4);
-            this.reportsNavigationPage.Controls.Add(this.lblFromDate);
-            this.reportsNavigationPage.Controls.Add(this.dateTimePicker3);
-            this.reportsNavigationPage.Name = "reportsNavigationPage";
-            this.reportsNavigationPage.Size = new System.Drawing.Size(670, 309);
+            this.btnReset.Depth = 0;
+            this.btnReset.FlatAppearance.BorderSize = 5;
+            this.btnReset.Location = new System.Drawing.Point(400, 141);
+            this.btnReset.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Primary = true;
+            this.btnReset.Size = new System.Drawing.Size(89, 40);
+            this.btnReset.TabIndex = 8;
+            this.btnReset.Text = "RESET";
+            this.btnReset.UseVisualStyleBackColor = true;
             // 
-            // homeNavigationPage
+            // btnCancle
             // 
-            this.homeNavigationPage.Caption = "Home Page";
-            this.homeNavigationPage.Controls.Add(this.btnAddParty);
-            this.homeNavigationPage.Controls.Add(this.btnAddGSM);
-            this.homeNavigationPage.Controls.Add(this.btnAddVehicle);
-            this.homeNavigationPage.Controls.Add(this.btnAddGF);
-            this.homeNavigationPage.Name = "homeNavigationPage";
-            this.homeNavigationPage.Size = new System.Drawing.Size(670, 309);
+            this.btnCancle.Depth = 0;
+            this.btnCancle.Location = new System.Drawing.Point(226, 141);
+            this.btnCancle.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCancle.Name = "btnCancle";
+            this.btnCancle.Primary = true;
+            this.btnCancle.Size = new System.Drawing.Size(89, 40);
+            this.btnCancle.TabIndex = 7;
+            this.btnCancle.Text = "CANCEL";
+            this.btnCancle.UseVisualStyleBackColor = true;
             // 
-            // btnAddParty
+            // btnSave
             // 
-            this.btnAddParty.Location = new System.Drawing.Point(282, 133);
-            this.btnAddParty.Name = "btnAddParty";
-            this.btnAddParty.Size = new System.Drawing.Size(99, 41);
-            this.btnAddParty.TabIndex = 3;
-            this.btnAddParty.Text = "Add Party";
-            this.btnAddParty.UseVisualStyleBackColor = true;
-            this.btnAddParty.Click += new System.EventHandler(this.btnAddParty_Click);
-            // 
-            // btnAddGSM
-            // 
-            this.btnAddGSM.Location = new System.Drawing.Point(282, 54);
-            this.btnAddGSM.Name = "btnAddGSM";
-            this.btnAddGSM.Size = new System.Drawing.Size(99, 41);
-            this.btnAddGSM.TabIndex = 2;
-            this.btnAddGSM.Text = "Add GSM";
-            this.btnAddGSM.UseVisualStyleBackColor = true;
-            this.btnAddGSM.Click += new System.EventHandler(this.btnAddGSM_Click);
-            // 
-            // btnAddVehicle
-            // 
-            this.btnAddVehicle.Location = new System.Drawing.Point(119, 133);
-            this.btnAddVehicle.Name = "btnAddVehicle";
-            this.btnAddVehicle.Size = new System.Drawing.Size(99, 41);
-            this.btnAddVehicle.TabIndex = 2;
-            this.btnAddVehicle.Text = "Add Vehicle";
-            this.btnAddVehicle.UseVisualStyleBackColor = true;
-            this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
-            // 
-            // btnAddGF
-            // 
-            this.btnAddGF.Location = new System.Drawing.Point(119, 54);
-            this.btnAddGF.Name = "btnAddGF";
-            this.btnAddGF.Size = new System.Drawing.Size(99, 41);
-            this.btnAddGF.TabIndex = 0;
-            this.btnAddGF.Text = "Add GF";
-            this.btnAddGF.UseVisualStyleBackColor = true;
-            this.btnAddGF.Click += new System.EventHandler(this.btnAddBF_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(450, 9);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Depth = 0;
-            this.lblDate.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDate.Location = new System.Drawing.Point(396, 9);
-            this.lblDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(48, 19);
-            this.lblDate.TabIndex = 1;
-            this.lblDate.Text = "Date :";
-            // 
-            // txtSize
-            // 
-            this.txtSize.Depth = 0;
-            this.txtSize.Hint = "SIZE";
-            this.txtSize.Location = new System.Drawing.Point(324, 73);
-            this.txtSize.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtSize.Name = "txtSize";
-            this.txtSize.PasswordChar = '\0';
-            this.txtSize.SelectedText = "";
-            this.txtSize.SelectionLength = 0;
-            this.txtSize.SelectionStart = 0;
-            this.txtSize.Size = new System.Drawing.Size(75, 23);
-            this.txtSize.TabIndex = 4;
-            this.txtSize.UseSystemPasswordChar = false;
+            this.btnSave.Depth = 0;
+            this.btnSave.Location = new System.Drawing.Point(57, 141);
+            this.btnSave.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Primary = true;
+            this.btnSave.Size = new System.Drawing.Size(89, 40);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // txtWeight
             // 
@@ -277,108 +208,52 @@
             this.txtWeight.TabIndex = 5;
             this.txtWeight.UseSystemPasswordChar = false;
             // 
-            // btnSave
+            // txtSize
             // 
-            this.btnSave.Depth = 0;
-            this.btnSave.Location = new System.Drawing.Point(57, 141);
-            this.btnSave.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Primary = true;
-            this.btnSave.Size = new System.Drawing.Size(89, 40);
-            this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.txtSize.Depth = 0;
+            this.txtSize.Hint = "SIZE";
+            this.txtSize.Location = new System.Drawing.Point(324, 73);
+            this.txtSize.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtSize.Name = "txtSize";
+            this.txtSize.PasswordChar = '\0';
+            this.txtSize.SelectedText = "";
+            this.txtSize.SelectionLength = 0;
+            this.txtSize.SelectionStart = 0;
+            this.txtSize.Size = new System.Drawing.Size(75, 23);
+            this.txtSize.TabIndex = 4;
+            this.txtSize.UseSystemPasswordChar = false;
             // 
-            // btnCancle
+            // lblDate
             // 
-            this.btnCancle.Depth = 0;
-            this.btnCancle.Location = new System.Drawing.Point(226, 141);
-            this.btnCancle.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Primary = true;
-            this.btnCancle.Size = new System.Drawing.Size(89, 40);
-            this.btnCancle.TabIndex = 7;
-            this.btnCancle.Text = "CANCEL";
-            this.btnCancle.UseVisualStyleBackColor = true;
+            this.lblDate.AutoSize = true;
+            this.lblDate.Depth = 0;
+            this.lblDate.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDate.Location = new System.Drawing.Point(396, 9);
+            this.lblDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(48, 19);
+            this.lblDate.TabIndex = 1;
+            this.lblDate.Text = "Date :";
             // 
-            // btnReset
+            // dateTimePicker1
             // 
-            this.btnReset.Depth = 0;
-            this.btnReset.FlatAppearance.BorderSize = 5;
-            this.btnReset.Location = new System.Drawing.Point(400, 141);
-            this.btnReset.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Primary = true;
-            this.btnReset.Size = new System.Drawing.Size(89, 40);
-            this.btnReset.TabIndex = 8;
-            this.btnReset.Text = "RESET";
-            this.btnReset.UseVisualStyleBackColor = true;
+            this.dateTimePicker1.Location = new System.Drawing.Point(450, 9);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 0;
             // 
-            // cmbBF
+            // addOrderNavigationPage
             // 
-            this.cmbBF.DisplayMember = "10";
-            this.cmbBF.FormattingEnabled = true;
-            this.cmbBF.Location = new System.Drawing.Point(19, 70);
-            this.cmbBF.Name = "cmbBF";
-            this.cmbBF.Size = new System.Drawing.Size(100, 21);
-            this.cmbBF.TabIndex = 2;
-            this.cmbBF.Text = "BF";
-            // 
-            // cmbGSM
-            // 
-            this.cmbGSM.DisplayMember = "10";
-            this.cmbGSM.FormattingEnabled = true;
-            this.cmbGSM.Location = new System.Drawing.Point(167, 70);
-            this.cmbGSM.Name = "cmbGSM";
-            this.cmbGSM.Size = new System.Drawing.Size(100, 21);
-            this.cmbGSM.TabIndex = 3;
-            this.cmbGSM.Text = "GSM";
-            this.cmbGSM.ValueMember = "10,12,15,20";
-            this.cmbGSM.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // lblOrderDate
-            // 
-            this.lblOrderDate.AutoSize = true;
-            this.lblOrderDate.Depth = 0;
-            this.lblOrderDate.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblOrderDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblOrderDate.Location = new System.Drawing.Point(400, 9);
-            this.lblOrderDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(48, 19);
-            this.lblOrderDate.TabIndex = 3;
-            this.lblOrderDate.Text = "Date :";
-            // 
-            // dtpStockDate
-            // 
-            this.dtpStockDate.Location = new System.Drawing.Point(454, 9);
-            this.dtpStockDate.Name = "dtpStockDate";
-            this.dtpStockDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpStockDate.TabIndex = 2;
-            // 
-            // btnAddOrder
-            // 
-            this.btnAddOrder.Depth = 0;
-            this.btnAddOrder.Location = new System.Drawing.Point(23, 256);
-            this.btnAddOrder.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAddOrder.Name = "btnAddOrder";
-            this.btnAddOrder.Primary = true;
-            this.btnAddOrder.Size = new System.Drawing.Size(89, 40);
-            this.btnAddOrder.TabIndex = 7;
-            this.btnAddOrder.Text = "ADD";
-            this.btnAddOrder.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveOrder
-            // 
-            this.btnSaveOrder.Depth = 0;
-            this.btnSaveOrder.Location = new System.Drawing.Point(248, 256);
-            this.btnSaveOrder.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnSaveOrder.Name = "btnSaveOrder";
-            this.btnSaveOrder.Primary = true;
-            this.btnSaveOrder.Size = new System.Drawing.Size(89, 40);
-            this.btnSaveOrder.TabIndex = 8;
-            this.btnSaveOrder.Text = "SAVE";
-            this.btnSaveOrder.UseVisualStyleBackColor = true;
+            this.addOrderNavigationPage.AutoSize = true;
+            this.addOrderNavigationPage.Caption = "Add Order";
+            this.addOrderNavigationPage.Controls.Add(this.btnCancelOrder);
+            this.addOrderNavigationPage.Controls.Add(this.btnSaveOrder);
+            this.addOrderNavigationPage.Controls.Add(this.btnAddOrder);
+            this.addOrderNavigationPage.Controls.Add(this.lblOrderDate);
+            this.addOrderNavigationPage.Controls.Add(this.dtpStockDate);
+            this.addOrderNavigationPage.Name = "addOrderNavigationPage";
+            this.addOrderNavigationPage.Size = new System.Drawing.Size(670, 309);
             // 
             // btnCancelOrder
             // 
@@ -392,92 +267,89 @@
             this.btnCancelOrder.Text = "CANCEL";
             this.btnCancelOrder.UseVisualStyleBackColor = true;
             // 
-            // materialLabel1
+            // btnSaveOrder
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(404, 9);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(48, 19);
-            this.materialLabel1.TabIndex = 5;
-            this.materialLabel1.Text = "Date :";
+            this.btnSaveOrder.Depth = 0;
+            this.btnSaveOrder.Location = new System.Drawing.Point(248, 256);
+            this.btnSaveOrder.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnSaveOrder.Name = "btnSaveOrder";
+            this.btnSaveOrder.Primary = true;
+            this.btnSaveOrder.Size = new System.Drawing.Size(89, 40);
+            this.btnSaveOrder.TabIndex = 8;
+            this.btnSaveOrder.Text = "SAVE";
+            this.btnSaveOrder.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker2
+            // btnAddOrder
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(458, 9);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 4;
+            this.btnAddOrder.Depth = 0;
+            this.btnAddOrder.Location = new System.Drawing.Point(23, 256);
+            this.btnAddOrder.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAddOrder.Name = "btnAddOrder";
+            this.btnAddOrder.Primary = true;
+            this.btnAddOrder.Size = new System.Drawing.Size(89, 40);
+            this.btnAddOrder.TabIndex = 7;
+            this.btnAddOrder.Text = "ADD";
+            this.btnAddOrder.UseVisualStyleBackColor = true;
             // 
-            // cmbSelectOrder
+            // lblOrderDate
             // 
-            this.cmbSelectOrder.DisplayMember = "10";
-            this.cmbSelectOrder.FormattingEnabled = true;
-            this.cmbSelectOrder.Location = new System.Drawing.Point(153, 46);
-            this.cmbSelectOrder.Name = "cmbSelectOrder";
-            this.cmbSelectOrder.Size = new System.Drawing.Size(100, 21);
-            this.cmbSelectOrder.TabIndex = 7;
-            this.cmbSelectOrder.Text = "Select Order";
-            this.cmbSelectOrder.ValueMember = "10,12,15,20";
+            this.lblOrderDate.AutoSize = true;
+            this.lblOrderDate.Depth = 0;
+            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblOrderDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblOrderDate.Location = new System.Drawing.Point(400, 9);
+            this.lblOrderDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblOrderDate.Name = "lblOrderDate";
+            this.lblOrderDate.Size = new System.Drawing.Size(47, 18);
+            this.lblOrderDate.TabIndex = 3;
+            this.lblOrderDate.Text = "Date :";
             // 
-            // cmbPartyName
+            // dtpStockDate
             // 
-            this.cmbPartyName.DisplayMember = "10";
-            this.cmbPartyName.FormattingEnabled = true;
-            this.cmbPartyName.Location = new System.Drawing.Point(5, 46);
-            this.cmbPartyName.Name = "cmbPartyName";
-            this.cmbPartyName.Size = new System.Drawing.Size(100, 21);
-            this.cmbPartyName.TabIndex = 6;
-            this.cmbPartyName.Text = "Party Name";
+            this.dtpStockDate.Location = new System.Drawing.Point(454, 9);
+            this.dtpStockDate.Name = "dtpStockDate";
+            this.dtpStockDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpStockDate.TabIndex = 2;
             // 
-            // materialSingleLineTextField1
+            // dispatchNavigationPage
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "SIZE";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(286, 44);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(75, 23);
-            this.materialSingleLineTextField1.TabIndex = 8;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.dispatchNavigationPage.Caption = "Dispatch Order";
+            this.dispatchNavigationPage.Controls.Add(this.txtDriverContactNo);
+            this.dispatchNavigationPage.Controls.Add(this.txtDriverName);
+            this.dispatchNavigationPage.Controls.Add(this.cmbVehicleInfo);
+            this.dispatchNavigationPage.Controls.Add(this.grpManualDispatch);
+            this.dispatchNavigationPage.Controls.Add(this.grpAutoDispatch);
+            this.dispatchNavigationPage.Controls.Add(this.materialLabel1);
+            this.dispatchNavigationPage.Controls.Add(this.dateTimePicker2);
+            this.dispatchNavigationPage.Name = "dispatchNavigationPage";
+            this.dispatchNavigationPage.Size = new System.Drawing.Size(670, 309);
             // 
-            // grpAutoDispatch
+            // txtDriverContactNo
             // 
-            this.grpAutoDispatch.Controls.Add(this.rdbDispatch);
-            this.grpAutoDispatch.Controls.Add(this.cmbPartyName);
-            this.grpAutoDispatch.Controls.Add(this.materialSingleLineTextField1);
-            this.grpAutoDispatch.Controls.Add(this.cmbSelectOrder);
-            this.grpAutoDispatch.Location = new System.Drawing.Point(17, 50);
-            this.grpAutoDispatch.Name = "grpAutoDispatch";
-            this.grpAutoDispatch.ShowCaption = false;
-            this.grpAutoDispatch.Size = new System.Drawing.Size(376, 84);
-            this.grpAutoDispatch.TabIndex = 9;
-            this.grpAutoDispatch.Text = "Dispatch";
+            this.txtDriverContactNo.BeepOnError = true;
+            this.txtDriverContactNo.Location = new System.Drawing.Point(303, 275);
+            this.txtDriverContactNo.Mask = "+91 00000-00000";
+            this.txtDriverContactNo.Name = "txtDriverContactNo";
+            this.txtDriverContactNo.Size = new System.Drawing.Size(104, 20);
+            this.txtDriverContactNo.TabIndex = 12;
             // 
-            // rdbDispatch
+            // txtDriverName
             // 
-            this.rdbDispatch.AutoSize = true;
-            this.rdbDispatch.Checked = true;
-            this.rdbDispatch.Depth = 0;
-            this.rdbDispatch.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rdbDispatch.Location = new System.Drawing.Point(6, 6);
-            this.rdbDispatch.Margin = new System.Windows.Forms.Padding(0);
-            this.rdbDispatch.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.rdbDispatch.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rdbDispatch.Name = "rdbDispatch";
-            this.rdbDispatch.Ripple = true;
-            this.rdbDispatch.Size = new System.Drawing.Size(83, 30);
-            this.rdbDispatch.TabIndex = 9;
-            this.rdbDispatch.TabStop = true;
-            this.rdbDispatch.Text = "Dispatch";
-            this.rdbDispatch.UseVisualStyleBackColor = true;
+            this.txtDriverName.BeepOnError = true;
+            this.txtDriverName.Location = new System.Drawing.Point(144, 275);
+            this.txtDriverName.Name = "txtDriverName";
+            this.txtDriverName.Size = new System.Drawing.Size(131, 20);
+            this.txtDriverName.TabIndex = 11;
+            // 
+            // cmbVehicleInfo
+            // 
+            this.cmbVehicleInfo.DisplayMember = "10";
+            this.cmbVehicleInfo.FormattingEnabled = true;
+            this.cmbVehicleInfo.Location = new System.Drawing.Point(17, 275);
+            this.cmbVehicleInfo.Name = "cmbVehicleInfo";
+            this.cmbVehicleInfo.Size = new System.Drawing.Size(100, 21);
+            this.cmbVehicleInfo.TabIndex = 10;
+            this.cmbVehicleInfo.Text = "Vehicle Detail";
             // 
             // grpManualDispatch
             // 
@@ -492,23 +364,6 @@
             this.grpManualDispatch.Size = new System.Drawing.Size(650, 100);
             this.grpManualDispatch.TabIndex = 10;
             this.grpManualDispatch.Text = "Manual Dispatch";
-            // 
-            // materialRadioButton1
-            // 
-            this.materialRadioButton1.AutoSize = true;
-            this.materialRadioButton1.Depth = 0;
-            this.materialRadioButton1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialRadioButton1.Location = new System.Drawing.Point(6, 12);
-            this.materialRadioButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialRadioButton1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialRadioButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRadioButton1.Name = "materialRadioButton1";
-            this.materialRadioButton1.Ripple = true;
-            this.materialRadioButton1.Size = new System.Drawing.Size(132, 30);
-            this.materialRadioButton1.TabIndex = 0;
-            this.materialRadioButton1.TabStop = true;
-            this.materialRadioButton1.Text = "Manual Dispatch";
-            this.materialRadioButton1.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
@@ -561,72 +416,167 @@
             this.materialSingleLineTextField3.TabIndex = 8;
             this.materialSingleLineTextField3.UseSystemPasswordChar = false;
             // 
-            // cmbVehicleInfo
+            // materialRadioButton1
             // 
-            this.cmbVehicleInfo.DisplayMember = "10";
-            this.cmbVehicleInfo.FormattingEnabled = true;
-            this.cmbVehicleInfo.Location = new System.Drawing.Point(17, 275);
-            this.cmbVehicleInfo.Name = "cmbVehicleInfo";
-            this.cmbVehicleInfo.Size = new System.Drawing.Size(100, 21);
-            this.cmbVehicleInfo.TabIndex = 10;
-            this.cmbVehicleInfo.Text = "Vehicle Detail";
+            this.materialRadioButton1.AutoSize = true;
+            this.materialRadioButton1.Depth = 0;
+            this.materialRadioButton1.Font = new System.Drawing.Font("Roboto", 10F);
+            this.materialRadioButton1.Location = new System.Drawing.Point(6, 12);
+            this.materialRadioButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialRadioButton1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialRadioButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRadioButton1.Name = "materialRadioButton1";
+            this.materialRadioButton1.Ripple = true;
+            this.materialRadioButton1.Size = new System.Drawing.Size(132, 30);
+            this.materialRadioButton1.TabIndex = 0;
+            this.materialRadioButton1.TabStop = true;
+            this.materialRadioButton1.Text = "Manual Dispatch";
+            this.materialRadioButton1.UseVisualStyleBackColor = true;
             // 
-            // txtDriverName
+            // grpAutoDispatch
             // 
-            this.txtDriverName.BeepOnError = true;
-            this.txtDriverName.Location = new System.Drawing.Point(144, 275);
-            this.txtDriverName.Name = "txtDriverName";
-            this.txtDriverName.Size = new System.Drawing.Size(131, 20);
-            this.txtDriverName.TabIndex = 11;
+            this.grpAutoDispatch.Controls.Add(this.rdbDispatch);
+            this.grpAutoDispatch.Controls.Add(this.cmbPartyName);
+            this.grpAutoDispatch.Controls.Add(this.materialSingleLineTextField1);
+            this.grpAutoDispatch.Controls.Add(this.cmbSelectOrder);
+            this.grpAutoDispatch.Location = new System.Drawing.Point(17, 50);
+            this.grpAutoDispatch.Name = "grpAutoDispatch";
+            this.grpAutoDispatch.ShowCaption = false;
+            this.grpAutoDispatch.Size = new System.Drawing.Size(376, 84);
+            this.grpAutoDispatch.TabIndex = 9;
+            this.grpAutoDispatch.Text = "Dispatch";
             // 
-            // txtDriverContactNo
+            // rdbDispatch
             // 
-            this.txtDriverContactNo.BeepOnError = true;
-            this.txtDriverContactNo.Location = new System.Drawing.Point(303, 275);
-            this.txtDriverContactNo.Mask = "+91 00000-00000";
-            this.txtDriverContactNo.Name = "txtDriverContactNo";
-            this.txtDriverContactNo.Size = new System.Drawing.Size(104, 20);
-            this.txtDriverContactNo.TabIndex = 12;
+            this.rdbDispatch.AutoSize = true;
+            this.rdbDispatch.Checked = true;
+            this.rdbDispatch.Depth = 0;
+            this.rdbDispatch.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rdbDispatch.Location = new System.Drawing.Point(6, 6);
+            this.rdbDispatch.Margin = new System.Windows.Forms.Padding(0);
+            this.rdbDispatch.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rdbDispatch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rdbDispatch.Name = "rdbDispatch";
+            this.rdbDispatch.Ripple = true;
+            this.rdbDispatch.Size = new System.Drawing.Size(83, 30);
+            this.rdbDispatch.TabIndex = 9;
+            this.rdbDispatch.TabStop = true;
+            this.rdbDispatch.Text = "Dispatch";
+            this.rdbDispatch.UseVisualStyleBackColor = true;
             // 
-            // lblFromDate
+            // cmbPartyName
             // 
-            this.lblFromDate.AutoSize = true;
-            this.lblFromDate.Depth = 0;
-            this.lblFromDate.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblFromDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFromDate.Location = new System.Drawing.Point(21, 9);
-            this.lblFromDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(87, 19);
-            this.lblFromDate.TabIndex = 7;
-            this.lblFromDate.Text = "From Date :";
+            this.cmbPartyName.DisplayMember = "10";
+            this.cmbPartyName.FormattingEnabled = true;
+            this.cmbPartyName.Location = new System.Drawing.Point(5, 46);
+            this.cmbPartyName.Name = "cmbPartyName";
+            this.cmbPartyName.Size = new System.Drawing.Size(100, 21);
+            this.cmbPartyName.TabIndex = 6;
+            this.cmbPartyName.Text = "Party Name";
             // 
-            // dateTimePicker3
+            // materialSingleLineTextField1
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(111, 9);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker3.TabIndex = 6;
+            this.materialSingleLineTextField1.Depth = 0;
+            this.materialSingleLineTextField1.Hint = "SIZE";
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(286, 44);
+            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
+            this.materialSingleLineTextField1.PasswordChar = '\0';
+            this.materialSingleLineTextField1.SelectedText = "";
+            this.materialSingleLineTextField1.SelectionLength = 0;
+            this.materialSingleLineTextField1.SelectionStart = 0;
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(75, 23);
+            this.materialSingleLineTextField1.TabIndex = 8;
+            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
             // 
-            // lblToDate
+            // cmbSelectOrder
             // 
-            this.lblToDate.AutoSize = true;
-            this.lblToDate.Depth = 0;
-            this.lblToDate.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblToDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblToDate.Location = new System.Drawing.Point(385, 9);
-            this.lblToDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(70, 19);
-            this.lblToDate.TabIndex = 9;
-            this.lblToDate.Text = "To Date :";
+            this.cmbSelectOrder.DisplayMember = "10";
+            this.cmbSelectOrder.FormattingEnabled = true;
+            this.cmbSelectOrder.Location = new System.Drawing.Point(153, 46);
+            this.cmbSelectOrder.Name = "cmbSelectOrder";
+            this.cmbSelectOrder.Size = new System.Drawing.Size(100, 21);
+            this.cmbSelectOrder.TabIndex = 7;
+            this.cmbSelectOrder.Text = "Select Order";
+            this.cmbSelectOrder.ValueMember = "10,12,15,20";
             // 
-            // dateTimePicker4
+            // materialLabel1
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(458, 9);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker4.TabIndex = 8;
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(404, 9);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(47, 18);
+            this.materialLabel1.TabIndex = 5;
+            this.materialLabel1.Text = "Date :";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(458, 9);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 4;
+            // 
+            // reportsNavigationPage
+            // 
+            this.reportsNavigationPage.Caption = "Reports";
+            this.reportsNavigationPage.Controls.Add(this.btnPrintReport);
+            this.reportsNavigationPage.Controls.Add(this.btnShowDispatchedOrder);
+            this.reportsNavigationPage.Controls.Add(this.btnShowAddedProduct);
+            this.reportsNavigationPage.Controls.Add(this.comboBox3);
+            this.reportsNavigationPage.Controls.Add(this.comboBox4);
+            this.reportsNavigationPage.Controls.Add(this.comboBox5);
+            this.reportsNavigationPage.Controls.Add(this.materialSingleLineTextField4);
+            this.reportsNavigationPage.Controls.Add(this.materialSingleLineTextField5);
+            this.reportsNavigationPage.Controls.Add(this.lblToDate);
+            this.reportsNavigationPage.Controls.Add(this.dateTimePicker4);
+            this.reportsNavigationPage.Controls.Add(this.lblFromDate);
+            this.reportsNavigationPage.Controls.Add(this.dateTimePicker3);
+            this.reportsNavigationPage.Name = "reportsNavigationPage";
+            this.reportsNavigationPage.Size = new System.Drawing.Size(670, 309);
+            // 
+            // btnPrintReport
+            // 
+            this.btnPrintReport.AutoSize = true;
+            this.btnPrintReport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPrintReport.Depth = 0;
+            this.btnPrintReport.Location = new System.Drawing.Point(232, 211);
+            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnPrintReport.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnPrintReport.Name = "btnPrintReport";
+            this.btnPrintReport.Primary = false;
+            this.btnPrintReport.Size = new System.Drawing.Size(106, 36);
+            this.btnPrintReport.TabIndex = 17;
+            this.btnPrintReport.Text = "PRINT REPORT";
+            this.btnPrintReport.UseVisualStyleBackColor = true;
+            this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
+            // 
+            // btnShowDispatchedOrder
+            // 
+            this.btnShowDispatchedOrder.Depth = 0;
+            this.btnShowDispatchedOrder.Location = new System.Drawing.Point(332, 144);
+            this.btnShowDispatchedOrder.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnShowDispatchedOrder.Name = "btnShowDispatchedOrder";
+            this.btnShowDispatchedOrder.Primary = true;
+            this.btnShowDispatchedOrder.Size = new System.Drawing.Size(138, 38);
+            this.btnShowDispatchedOrder.TabIndex = 16;
+            this.btnShowDispatchedOrder.Text = "Show Dispatched Order";
+            this.btnShowDispatchedOrder.UseVisualStyleBackColor = true;
+            // 
+            // btnShowAddedProduct
+            // 
+            this.btnShowAddedProduct.Depth = 0;
+            this.btnShowAddedProduct.Location = new System.Drawing.Point(111, 144);
+            this.btnShowAddedProduct.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnShowAddedProduct.Name = "btnShowAddedProduct";
+            this.btnShowAddedProduct.Primary = true;
+            this.btnShowAddedProduct.Size = new System.Drawing.Size(123, 38);
+            this.btnShowAddedProduct.TabIndex = 15;
+            this.btnShowAddedProduct.Text = "Show Added Product";
+            this.btnShowAddedProduct.UseVisualStyleBackColor = true;
             // 
             // comboBox3
             // 
@@ -689,45 +639,95 @@
             this.materialSingleLineTextField5.TabIndex = 13;
             this.materialSingleLineTextField5.UseSystemPasswordChar = false;
             // 
-            // btnShowAddedProduct
+            // lblToDate
             // 
-            this.btnShowAddedProduct.Depth = 0;
-            this.btnShowAddedProduct.Location = new System.Drawing.Point(111, 144);
-            this.btnShowAddedProduct.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnShowAddedProduct.Name = "btnShowAddedProduct";
-            this.btnShowAddedProduct.Primary = true;
-            this.btnShowAddedProduct.Size = new System.Drawing.Size(123, 38);
-            this.btnShowAddedProduct.TabIndex = 15;
-            this.btnShowAddedProduct.Text = "Show Added Product";
-            this.btnShowAddedProduct.UseVisualStyleBackColor = true;
+            this.lblToDate.AutoSize = true;
+            this.lblToDate.Depth = 0;
+            this.lblToDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblToDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblToDate.Location = new System.Drawing.Point(385, 9);
+            this.lblToDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblToDate.Name = "lblToDate";
+            this.lblToDate.Size = new System.Drawing.Size(69, 18);
+            this.lblToDate.TabIndex = 9;
+            this.lblToDate.Text = "To Date :";
             // 
-            // btnShowDispatchedOrder
+            // dateTimePicker4
             // 
-            this.btnShowDispatchedOrder.Depth = 0;
-            this.btnShowDispatchedOrder.Location = new System.Drawing.Point(332, 144);
-            this.btnShowDispatchedOrder.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnShowDispatchedOrder.Name = "btnShowDispatchedOrder";
-            this.btnShowDispatchedOrder.Primary = true;
-            this.btnShowDispatchedOrder.Size = new System.Drawing.Size(138, 38);
-            this.btnShowDispatchedOrder.TabIndex = 16;
-            this.btnShowDispatchedOrder.Text = "Show Dispatched Order";
-            this.btnShowDispatchedOrder.UseVisualStyleBackColor = true;
+            this.dateTimePicker4.Location = new System.Drawing.Point(458, 9);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker4.TabIndex = 8;
             // 
-            // btnPrintReport
+            // lblFromDate
             // 
-            this.btnPrintReport.AutoSize = true;
-            this.btnPrintReport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnPrintReport.Depth = 0;
-            this.btnPrintReport.Location = new System.Drawing.Point(232, 211);
-            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnPrintReport.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnPrintReport.Name = "btnPrintReport";
-            this.btnPrintReport.Primary = false;
-            this.btnPrintReport.Size = new System.Drawing.Size(106, 36);
-            this.btnPrintReport.TabIndex = 17;
-            this.btnPrintReport.Text = "PRINT REPORT";
-            this.btnPrintReport.UseVisualStyleBackColor = true;
-            this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
+            this.lblFromDate.AutoSize = true;
+            this.lblFromDate.Depth = 0;
+            this.lblFromDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblFromDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblFromDate.Location = new System.Drawing.Point(21, 9);
+            this.lblFromDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblFromDate.Name = "lblFromDate";
+            this.lblFromDate.Size = new System.Drawing.Size(87, 18);
+            this.lblFromDate.TabIndex = 7;
+            this.lblFromDate.Text = "From Date :";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(111, 9);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker3.TabIndex = 6;
+            // 
+            // homeNavigationPage
+            // 
+            this.homeNavigationPage.Caption = "Home Page";
+            this.homeNavigationPage.Controls.Add(this.btnAddParty);
+            this.homeNavigationPage.Controls.Add(this.btnAddGSM);
+            this.homeNavigationPage.Controls.Add(this.btnAddVehicle);
+            this.homeNavigationPage.Controls.Add(this.btnAddGF);
+            this.homeNavigationPage.Name = "homeNavigationPage";
+            this.homeNavigationPage.Size = new System.Drawing.Size(670, 309);
+            // 
+            // btnAddParty
+            // 
+            this.btnAddParty.Location = new System.Drawing.Point(282, 133);
+            this.btnAddParty.Name = "btnAddParty";
+            this.btnAddParty.Size = new System.Drawing.Size(99, 41);
+            this.btnAddParty.TabIndex = 3;
+            this.btnAddParty.Text = "Add Party";
+            this.btnAddParty.UseVisualStyleBackColor = true;
+            this.btnAddParty.Click += new System.EventHandler(this.btnAddParty_Click);
+            // 
+            // btnAddGSM
+            // 
+            this.btnAddGSM.Location = new System.Drawing.Point(282, 54);
+            this.btnAddGSM.Name = "btnAddGSM";
+            this.btnAddGSM.Size = new System.Drawing.Size(99, 41);
+            this.btnAddGSM.TabIndex = 2;
+            this.btnAddGSM.Text = "Add GSM";
+            this.btnAddGSM.UseVisualStyleBackColor = true;
+            this.btnAddGSM.Click += new System.EventHandler(this.btnAddGSM_Click);
+            // 
+            // btnAddVehicle
+            // 
+            this.btnAddVehicle.Location = new System.Drawing.Point(119, 133);
+            this.btnAddVehicle.Name = "btnAddVehicle";
+            this.btnAddVehicle.Size = new System.Drawing.Size(99, 41);
+            this.btnAddVehicle.TabIndex = 2;
+            this.btnAddVehicle.Text = "Add Vehicle";
+            this.btnAddVehicle.UseVisualStyleBackColor = true;
+            this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
+            // 
+            // btnAddGF
+            // 
+            this.btnAddGF.Location = new System.Drawing.Point(119, 54);
+            this.btnAddGF.Name = "btnAddGF";
+            this.btnAddGF.Size = new System.Drawing.Size(99, 41);
+            this.btnAddGF.TabIndex = 0;
+            this.btnAddGF.Text = "Add GF";
+            this.btnAddGF.UseVisualStyleBackColor = true;
+            this.btnAddGF.Click += new System.EventHandler(this.btnAddBF_Click);
             // 
             // dlgPrintReport
             // 
@@ -748,15 +748,15 @@
             this.addOrderNavigationPage.PerformLayout();
             this.dispatchNavigationPage.ResumeLayout(false);
             this.dispatchNavigationPage.PerformLayout();
-            this.reportsNavigationPage.ResumeLayout(false);
-            this.reportsNavigationPage.PerformLayout();
-            this.homeNavigationPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grpAutoDispatch)).EndInit();
-            this.grpAutoDispatch.ResumeLayout(false);
-            this.grpAutoDispatch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpManualDispatch)).EndInit();
             this.grpManualDispatch.ResumeLayout(false);
             this.grpManualDispatch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grpAutoDispatch)).EndInit();
+            this.grpAutoDispatch.ResumeLayout(false);
+            this.grpAutoDispatch.PerformLayout();
+            this.reportsNavigationPage.ResumeLayout(false);
+            this.reportsNavigationPage.PerformLayout();
+            this.homeNavigationPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
