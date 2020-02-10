@@ -65,20 +65,6 @@ CREATE TABLE [dbo].[Stock](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Stock]  WITH CHECK ADD  CONSTRAINT [FK_BF] FOREIGN KEY([BreakingForce])
-REFERENCES [dbo].[BreakingForce] ([ID])
-GO
-
-ALTER TABLE [dbo].[Stock] CHECK CONSTRAINT [FK_BF]
-GO
-
-ALTER TABLE [dbo].[Stock]  WITH CHECK ADD  CONSTRAINT [FK_GSM] FOREIGN KEY([GSM])
-REFERENCES [dbo].[GSM] ([ID])
-GO
-
-ALTER TABLE [dbo].[Stock] CHECK CONSTRAINT [FK_GSM]
-GO
-
 CREATE TABLE [dbo].[StockInventory](
 	[ID] [int] NOT NULL,
 	[StockID] [int] NOT NULL,
