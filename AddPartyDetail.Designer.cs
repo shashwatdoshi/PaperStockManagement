@@ -65,7 +65,7 @@
             // 
             this.txtContactNo.BeepOnError = true;
             this.txtContactNo.Location = new System.Drawing.Point(167, 78);
-            this.txtContactNo.Mask = "+91 00000-00000";
+            this.txtContactNo.Mask = "0000000000";
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(249, 20);
             this.txtContactNo.TabIndex = 3;

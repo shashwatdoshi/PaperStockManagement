@@ -37,6 +37,7 @@ namespace ProjectStockManagement
                 breakingForce.Value = Int32.Parse(txtAddBF.Text);
                 paperStockManagementDB.BreakingForces.Add(breakingForce);
                 paperStockManagementDB.SaveChanges();
+                PaperStockManagement.BFList.Add(breakingForce.Value);
             }
 
             this.Close();

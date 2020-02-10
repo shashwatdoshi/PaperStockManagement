@@ -117,6 +117,7 @@
             this.mainNavigation.ShowToolTips = DevExpress.Utils.DefaultBoolean.True;
             this.mainNavigation.Size = new System.Drawing.Size(797, 382);
             this.mainNavigation.TabIndex = 1;
+            this.mainNavigation.SelectedPageChanging += new DevExpress.XtraBars.Navigation.SelectedPageChangingEventHandler(this.mainNavigation_SelectedPageChanging);
             // 
             // addStockNavigationPage
             // 
@@ -192,6 +193,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtWeight
             // 
@@ -295,12 +297,12 @@
             // 
             this.lblOrderDate.AutoSize = true;
             this.lblOrderDate.Depth = 0;
-            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblOrderDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblOrderDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblOrderDate.Location = new System.Drawing.Point(400, 9);
             this.lblOrderDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(47, 18);
+            this.lblOrderDate.Size = new System.Drawing.Size(48, 19);
             this.lblOrderDate.TabIndex = 3;
             this.lblOrderDate.Text = "Date :";
             // 
@@ -504,12 +506,12 @@
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(404, 9);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(47, 18);
+            this.materialLabel1.Size = new System.Drawing.Size(48, 19);
             this.materialLabel1.TabIndex = 5;
             this.materialLabel1.Text = "Date :";
             // 
@@ -643,12 +645,12 @@
             // 
             this.lblToDate.AutoSize = true;
             this.lblToDate.Depth = 0;
-            this.lblToDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblToDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblToDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblToDate.Location = new System.Drawing.Point(385, 9);
             this.lblToDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(69, 18);
+            this.lblToDate.Size = new System.Drawing.Size(70, 19);
             this.lblToDate.TabIndex = 9;
             this.lblToDate.Text = "To Date :";
             // 
@@ -663,12 +665,12 @@
             // 
             this.lblFromDate.AutoSize = true;
             this.lblFromDate.Depth = 0;
-            this.lblFromDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblFromDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblFromDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblFromDate.Location = new System.Drawing.Point(21, 9);
             this.lblFromDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(87, 18);
+            this.lblFromDate.Size = new System.Drawing.Size(87, 19);
             this.lblFromDate.TabIndex = 7;
             this.lblFromDate.Text = "From Date :";
             // 

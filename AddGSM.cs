@@ -58,6 +58,7 @@ namespace ProjectStockManagement
                 gSM.Value = Int32.Parse(txtAddGSM.Text);
                 paperStockManagementDB.GSMs.Add(gSM);
                 paperStockManagementDB.SaveChanges();
+                PaperStockManagement.GSMList.Add(gSM.Value);
             }
 
             this.Close();
