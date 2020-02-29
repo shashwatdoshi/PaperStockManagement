@@ -42,6 +42,14 @@
             this.lblDate = new MaterialSkin.Controls.MaterialLabel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.addOrderNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Client = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.BF = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.GSM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Size = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Weight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Quantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbAddOrderDetail = new System.Windows.Forms.ComboBox();
             this.cmbAddOrderPartyName = new System.Windows.Forms.ComboBox();
             this.btnCancelOrder = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -87,10 +95,13 @@
             this.btnAddGF = new System.Windows.Forms.Button();
             this.dlgPrintReport = new System.Windows.Forms.PrintDialog();
             this.toolTipAddOrder = new System.Windows.Forms.ToolTip(this.components);
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainNavigation)).BeginInit();
             this.mainNavigation.SuspendLayout();
             this.addStockNavigationPage.SuspendLayout();
             this.addOrderNavigationPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.dispatchNavigationPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpManualDispatch)).BeginInit();
             this.grpManualDispatch.SuspendLayout();
@@ -98,6 +109,7 @@
             this.grpAutoDispatch.SuspendLayout();
             this.reportsNavigationPage.SuspendLayout();
             this.homeNavigationPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainNavigation
@@ -251,12 +263,12 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Depth = 0;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblDate.Location = new System.Drawing.Point(396, 9);
             this.lblDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(47, 18);
+            this.lblDate.Size = new System.Drawing.Size(48, 19);
             this.lblDate.TabIndex = 1;
             this.lblDate.Text = "Date :";
             // 
@@ -271,6 +283,7 @@
             // 
             this.addOrderNavigationPage.AutoSize = true;
             this.addOrderNavigationPage.Caption = "Add Order";
+            this.addOrderNavigationPage.Controls.Add(this.gridControl1);
             this.addOrderNavigationPage.Controls.Add(this.cmbAddOrderDetail);
             this.addOrderNavigationPage.Controls.Add(this.cmbAddOrderPartyName);
             this.addOrderNavigationPage.Controls.Add(this.btnCancelOrder);
@@ -279,7 +292,72 @@
             this.addOrderNavigationPage.Controls.Add(this.lblOrderDate);
             this.addOrderNavigationPage.Controls.Add(this.dtpStockDate);
             this.addOrderNavigationPage.Name = "addOrderNavigationPage";
-            this.addOrderNavigationPage.Size = new System.Drawing.Size(670, 309);
+            this.addOrderNavigationPage.Size = new System.Drawing.Size(670, 373);
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(23, 170);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(400, 200);
+            this.gridControl1.TabIndex = 12;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.Client,
+            this.BF,
+            this.GSM,
+            this.Size,
+            this.Weight,
+            this.Quantity});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            // 
+            // Client
+            // 
+            this.Client.Caption = "Client";
+            this.Client.Name = "Client";
+            this.Client.Visible = true;
+            this.Client.VisibleIndex = 0;
+            // 
+            // BF
+            // 
+            this.BF.Caption = "BF";
+            this.BF.Name = "BF";
+            this.BF.Visible = true;
+            this.BF.VisibleIndex = 1;
+            // 
+            // GSM
+            // 
+            this.GSM.Caption = "GSM";
+            this.GSM.Name = "GSM";
+            this.GSM.Visible = true;
+            this.GSM.VisibleIndex = 2;
+            // 
+            // Size
+            // 
+            this.Size.Caption = "Size";
+            this.Size.Name = "Size";
+            this.Size.Visible = true;
+            this.Size.VisibleIndex = 3;
+            // 
+            // Weight
+            // 
+            this.Weight.Caption = "Weight";
+            this.Weight.Name = "Weight";
+            this.Weight.Visible = true;
+            this.Weight.VisibleIndex = 4;
+            // 
+            // Quantity
+            // 
+            this.Quantity.Caption = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Visible = true;
+            this.Quantity.VisibleIndex = 5;
             // 
             // cmbAddOrderDetail
             // 
@@ -334,17 +412,18 @@
             this.btnAddOrder.TabIndex = 7;
             this.btnAddOrder.Text = "ADD";
             this.btnAddOrder.UseVisualStyleBackColor = true;
+            this.btnAddOrder.Click += new System.EventHandler(this.btnAddOrder_Click);
             // 
             // lblOrderDate
             // 
             this.lblOrderDate.AutoSize = true;
             this.lblOrderDate.Depth = 0;
-            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblOrderDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblOrderDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblOrderDate.Location = new System.Drawing.Point(400, 9);
             this.lblOrderDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(47, 18);
+            this.lblOrderDate.Size = new System.Drawing.Size(48, 19);
             this.lblOrderDate.TabIndex = 3;
             this.lblOrderDate.Text = "Date :";
             // 
@@ -810,6 +889,8 @@
             this.addStockNavigationPage.PerformLayout();
             this.addOrderNavigationPage.ResumeLayout(false);
             this.addOrderNavigationPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.dispatchNavigationPage.ResumeLayout(false);
             this.dispatchNavigationPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpManualDispatch)).EndInit();
@@ -821,6 +902,7 @@
             this.reportsNavigationPage.ResumeLayout(false);
             this.reportsNavigationPage.PerformLayout();
             this.homeNavigationPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -904,5 +986,14 @@
         private System.Windows.Forms.ComboBox cmbAddOrderPartyName;
         private System.Windows.Forms.ComboBox cmbAddOrderDetail;
         private System.Windows.Forms.ToolTip toolTipAddOrder;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn Client;
+        private DevExpress.XtraGrid.Columns.GridColumn BF;
+        private DevExpress.XtraGrid.Columns.GridColumn GSM;
+        private DevExpress.XtraGrid.Columns.GridColumn Size;
+        private DevExpress.XtraGrid.Columns.GridColumn Weight;
+        private DevExpress.XtraGrid.Columns.GridColumn Quantity;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }
