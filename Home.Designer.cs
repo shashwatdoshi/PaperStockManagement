@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mainNavigation = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.addStockNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.cmbGSM = new System.Windows.Forms.ComboBox();
@@ -50,15 +51,15 @@
             this.txtDriverName = new System.Windows.Forms.MaskedTextBox();
             this.cmbVehicleInfo = new System.Windows.Forms.ComboBox();
             this.grpManualDispatch = new DevExpress.XtraEditors.GroupControl();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialRadioButton1 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.cmbManualDispatchGSM = new System.Windows.Forms.ComboBox();
+            this.cmbManualDispatchBF = new System.Windows.Forms.ComboBox();
+            this.txtManualDispatchWeight = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtManualDispatchSize = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.rdbManualDispatch = new MaterialSkin.Controls.MaterialRadioButton();
             this.grpAutoDispatch = new DevExpress.XtraEditors.GroupControl();
             this.rdbDispatch = new MaterialSkin.Controls.MaterialRadioButton();
             this.cmbPartyName = new System.Windows.Forms.ComboBox();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtDispatchSize = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.cmbSelectOrder = new System.Windows.Forms.ComboBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -81,6 +82,11 @@
             this.btnAddVehicle = new System.Windows.Forms.Button();
             this.btnAddGF = new System.Windows.Forms.Button();
             this.dlgPrintReport = new System.Windows.Forms.PrintDialog();
+            this.txtStockQuantity = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtManualDispatchQuantity = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.cmbAddOrderPartyName = new System.Windows.Forms.ComboBox();
+            this.cmbAddOrderDetail = new System.Windows.Forms.ComboBox();
+            this.toolTipAddOrder = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainNavigation)).BeginInit();
             this.mainNavigation.SuspendLayout();
             this.addStockNavigationPage.SuspendLayout();
@@ -122,6 +128,7 @@
             // addStockNavigationPage
             // 
             this.addStockNavigationPage.Caption = "Add Stock";
+            this.addStockNavigationPage.Controls.Add(this.txtStockQuantity);
             this.addStockNavigationPage.Controls.Add(this.cmbGSM);
             this.addStockNavigationPage.Controls.Add(this.cmbBF);
             this.addStockNavigationPage.Controls.Add(this.btnReset);
@@ -166,7 +173,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Primary = true;
             this.btnReset.Size = new System.Drawing.Size(89, 40);
-            this.btnReset.TabIndex = 8;
+            this.btnReset.TabIndex = 9;
             this.btnReset.Text = "RESET";
             this.btnReset.UseVisualStyleBackColor = true;
             // 
@@ -178,7 +185,7 @@
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Primary = true;
             this.btnCancle.Size = new System.Drawing.Size(89, 40);
-            this.btnCancle.TabIndex = 7;
+            this.btnCancle.TabIndex = 8;
             this.btnCancle.Text = "CANCEL";
             this.btnCancle.UseVisualStyleBackColor = true;
             // 
@@ -190,7 +197,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Primary = true;
             this.btnSave.Size = new System.Drawing.Size(89, 40);
-            this.btnSave.TabIndex = 6;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -249,6 +256,8 @@
             // 
             this.addOrderNavigationPage.AutoSize = true;
             this.addOrderNavigationPage.Caption = "Add Order";
+            this.addOrderNavigationPage.Controls.Add(this.cmbAddOrderDetail);
+            this.addOrderNavigationPage.Controls.Add(this.cmbAddOrderPartyName);
             this.addOrderNavigationPage.Controls.Add(this.btnCancelOrder);
             this.addOrderNavigationPage.Controls.Add(this.btnSaveOrder);
             this.addOrderNavigationPage.Controls.Add(this.btnAddOrder);
@@ -260,7 +269,7 @@
             // btnCancelOrder
             // 
             this.btnCancelOrder.Depth = 0;
-            this.btnCancelOrder.Location = new System.Drawing.Point(488, 256);
+            this.btnCancelOrder.Location = new System.Drawing.Point(488, 113);
             this.btnCancelOrder.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Primary = true;
@@ -272,7 +281,7 @@
             // btnSaveOrder
             // 
             this.btnSaveOrder.Depth = 0;
-            this.btnSaveOrder.Location = new System.Drawing.Point(248, 256);
+            this.btnSaveOrder.Location = new System.Drawing.Point(248, 113);
             this.btnSaveOrder.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSaveOrder.Name = "btnSaveOrder";
             this.btnSaveOrder.Primary = true;
@@ -284,7 +293,7 @@
             // btnAddOrder
             // 
             this.btnAddOrder.Depth = 0;
-            this.btnAddOrder.Location = new System.Drawing.Point(23, 256);
+            this.btnAddOrder.Location = new System.Drawing.Point(23, 113);
             this.btnAddOrder.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddOrder.Name = "btnAddOrder";
             this.btnAddOrder.Primary = true;
@@ -355,11 +364,12 @@
             // 
             // grpManualDispatch
             // 
-            this.grpManualDispatch.Controls.Add(this.comboBox1);
-            this.grpManualDispatch.Controls.Add(this.comboBox2);
-            this.grpManualDispatch.Controls.Add(this.materialSingleLineTextField2);
-            this.grpManualDispatch.Controls.Add(this.materialSingleLineTextField3);
-            this.grpManualDispatch.Controls.Add(this.materialRadioButton1);
+            this.grpManualDispatch.Controls.Add(this.txtManualDispatchQuantity);
+            this.grpManualDispatch.Controls.Add(this.cmbManualDispatchGSM);
+            this.grpManualDispatch.Controls.Add(this.cmbManualDispatchBF);
+            this.grpManualDispatch.Controls.Add(this.txtManualDispatchWeight);
+            this.grpManualDispatch.Controls.Add(this.txtManualDispatchSize);
+            this.grpManualDispatch.Controls.Add(this.rdbManualDispatch);
             this.grpManualDispatch.Location = new System.Drawing.Point(17, 155);
             this.grpManualDispatch.Name = "grpManualDispatch";
             this.grpManualDispatch.ShowCaption = false;
@@ -367,79 +377,79 @@
             this.grpManualDispatch.TabIndex = 10;
             this.grpManualDispatch.Text = "Manual Dispatch";
             // 
-            // comboBox1
+            // cmbManualDispatchGSM
             // 
-            this.comboBox1.DisplayMember = "10";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(158, 53);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.Text = "GSM";
-            this.comboBox1.ValueMember = "10,12,15,20";
+            this.cmbManualDispatchGSM.DisplayMember = "10";
+            this.cmbManualDispatchGSM.FormattingEnabled = true;
+            this.cmbManualDispatchGSM.Location = new System.Drawing.Point(158, 53);
+            this.cmbManualDispatchGSM.Name = "cmbManualDispatchGSM";
+            this.cmbManualDispatchGSM.Size = new System.Drawing.Size(100, 21);
+            this.cmbManualDispatchGSM.TabIndex = 7;
+            this.cmbManualDispatchGSM.Text = "GSM";
+            this.cmbManualDispatchGSM.ValueMember = "10,12,15,20";
             // 
-            // comboBox2
+            // cmbManualDispatchBF
             // 
-            this.comboBox2.DisplayMember = "10";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(10, 53);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 21);
-            this.comboBox2.TabIndex = 6;
-            this.comboBox2.Text = "BF";
+            this.cmbManualDispatchBF.DisplayMember = "10";
+            this.cmbManualDispatchBF.FormattingEnabled = true;
+            this.cmbManualDispatchBF.Location = new System.Drawing.Point(10, 53);
+            this.cmbManualDispatchBF.Name = "cmbManualDispatchBF";
+            this.cmbManualDispatchBF.Size = new System.Drawing.Size(100, 21);
+            this.cmbManualDispatchBF.TabIndex = 6;
+            this.cmbManualDispatchBF.Text = "BF";
             // 
-            // materialSingleLineTextField2
+            // txtManualDispatchWeight
             // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "WEIGHT";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(441, 56);
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(75, 23);
-            this.materialSingleLineTextField2.TabIndex = 9;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.txtManualDispatchWeight.Depth = 0;
+            this.txtManualDispatchWeight.Hint = "WEIGHT";
+            this.txtManualDispatchWeight.Location = new System.Drawing.Point(441, 56);
+            this.txtManualDispatchWeight.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtManualDispatchWeight.Name = "txtManualDispatchWeight";
+            this.txtManualDispatchWeight.PasswordChar = '\0';
+            this.txtManualDispatchWeight.SelectedText = "";
+            this.txtManualDispatchWeight.SelectionLength = 0;
+            this.txtManualDispatchWeight.SelectionStart = 0;
+            this.txtManualDispatchWeight.Size = new System.Drawing.Size(75, 23);
+            this.txtManualDispatchWeight.TabIndex = 9;
+            this.txtManualDispatchWeight.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField3
+            // txtManualDispatchSize
             // 
-            this.materialSingleLineTextField3.Depth = 0;
-            this.materialSingleLineTextField3.Hint = "SIZE";
-            this.materialSingleLineTextField3.Location = new System.Drawing.Point(315, 56);
-            this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
-            this.materialSingleLineTextField3.PasswordChar = '\0';
-            this.materialSingleLineTextField3.SelectedText = "";
-            this.materialSingleLineTextField3.SelectionLength = 0;
-            this.materialSingleLineTextField3.SelectionStart = 0;
-            this.materialSingleLineTextField3.Size = new System.Drawing.Size(75, 23);
-            this.materialSingleLineTextField3.TabIndex = 8;
-            this.materialSingleLineTextField3.UseSystemPasswordChar = false;
+            this.txtManualDispatchSize.Depth = 0;
+            this.txtManualDispatchSize.Hint = "SIZE";
+            this.txtManualDispatchSize.Location = new System.Drawing.Point(315, 56);
+            this.txtManualDispatchSize.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtManualDispatchSize.Name = "txtManualDispatchSize";
+            this.txtManualDispatchSize.PasswordChar = '\0';
+            this.txtManualDispatchSize.SelectedText = "";
+            this.txtManualDispatchSize.SelectionLength = 0;
+            this.txtManualDispatchSize.SelectionStart = 0;
+            this.txtManualDispatchSize.Size = new System.Drawing.Size(75, 23);
+            this.txtManualDispatchSize.TabIndex = 8;
+            this.txtManualDispatchSize.UseSystemPasswordChar = false;
             // 
-            // materialRadioButton1
+            // rdbManualDispatch
             // 
-            this.materialRadioButton1.AutoSize = true;
-            this.materialRadioButton1.Depth = 0;
-            this.materialRadioButton1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialRadioButton1.Location = new System.Drawing.Point(6, 12);
-            this.materialRadioButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialRadioButton1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialRadioButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRadioButton1.Name = "materialRadioButton1";
-            this.materialRadioButton1.Ripple = true;
-            this.materialRadioButton1.Size = new System.Drawing.Size(132, 30);
-            this.materialRadioButton1.TabIndex = 0;
-            this.materialRadioButton1.TabStop = true;
-            this.materialRadioButton1.Text = "Manual Dispatch";
-            this.materialRadioButton1.UseVisualStyleBackColor = true;
+            this.rdbManualDispatch.AutoSize = true;
+            this.rdbManualDispatch.Depth = 0;
+            this.rdbManualDispatch.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rdbManualDispatch.Location = new System.Drawing.Point(6, 12);
+            this.rdbManualDispatch.Margin = new System.Windows.Forms.Padding(0);
+            this.rdbManualDispatch.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rdbManualDispatch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rdbManualDispatch.Name = "rdbManualDispatch";
+            this.rdbManualDispatch.Ripple = true;
+            this.rdbManualDispatch.Size = new System.Drawing.Size(132, 30);
+            this.rdbManualDispatch.TabIndex = 0;
+            this.rdbManualDispatch.TabStop = true;
+            this.rdbManualDispatch.Text = "Manual Dispatch";
+            this.rdbManualDispatch.UseVisualStyleBackColor = true;
             // 
             // grpAutoDispatch
             // 
             this.grpAutoDispatch.Controls.Add(this.rdbDispatch);
             this.grpAutoDispatch.Controls.Add(this.cmbPartyName);
-            this.grpAutoDispatch.Controls.Add(this.materialSingleLineTextField1);
+            this.grpAutoDispatch.Controls.Add(this.txtDispatchSize);
             this.grpAutoDispatch.Controls.Add(this.cmbSelectOrder);
             this.grpAutoDispatch.Location = new System.Drawing.Point(17, 50);
             this.grpAutoDispatch.Name = "grpAutoDispatch";
@@ -476,20 +486,20 @@
             this.cmbPartyName.TabIndex = 6;
             this.cmbPartyName.Text = "Party Name";
             // 
-            // materialSingleLineTextField1
+            // txtDispatchSize
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "SIZE";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(286, 44);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(75, 23);
-            this.materialSingleLineTextField1.TabIndex = 8;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.txtDispatchSize.Depth = 0;
+            this.txtDispatchSize.Hint = "SIZE";
+            this.txtDispatchSize.Location = new System.Drawing.Point(286, 44);
+            this.txtDispatchSize.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtDispatchSize.Name = "txtDispatchSize";
+            this.txtDispatchSize.PasswordChar = '\0';
+            this.txtDispatchSize.SelectedText = "";
+            this.txtDispatchSize.SelectionLength = 0;
+            this.txtDispatchSize.SelectionStart = 0;
+            this.txtDispatchSize.Size = new System.Drawing.Size(75, 23);
+            this.txtDispatchSize.TabIndex = 8;
+            this.txtDispatchSize.UseSystemPasswordChar = false;
             // 
             // cmbSelectOrder
             // 
@@ -645,12 +655,12 @@
             // 
             this.lblToDate.AutoSize = true;
             this.lblToDate.Depth = 0;
-            this.lblToDate.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblToDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lblToDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblToDate.Location = new System.Drawing.Point(385, 9);
             this.lblToDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(70, 19);
+            this.lblToDate.Size = new System.Drawing.Size(69, 18);
             this.lblToDate.TabIndex = 9;
             this.lblToDate.Text = "To Date :";
             // 
@@ -665,12 +675,12 @@
             // 
             this.lblFromDate.AutoSize = true;
             this.lblFromDate.Depth = 0;
-            this.lblFromDate.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblFromDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lblFromDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblFromDate.Location = new System.Drawing.Point(21, 9);
             this.lblFromDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(87, 19);
+            this.lblFromDate.Size = new System.Drawing.Size(87, 18);
             this.lblFromDate.TabIndex = 7;
             this.lblFromDate.Text = "From Date :";
             // 
@@ -734,6 +744,58 @@
             // dlgPrintReport
             // 
             this.dlgPrintReport.UseEXDialog = true;
+            // 
+            // txtStockQuantity
+            // 
+            this.txtStockQuantity.Depth = 0;
+            this.txtStockQuantity.Hint = "QUANTITY";
+            this.txtStockQuantity.Location = new System.Drawing.Point(562, 73);
+            this.txtStockQuantity.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtStockQuantity.Name = "txtStockQuantity";
+            this.txtStockQuantity.PasswordChar = '\0';
+            this.txtStockQuantity.SelectedText = "";
+            this.txtStockQuantity.SelectionLength = 0;
+            this.txtStockQuantity.SelectionStart = 0;
+            this.txtStockQuantity.Size = new System.Drawing.Size(75, 23);
+            this.txtStockQuantity.TabIndex = 6;
+            this.txtStockQuantity.UseSystemPasswordChar = false;
+            // 
+            // txtManualDispatchQuantity
+            // 
+            this.txtManualDispatchQuantity.Depth = 0;
+            this.txtManualDispatchQuantity.Hint = "QUANTITY";
+            this.txtManualDispatchQuantity.Location = new System.Drawing.Point(556, 56);
+            this.txtManualDispatchQuantity.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtManualDispatchQuantity.Name = "txtManualDispatchQuantity";
+            this.txtManualDispatchQuantity.PasswordChar = '\0';
+            this.txtManualDispatchQuantity.SelectedText = "";
+            this.txtManualDispatchQuantity.SelectionLength = 0;
+            this.txtManualDispatchQuantity.SelectionStart = 0;
+            this.txtManualDispatchQuantity.Size = new System.Drawing.Size(75, 23);
+            this.txtManualDispatchQuantity.TabIndex = 10;
+            this.txtManualDispatchQuantity.UseSystemPasswordChar = false;
+            // 
+            // cmbAddOrderPartyName
+            // 
+            this.cmbAddOrderPartyName.FormattingEnabled = true;
+            this.cmbAddOrderPartyName.Location = new System.Drawing.Point(23, 55);
+            this.cmbAddOrderPartyName.Name = "cmbAddOrderPartyName";
+            this.cmbAddOrderPartyName.Size = new System.Drawing.Size(121, 21);
+            this.cmbAddOrderPartyName.TabIndex = 10;
+            this.cmbAddOrderPartyName.Text = "Party Name";
+            // 
+            // cmbAddOrderDetail
+            // 
+            this.cmbAddOrderDetail.FormattingEnabled = true;
+            this.cmbAddOrderDetail.Location = new System.Drawing.Point(216, 55);
+            this.cmbAddOrderDetail.Name = "cmbAddOrderDetail";
+            this.cmbAddOrderDetail.Size = new System.Drawing.Size(276, 21);
+            this.cmbAddOrderDetail.TabIndex = 11;
+            this.cmbAddOrderDetail.Text = "BF | GSM | SIZE | WEIGHT | QUANTITY";
+            // 
+            // toolTipAddOrder
+            // 
+            this.toolTipAddOrder.ToolTipTitle = "Displaying Details in following order. BF | GSM | SIZE | WEIGHT | QUANTITY";
             // 
             // PaperStockManagement
             // 
@@ -810,15 +872,15 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnAddOrder;
         private System.Windows.Forms.ComboBox cmbVehicleInfo;
         private DevExpress.XtraEditors.GroupControl grpManualDispatch;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
-        private MaterialSkin.Controls.MaterialRadioButton materialRadioButton1;
+        private System.Windows.Forms.ComboBox cmbManualDispatchGSM;
+        private System.Windows.Forms.ComboBox cmbManualDispatchBF;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtManualDispatchWeight;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtManualDispatchSize;
+        private MaterialSkin.Controls.MaterialRadioButton rdbManualDispatch;
         private DevExpress.XtraEditors.GroupControl grpAutoDispatch;
         private MaterialSkin.Controls.MaterialRadioButton rdbDispatch;
         private System.Windows.Forms.ComboBox cmbPartyName;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtDispatchSize;
         private System.Windows.Forms.ComboBox cmbSelectOrder;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -837,5 +899,10 @@
         private MaterialSkin.Controls.MaterialLabel lblFromDate;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.PrintDialog dlgPrintReport;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtStockQuantity;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtManualDispatchQuantity;
+        private System.Windows.Forms.ComboBox cmbAddOrderPartyName;
+        private System.Windows.Forms.ComboBox cmbAddOrderDetail;
+        private System.Windows.Forms.ToolTip toolTipAddOrder;
     }
 }
