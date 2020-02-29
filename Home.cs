@@ -1,33 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.XtraBars.Docking2010.Views;
-using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
-using MaterialSkin.Controls;
 using ProjectStockManagement.PaperStockManagementDB;
 
 namespace ProjectStockManagement
 {
     public partial class PaperStockManagement : MaterialSkin.Controls.MaterialForm
     {
+        /// <summary>
+        /// Contains all added values for Breaking-force(BF).
+        /// </summary>
         public static BindingList<int> BFList = new BindingList<int>();
+
+        /// <summary>
+        /// Contains all added values for Gram per square meter(GSM).
+        /// </summary>
         public static BindingList<int> GSMList = new BindingList<int>();
+
+        /// <summary>
+        /// Contains all added values for Party detail(Party name).
+        /// </summary>
         public static BindingList<string> PartyNameList = new BindingList<string>();
+
+        public static BindingList<Stock> StockList = new BindingList<Stock>();
         public PaperStockManagement()
         {
             InitializeComponent();
-            //MaterialSkin.MaterialSkinManager materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
-            //materialSkinManager.AddFormToManage(this);
-            //materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
-            //materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Blue300, MaterialSkin.Primary.Blue500, MaterialSkin.Primary.Blue700, MaterialSkin.Accent.Blue100, MaterialSkin.TextShade.WHITE);
+            
+            // Get data from database.
+            FetchDBListData();
+
+            // Set data to member variables.
+            AssignDBListData();
+        }
+
+        private void FetchDBListData()
+        {
             using (var paperStockManagementDB = new PaperStockManagementDBEntities())
             {
                 foreach (BreakingForce breakingForce in paperStockManagementDB.BreakingForces.ToList())
@@ -45,14 +54,33 @@ namespace ProjectStockManagement
                     PartyNameList.Add(client.Name);
                 }
 
-                cmbBF.DataSource = BFList;
-                cmbGSM.DataSource = GSMList;
-                cmbAddOrderPartyName.DataSource = PartyNameList;
-                cmbPartyName.DataSource = PartyNameList;
-                cmbReportPartName.DataSource = PartyNameList;
+                foreach (Stock stock in paperStockManagementDB.Stocks.ToList())
+                {
+                    StockList.Add(stock);
+                }
             }
         }
 
+        private void AssignDBListData()
+        {
+            // Add data to all BF contained combobox.
+            cmbBF.DataSource = BFList;
+            cmbManualDispatchBF.DataSource = BFList;
+            cmbReportBF.DataSource = BFList;
+
+            // Add data to all GSM contained combobox.
+            cmbGSM.DataSource = GSMList;
+            cmbManualDispatchGSM.DataSource = GSMList;
+            cmbReportGSM.DataSource = GSMList;
+
+            // Add data to all Party detail contained combobox.
+            cmbAddOrderPartyName.DataSource = PartyNameList;
+            cmbPartyName.DataSource = PartyNameList;
+            cmbReportPartyName.DataSource = PartyNameList;
+
+            // Add data to BF | GSM | SIZE | WEIGHT | QUANTITY contained combobox.
+            cmbAddOrderDetail.DataSource = StockList;
+        }
         private void btnAddBF_Click(object sender, EventArgs e)
         {
             AddBF addBF = new AddBF();
@@ -76,11 +104,6 @@ namespace ProjectStockManagement
         {
             AddVehicle addVehicle = new AddVehicle();
             addVehicle.Show();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnPrintReport_Click(object sender, EventArgs e)
@@ -114,12 +137,14 @@ namespace ProjectStockManagement
                 stock.GSM = Int32.Parse(cmbGSM.SelectedItem.ToString());
                 stock.Weight = Int32.Parse(txtWeight.Text);
                 stock.Size = Int32.Parse(txtSize.Text);
+                paperStockManagementDB.Stocks.Add(stock);
+
                 var inventory = new StockInventory();
                 inventory.Date = dateTimePicker1.Value;
                 inventory.Stock = stock;
-                inventory.Quantity = 1;
-                paperStockManagementDB.Stocks.Add(stock);
+                inventory.Quantity = Int32.Parse(txtStockQuantity.Text);
                 paperStockManagementDB.StockInventories.Add(inventory);
+
                 paperStockManagementDB.SaveChanges();
             }
         }

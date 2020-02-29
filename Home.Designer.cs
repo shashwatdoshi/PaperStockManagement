@@ -71,11 +71,11 @@
             this.btnPrintReport = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnShowDispatchedOrder = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnShowAddedProduct = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.cmbReportPartName = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.cmbReportPartyName = new System.Windows.Forms.ComboBox();
+            this.cmbReportGSM = new System.Windows.Forms.ComboBox();
+            this.cmbReportBF = new System.Windows.Forms.ComboBox();
+            this.txtReportWeight = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtReportSize = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblToDate = new MaterialSkin.Controls.MaterialLabel();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.lblFromDate = new MaterialSkin.Controls.MaterialLabel();
@@ -167,7 +167,6 @@
             this.cmbGSM.TabIndex = 3;
             this.cmbGSM.Text = "GSM";
             this.cmbGSM.ValueMember = "10,12,15,20";
-            this.cmbGSM.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // cmbBF
             // 
@@ -251,12 +250,12 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Depth = 0;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblDate.Location = new System.Drawing.Point(396, 9);
             this.lblDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(47, 18);
+            this.lblDate.Size = new System.Drawing.Size(48, 19);
             this.lblDate.TabIndex = 1;
             this.lblDate.Text = "Date :";
             // 
@@ -339,12 +338,12 @@
             // 
             this.lblOrderDate.AutoSize = true;
             this.lblOrderDate.Depth = 0;
-            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblOrderDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblOrderDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblOrderDate.Location = new System.Drawing.Point(400, 9);
             this.lblOrderDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(47, 18);
+            this.lblOrderDate.Size = new System.Drawing.Size(48, 19);
             this.lblOrderDate.TabIndex = 3;
             this.lblOrderDate.Text = "Date :";
             // 
@@ -586,11 +585,11 @@
             this.reportsNavigationPage.Controls.Add(this.btnPrintReport);
             this.reportsNavigationPage.Controls.Add(this.btnShowDispatchedOrder);
             this.reportsNavigationPage.Controls.Add(this.btnShowAddedProduct);
-            this.reportsNavigationPage.Controls.Add(this.cmbReportPartName);
-            this.reportsNavigationPage.Controls.Add(this.comboBox4);
-            this.reportsNavigationPage.Controls.Add(this.comboBox5);
-            this.reportsNavigationPage.Controls.Add(this.materialSingleLineTextField4);
-            this.reportsNavigationPage.Controls.Add(this.materialSingleLineTextField5);
+            this.reportsNavigationPage.Controls.Add(this.cmbReportPartyName);
+            this.reportsNavigationPage.Controls.Add(this.cmbReportGSM);
+            this.reportsNavigationPage.Controls.Add(this.cmbReportBF);
+            this.reportsNavigationPage.Controls.Add(this.txtReportWeight);
+            this.reportsNavigationPage.Controls.Add(this.txtReportSize);
             this.reportsNavigationPage.Controls.Add(this.lblToDate);
             this.reportsNavigationPage.Controls.Add(this.dateTimePicker4);
             this.reportsNavigationPage.Controls.Add(this.lblFromDate);
@@ -638,66 +637,66 @@
             this.btnShowAddedProduct.Text = "Show Added Product";
             this.btnShowAddedProduct.UseVisualStyleBackColor = true;
             // 
-            // cmbReportPartName
+            // cmbReportPartyName
             // 
-            this.cmbReportPartName.DisplayMember = "10";
-            this.cmbReportPartName.FormattingEnabled = true;
-            this.cmbReportPartName.Location = new System.Drawing.Point(25, 80);
-            this.cmbReportPartName.Name = "cmbReportPartName";
-            this.cmbReportPartName.Size = new System.Drawing.Size(100, 21);
-            this.cmbReportPartName.TabIndex = 10;
-            this.cmbReportPartName.Text = "Party Name";
+            this.cmbReportPartyName.DisplayMember = "10";
+            this.cmbReportPartyName.FormattingEnabled = true;
+            this.cmbReportPartyName.Location = new System.Drawing.Point(25, 80);
+            this.cmbReportPartyName.Name = "cmbReportPartyName";
+            this.cmbReportPartyName.Size = new System.Drawing.Size(100, 21);
+            this.cmbReportPartyName.TabIndex = 10;
+            this.cmbReportPartyName.Text = "Party Name";
             // 
-            // comboBox4
+            // cmbReportGSM
             // 
-            this.comboBox4.DisplayMember = "10";
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(314, 80);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(100, 21);
-            this.comboBox4.TabIndex = 12;
-            this.comboBox4.Text = "GSM";
-            this.comboBox4.ValueMember = "10,12,15,20";
+            this.cmbReportGSM.DisplayMember = "10";
+            this.cmbReportGSM.FormattingEnabled = true;
+            this.cmbReportGSM.Location = new System.Drawing.Point(314, 80);
+            this.cmbReportGSM.Name = "cmbReportGSM";
+            this.cmbReportGSM.Size = new System.Drawing.Size(100, 21);
+            this.cmbReportGSM.TabIndex = 12;
+            this.cmbReportGSM.Text = "GSM";
+            this.cmbReportGSM.ValueMember = "10,12,15,20";
             // 
-            // comboBox5
+            // cmbReportBF
             // 
-            this.comboBox5.DisplayMember = "10";
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(172, 80);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(100, 21);
-            this.comboBox5.TabIndex = 11;
-            this.comboBox5.Text = "BF";
+            this.cmbReportBF.DisplayMember = "10";
+            this.cmbReportBF.FormattingEnabled = true;
+            this.cmbReportBF.Location = new System.Drawing.Point(172, 80);
+            this.cmbReportBF.Name = "cmbReportBF";
+            this.cmbReportBF.Size = new System.Drawing.Size(100, 21);
+            this.cmbReportBF.TabIndex = 11;
+            this.cmbReportBF.Text = "BF";
             // 
-            // materialSingleLineTextField4
+            // txtReportWeight
             // 
-            this.materialSingleLineTextField4.Depth = 0;
-            this.materialSingleLineTextField4.Hint = "WEIGHT";
-            this.materialSingleLineTextField4.Location = new System.Drawing.Point(583, 80);
-            this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField4.Name = "materialSingleLineTextField4";
-            this.materialSingleLineTextField4.PasswordChar = '\0';
-            this.materialSingleLineTextField4.SelectedText = "";
-            this.materialSingleLineTextField4.SelectionLength = 0;
-            this.materialSingleLineTextField4.SelectionStart = 0;
-            this.materialSingleLineTextField4.Size = new System.Drawing.Size(75, 23);
-            this.materialSingleLineTextField4.TabIndex = 14;
-            this.materialSingleLineTextField4.UseSystemPasswordChar = false;
+            this.txtReportWeight.Depth = 0;
+            this.txtReportWeight.Hint = "WEIGHT";
+            this.txtReportWeight.Location = new System.Drawing.Point(583, 80);
+            this.txtReportWeight.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtReportWeight.Name = "txtReportWeight";
+            this.txtReportWeight.PasswordChar = '\0';
+            this.txtReportWeight.SelectedText = "";
+            this.txtReportWeight.SelectionLength = 0;
+            this.txtReportWeight.SelectionStart = 0;
+            this.txtReportWeight.Size = new System.Drawing.Size(75, 23);
+            this.txtReportWeight.TabIndex = 14;
+            this.txtReportWeight.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField5
+            // txtReportSize
             // 
-            this.materialSingleLineTextField5.Depth = 0;
-            this.materialSingleLineTextField5.Hint = "SIZE";
-            this.materialSingleLineTextField5.Location = new System.Drawing.Point(458, 80);
-            this.materialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField5.Name = "materialSingleLineTextField5";
-            this.materialSingleLineTextField5.PasswordChar = '\0';
-            this.materialSingleLineTextField5.SelectedText = "";
-            this.materialSingleLineTextField5.SelectionLength = 0;
-            this.materialSingleLineTextField5.SelectionStart = 0;
-            this.materialSingleLineTextField5.Size = new System.Drawing.Size(75, 23);
-            this.materialSingleLineTextField5.TabIndex = 13;
-            this.materialSingleLineTextField5.UseSystemPasswordChar = false;
+            this.txtReportSize.Depth = 0;
+            this.txtReportSize.Hint = "SIZE";
+            this.txtReportSize.Location = new System.Drawing.Point(458, 80);
+            this.txtReportSize.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtReportSize.Name = "txtReportSize";
+            this.txtReportSize.PasswordChar = '\0';
+            this.txtReportSize.SelectedText = "";
+            this.txtReportSize.SelectionLength = 0;
+            this.txtReportSize.SelectionStart = 0;
+            this.txtReportSize.Size = new System.Drawing.Size(75, 23);
+            this.txtReportSize.TabIndex = 13;
+            this.txtReportSize.UseSystemPasswordChar = false;
             // 
             // lblToDate
             // 
@@ -889,11 +888,11 @@
         private MaterialSkin.Controls.MaterialFlatButton btnPrintReport;
         private MaterialSkin.Controls.MaterialRaisedButton btnShowDispatchedOrder;
         private MaterialSkin.Controls.MaterialRaisedButton btnShowAddedProduct;
-        private System.Windows.Forms.ComboBox cmbReportPartName;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField5;
+        private System.Windows.Forms.ComboBox cmbReportPartyName;
+        private System.Windows.Forms.ComboBox cmbReportGSM;
+        private System.Windows.Forms.ComboBox cmbReportBF;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtReportWeight;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtReportSize;
         private MaterialSkin.Controls.MaterialLabel lblToDate;
         private System.Windows.Forms.DateTimePicker dateTimePicker4;
         private MaterialSkin.Controls.MaterialLabel lblFromDate;
