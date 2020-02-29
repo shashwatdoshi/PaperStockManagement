@@ -66,7 +66,7 @@ CREATE TABLE [dbo].[Stock](
 GO
 
 CREATE TABLE [dbo].[StockInventory](
-	[ID] [int] NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[StockID] [int] NOT NULL,
 	[Quantity] [bigint] NOT NULL,
 	[Date] [datetime] NOT NULL,
