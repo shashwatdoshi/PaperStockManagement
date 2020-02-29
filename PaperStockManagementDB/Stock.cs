@@ -27,8 +27,6 @@ namespace ProjectStockManagement.PaperStockManagementDB
         public double Size { get; set; }
         public double Weight { get; set; }
     
-        public virtual BreakingForce BreakingForce1 { get; set; }
-        public virtual GSM GSM1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

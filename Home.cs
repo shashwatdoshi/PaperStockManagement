@@ -13,6 +13,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using MaterialSkin.Controls;
 using ProjectStockManagement.PaperStockManagementDB;
+using System.Data.Entity;
 
 namespace ProjectStockManagement
 {
@@ -51,6 +52,7 @@ namespace ProjectStockManagement
                 cmbPartyName.DataSource = PartyNameList;
                 cmbReportPartName.DataSource = PartyNameList;
             }
+            gridControl1.DataSource = CreateDataSource();
         }
 
         private void btnAddBF_Click(object sender, EventArgs e)
@@ -122,6 +124,26 @@ namespace ProjectStockManagement
                 paperStockManagementDB.StockInventories.Add(inventory);
                 paperStockManagementDB.SaveChanges();
             }
+        }
+
+        DataTable dataTable;
+        private DataTable CreateDataSource()
+        {
+            dataTable = new DataTable();
+            dataTable.TableName = "GridTempTable";
+            dataTable.Columns.Add("Client", typeof(string));
+            dataTable.Columns.Add("BF", typeof(int));
+            dataTable.Columns.Add("GSM", typeof(int));
+            dataTable.Columns.Add("Size", typeof(float));
+            dataTable.Columns.Add("Weight", typeof(float));
+            dataTable.Columns.Add("Quantity", typeof(long));
+
+            return dataTable;
+        }
+
+        private void btnAddOrder_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
