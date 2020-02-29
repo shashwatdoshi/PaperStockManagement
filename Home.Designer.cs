@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.mainNavigation = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.addStockNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.txtStockQuantity = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.cmbGSM = new System.Windows.Forms.ComboBox();
             this.cmbBF = new System.Windows.Forms.ComboBox();
             this.btnReset = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -41,6 +42,8 @@
             this.lblDate = new MaterialSkin.Controls.MaterialLabel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.addOrderNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.cmbAddOrderDetail = new System.Windows.Forms.ComboBox();
+            this.cmbAddOrderPartyName = new System.Windows.Forms.ComboBox();
             this.btnCancelOrder = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnSaveOrder = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnAddOrder = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -51,6 +54,7 @@
             this.txtDriverName = new System.Windows.Forms.MaskedTextBox();
             this.cmbVehicleInfo = new System.Windows.Forms.ComboBox();
             this.grpManualDispatch = new DevExpress.XtraEditors.GroupControl();
+            this.txtManualDispatchQuantity = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.cmbManualDispatchGSM = new System.Windows.Forms.ComboBox();
             this.cmbManualDispatchBF = new System.Windows.Forms.ComboBox();
             this.txtManualDispatchWeight = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -67,7 +71,7 @@
             this.btnPrintReport = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnShowDispatchedOrder = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnShowAddedProduct = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbReportPartName = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -82,10 +86,6 @@
             this.btnAddVehicle = new System.Windows.Forms.Button();
             this.btnAddGF = new System.Windows.Forms.Button();
             this.dlgPrintReport = new System.Windows.Forms.PrintDialog();
-            this.txtStockQuantity = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtManualDispatchQuantity = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.cmbAddOrderPartyName = new System.Windows.Forms.ComboBox();
-            this.cmbAddOrderDetail = new System.Windows.Forms.ComboBox();
             this.toolTipAddOrder = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainNavigation)).BeginInit();
             this.mainNavigation.SuspendLayout();
@@ -141,6 +141,21 @@
             this.addStockNavigationPage.Name = "addStockNavigationPage";
             this.addStockNavigationPage.Size = new System.Drawing.Size(670, 309);
             this.addStockNavigationPage.ToolTip = "Add Stock";
+            // 
+            // txtStockQuantity
+            // 
+            this.txtStockQuantity.Depth = 0;
+            this.txtStockQuantity.Hint = "QUANTITY";
+            this.txtStockQuantity.Location = new System.Drawing.Point(562, 73);
+            this.txtStockQuantity.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtStockQuantity.Name = "txtStockQuantity";
+            this.txtStockQuantity.PasswordChar = '\0';
+            this.txtStockQuantity.SelectedText = "";
+            this.txtStockQuantity.SelectionLength = 0;
+            this.txtStockQuantity.SelectionStart = 0;
+            this.txtStockQuantity.Size = new System.Drawing.Size(75, 23);
+            this.txtStockQuantity.TabIndex = 6;
+            this.txtStockQuantity.UseSystemPasswordChar = false;
             // 
             // cmbGSM
             // 
@@ -236,12 +251,12 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Depth = 0;
-            this.lblDate.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblDate.Location = new System.Drawing.Point(396, 9);
             this.lblDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(48, 19);
+            this.lblDate.Size = new System.Drawing.Size(47, 18);
             this.lblDate.TabIndex = 1;
             this.lblDate.Text = "Date :";
             // 
@@ -265,6 +280,24 @@
             this.addOrderNavigationPage.Controls.Add(this.dtpStockDate);
             this.addOrderNavigationPage.Name = "addOrderNavigationPage";
             this.addOrderNavigationPage.Size = new System.Drawing.Size(670, 309);
+            // 
+            // cmbAddOrderDetail
+            // 
+            this.cmbAddOrderDetail.FormattingEnabled = true;
+            this.cmbAddOrderDetail.Location = new System.Drawing.Point(216, 55);
+            this.cmbAddOrderDetail.Name = "cmbAddOrderDetail";
+            this.cmbAddOrderDetail.Size = new System.Drawing.Size(276, 21);
+            this.cmbAddOrderDetail.TabIndex = 11;
+            this.cmbAddOrderDetail.Text = "BF | GSM | SIZE | WEIGHT | QUANTITY";
+            // 
+            // cmbAddOrderPartyName
+            // 
+            this.cmbAddOrderPartyName.FormattingEnabled = true;
+            this.cmbAddOrderPartyName.Location = new System.Drawing.Point(23, 55);
+            this.cmbAddOrderPartyName.Name = "cmbAddOrderPartyName";
+            this.cmbAddOrderPartyName.Size = new System.Drawing.Size(121, 21);
+            this.cmbAddOrderPartyName.TabIndex = 10;
+            this.cmbAddOrderPartyName.Text = "Party Name";
             // 
             // btnCancelOrder
             // 
@@ -306,12 +339,12 @@
             // 
             this.lblOrderDate.AutoSize = true;
             this.lblOrderDate.Depth = 0;
-            this.lblOrderDate.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lblOrderDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblOrderDate.Location = new System.Drawing.Point(400, 9);
             this.lblOrderDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(48, 19);
+            this.lblOrderDate.Size = new System.Drawing.Size(47, 18);
             this.lblOrderDate.TabIndex = 3;
             this.lblOrderDate.Text = "Date :";
             // 
@@ -376,6 +409,21 @@
             this.grpManualDispatch.Size = new System.Drawing.Size(650, 100);
             this.grpManualDispatch.TabIndex = 10;
             this.grpManualDispatch.Text = "Manual Dispatch";
+            // 
+            // txtManualDispatchQuantity
+            // 
+            this.txtManualDispatchQuantity.Depth = 0;
+            this.txtManualDispatchQuantity.Hint = "QUANTITY";
+            this.txtManualDispatchQuantity.Location = new System.Drawing.Point(556, 56);
+            this.txtManualDispatchQuantity.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtManualDispatchQuantity.Name = "txtManualDispatchQuantity";
+            this.txtManualDispatchQuantity.PasswordChar = '\0';
+            this.txtManualDispatchQuantity.SelectedText = "";
+            this.txtManualDispatchQuantity.SelectionLength = 0;
+            this.txtManualDispatchQuantity.SelectionStart = 0;
+            this.txtManualDispatchQuantity.Size = new System.Drawing.Size(75, 23);
+            this.txtManualDispatchQuantity.TabIndex = 10;
+            this.txtManualDispatchQuantity.UseSystemPasswordChar = false;
             // 
             // cmbManualDispatchGSM
             // 
@@ -538,7 +586,7 @@
             this.reportsNavigationPage.Controls.Add(this.btnPrintReport);
             this.reportsNavigationPage.Controls.Add(this.btnShowDispatchedOrder);
             this.reportsNavigationPage.Controls.Add(this.btnShowAddedProduct);
-            this.reportsNavigationPage.Controls.Add(this.comboBox3);
+            this.reportsNavigationPage.Controls.Add(this.cmbReportPartName);
             this.reportsNavigationPage.Controls.Add(this.comboBox4);
             this.reportsNavigationPage.Controls.Add(this.comboBox5);
             this.reportsNavigationPage.Controls.Add(this.materialSingleLineTextField4);
@@ -590,15 +638,15 @@
             this.btnShowAddedProduct.Text = "Show Added Product";
             this.btnShowAddedProduct.UseVisualStyleBackColor = true;
             // 
-            // comboBox3
+            // cmbReportPartName
             // 
-            this.comboBox3.DisplayMember = "10";
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(25, 80);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 21);
-            this.comboBox3.TabIndex = 10;
-            this.comboBox3.Text = "Party Name";
+            this.cmbReportPartName.DisplayMember = "10";
+            this.cmbReportPartName.FormattingEnabled = true;
+            this.cmbReportPartName.Location = new System.Drawing.Point(25, 80);
+            this.cmbReportPartName.Name = "cmbReportPartName";
+            this.cmbReportPartName.Size = new System.Drawing.Size(100, 21);
+            this.cmbReportPartName.TabIndex = 10;
+            this.cmbReportPartName.Text = "Party Name";
             // 
             // comboBox4
             // 
@@ -655,12 +703,12 @@
             // 
             this.lblToDate.AutoSize = true;
             this.lblToDate.Depth = 0;
-            this.lblToDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblToDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblToDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblToDate.Location = new System.Drawing.Point(385, 9);
             this.lblToDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(69, 18);
+            this.lblToDate.Size = new System.Drawing.Size(70, 19);
             this.lblToDate.TabIndex = 9;
             this.lblToDate.Text = "To Date :";
             // 
@@ -675,12 +723,12 @@
             // 
             this.lblFromDate.AutoSize = true;
             this.lblFromDate.Depth = 0;
-            this.lblFromDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblFromDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblFromDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblFromDate.Location = new System.Drawing.Point(21, 9);
             this.lblFromDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(87, 18);
+            this.lblFromDate.Size = new System.Drawing.Size(87, 19);
             this.lblFromDate.TabIndex = 7;
             this.lblFromDate.Text = "From Date :";
             // 
@@ -744,54 +792,6 @@
             // dlgPrintReport
             // 
             this.dlgPrintReport.UseEXDialog = true;
-            // 
-            // txtStockQuantity
-            // 
-            this.txtStockQuantity.Depth = 0;
-            this.txtStockQuantity.Hint = "QUANTITY";
-            this.txtStockQuantity.Location = new System.Drawing.Point(562, 73);
-            this.txtStockQuantity.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtStockQuantity.Name = "txtStockQuantity";
-            this.txtStockQuantity.PasswordChar = '\0';
-            this.txtStockQuantity.SelectedText = "";
-            this.txtStockQuantity.SelectionLength = 0;
-            this.txtStockQuantity.SelectionStart = 0;
-            this.txtStockQuantity.Size = new System.Drawing.Size(75, 23);
-            this.txtStockQuantity.TabIndex = 6;
-            this.txtStockQuantity.UseSystemPasswordChar = false;
-            // 
-            // txtManualDispatchQuantity
-            // 
-            this.txtManualDispatchQuantity.Depth = 0;
-            this.txtManualDispatchQuantity.Hint = "QUANTITY";
-            this.txtManualDispatchQuantity.Location = new System.Drawing.Point(556, 56);
-            this.txtManualDispatchQuantity.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtManualDispatchQuantity.Name = "txtManualDispatchQuantity";
-            this.txtManualDispatchQuantity.PasswordChar = '\0';
-            this.txtManualDispatchQuantity.SelectedText = "";
-            this.txtManualDispatchQuantity.SelectionLength = 0;
-            this.txtManualDispatchQuantity.SelectionStart = 0;
-            this.txtManualDispatchQuantity.Size = new System.Drawing.Size(75, 23);
-            this.txtManualDispatchQuantity.TabIndex = 10;
-            this.txtManualDispatchQuantity.UseSystemPasswordChar = false;
-            // 
-            // cmbAddOrderPartyName
-            // 
-            this.cmbAddOrderPartyName.FormattingEnabled = true;
-            this.cmbAddOrderPartyName.Location = new System.Drawing.Point(23, 55);
-            this.cmbAddOrderPartyName.Name = "cmbAddOrderPartyName";
-            this.cmbAddOrderPartyName.Size = new System.Drawing.Size(121, 21);
-            this.cmbAddOrderPartyName.TabIndex = 10;
-            this.cmbAddOrderPartyName.Text = "Party Name";
-            // 
-            // cmbAddOrderDetail
-            // 
-            this.cmbAddOrderDetail.FormattingEnabled = true;
-            this.cmbAddOrderDetail.Location = new System.Drawing.Point(216, 55);
-            this.cmbAddOrderDetail.Name = "cmbAddOrderDetail";
-            this.cmbAddOrderDetail.Size = new System.Drawing.Size(276, 21);
-            this.cmbAddOrderDetail.TabIndex = 11;
-            this.cmbAddOrderDetail.Text = "BF | GSM | SIZE | WEIGHT | QUANTITY";
             // 
             // toolTipAddOrder
             // 
@@ -889,7 +889,7 @@
         private MaterialSkin.Controls.MaterialFlatButton btnPrintReport;
         private MaterialSkin.Controls.MaterialRaisedButton btnShowDispatchedOrder;
         private MaterialSkin.Controls.MaterialRaisedButton btnShowAddedProduct;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbReportPartName;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox5;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;

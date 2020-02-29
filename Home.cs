@@ -20,6 +20,7 @@ namespace ProjectStockManagement
     {
         public static BindingList<int> BFList = new BindingList<int>();
         public static BindingList<int> GSMList = new BindingList<int>();
+        public static BindingList<string> PartyNameList = new BindingList<string>();
         public PaperStockManagement()
         {
             InitializeComponent();
@@ -39,8 +40,16 @@ namespace ProjectStockManagement
                     GSMList.Add(gsm.Value);
                 }
 
+                foreach (Client client in paperStockManagementDB.Clients.ToList())
+                {
+                    PartyNameList.Add(client.Name);
+                }
+
                 cmbBF.DataSource = BFList;
                 cmbGSM.DataSource = GSMList;
+                cmbAddOrderPartyName.DataSource = PartyNameList;
+                cmbPartyName.DataSource = PartyNameList;
+                cmbReportPartName.DataSource = PartyNameList;
             }
         }
 
@@ -88,6 +97,7 @@ namespace ProjectStockManagement
         {
             BFList.ResetBindings();
             GSMList.ResetBindings();
+            PartyNameList.ResetBindings();
         }
 
         private void LoadDataSource()

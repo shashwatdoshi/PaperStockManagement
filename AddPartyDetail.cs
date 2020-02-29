@@ -25,7 +25,7 @@ namespace ProjectStockManagement
         /// <param name="e">Instance of EventArgs.</param>
         private void addPartyDetails_Click(object sender, EventArgs e)
         {
-            // Add new GSM value to data-base.
+            // Add new Party details to data-base.
             using (var paperStockManagementDB = new PaperStockManagementDBEntities())
             {
                 var client = new Client();
@@ -35,6 +35,7 @@ namespace ProjectStockManagement
                 client.Email = txtEmail.Text;
                 paperStockManagementDB.Clients.Add(client);
                 paperStockManagementDB.SaveChanges();
+                PaperStockManagement.PartyNameList.Add(client.Name);
             }
 
             this.Close();
