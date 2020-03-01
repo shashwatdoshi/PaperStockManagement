@@ -131,7 +131,7 @@
             Client.OptionsColumn.ReadOnly = true;
             Client.UnboundType = DevExpress.Data.UnboundColumnType.String;
             Client.Visible = true;
-            Client.VisibleIndex = 0;
+            Client.VisibleIndex = 1;
             // 
             // BF
             // 
@@ -142,7 +142,7 @@
             BF.OptionsColumn.ReadOnly = true;
             BF.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             BF.Visible = true;
-            BF.VisibleIndex = 1;
+            BF.VisibleIndex = 2;
             // 
             // GSM
             // 
@@ -153,7 +153,7 @@
             GSM.OptionsColumn.ReadOnly = true;
             GSM.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             GSM.Visible = true;
-            GSM.VisibleIndex = 2;
+            GSM.VisibleIndex = 3;
             // 
             // Size
             // 
@@ -164,7 +164,7 @@
             Size.OptionsColumn.ReadOnly = true;
             Size.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             Size.Visible = true;
-            Size.VisibleIndex = 3;
+            Size.VisibleIndex = 4;
             // 
             // Weight
             // 
@@ -175,7 +175,7 @@
             Weight.OptionsColumn.ReadOnly = true;
             Weight.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             Weight.Visible = true;
-            Weight.VisibleIndex = 4;
+            Weight.VisibleIndex = 5;
             // 
             // Quantity
             // 
@@ -184,7 +184,7 @@
             Quantity.Name = "Quantity";
             Quantity.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             Quantity.Visible = true;
-            Quantity.VisibleIndex = 5;
+            Quantity.VisibleIndex = 6;
             // 
             // ID
             // 
@@ -213,10 +213,10 @@
             this.addOrderNavigationPage,
             this.dispatchNavigationPage,
             this.reportsNavigationPage});
-            this.mainNavigation.RegularSize = new System.Drawing.Size(797, 382);
+            this.mainNavigation.RegularSize = new System.Drawing.Size(797, 429);
             this.mainNavigation.SelectedPage = this.homeNavigationPage;
             this.mainNavigation.ShowToolTips = DevExpress.Utils.DefaultBoolean.True;
-            this.mainNavigation.Size = new System.Drawing.Size(797, 382);
+            this.mainNavigation.Size = new System.Drawing.Size(797, 429);
             this.mainNavigation.TabIndex = 1;
             this.mainNavigation.SelectedPageChanging += new DevExpress.XtraBars.Navigation.SelectedPageChangingEventHandler(this.mainNavigation_SelectedPageChanging);
             // 
@@ -392,6 +392,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(655, 200);
             this.gridControl1.TabIndex = 12;
+            this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -408,6 +409,8 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
             // 
             // cmbAddOrderDetail
             // 
@@ -876,7 +879,7 @@
             this.homeNavigationPage.Controls.Add(this.btnAddVehicle);
             this.homeNavigationPage.Controls.Add(this.btnAddGF);
             this.homeNavigationPage.Name = "homeNavigationPage";
-            this.homeNavigationPage.Size = new System.Drawing.Size(670, 309);
+            this.homeNavigationPage.Size = new System.Drawing.Size(670, 356);
             // 
             // btnAddParty
             // 
@@ -928,7 +931,7 @@
             // 
             // PaperStockManagement
             // 
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 497);
             this.Controls.Add(this.mainNavigation);
             this.Name = "PaperStockManagement";
             this.Text = "Paper Stock Management";
@@ -1038,8 +1041,8 @@
         private System.Windows.Forms.ComboBox cmbAddOrderDetail;
         private System.Windows.Forms.ToolTip toolTipAddOrder;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        internal DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

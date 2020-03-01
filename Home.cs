@@ -7,6 +7,9 @@ using DevExpress.XtraBars.Navigation;
 using ProjectStockManagement.PaperStockManagementDB;
 using ProjectStockManagement.Utility;
 using System.Collections.Generic;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Columns;
 
 namespace ProjectStockManagement
 {
@@ -257,6 +260,36 @@ namespace ProjectStockManagement
             
             dataTable.Rows.Add(row);
             gridControl1.RefreshDataSource();
+        }
+
+        private void gridView1_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            var view = sender as GridView;
+
+            var listSourceRowIndex = view.GetDataSourceRowIndex(e.RowHandle);
+
+            var id = (int)dataTable.Rows[listSourceRowIndex][0];
+
+            StockInventory stock = null;
+            using (var paperStockManagementDB = new PaperStockManagementDBEntities())
+            {
+                foreach (StockInventory stockInventory in
+                    paperStockManagementDB.StockInventories.ToList())
+                {
+                    if (stockInventory.ID == id)
+                    {
+                        stock = stockInventory;
+                    }
+                }
+;
+            }
+
+            var quantity = int.Parse(view.GetRowCellValue(e.RowHandle, "Quantity").ToString());
+
+            if (stock.Quantity < quantity)
+            {
+                e.Valid = false;
+            }
         }
     }
 }
