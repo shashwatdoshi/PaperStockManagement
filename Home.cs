@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars.Navigation;
 using ProjectStockManagement.PaperStockManagementDB;
 using ProjectStockManagement.Utility;
+using System.Collections.Generic;
 
 namespace ProjectStockManagement
 {
@@ -78,10 +79,11 @@ namespace ProjectStockManagement
                     paperStockManagementDB.StockInventories.ToList())
                 {
                     StockList.Add(stockInventory);
-                    ExStockList.Add(string.Format(Constant.StockDataFormat,
+                    string stockFormat = string.Format(Constant.StockDataFormat,
                         stockInventory.Stock.BreakingForce, stockInventory.Stock.GSM,
                         stockInventory.Stock.Size, stockInventory.Stock.Weight,
-                        stockInventory.Quantity));
+                        stockInventory.Quantity);
+                    ExStockList.Add(stockFormat);
                 }
             }
         }
@@ -212,9 +214,11 @@ namespace ProjectStockManagement
                 paperStockManagementDB.SaveChanges();
 
                 PaperStockManagement.StockList.Add(inventory);
-                PaperStockManagement.ExStockList.Add(string.Format(Constant.StockDataFormat,
-                        stock.BreakingForce, stock.GSM, stock.Size, stock.Weight,
-                        inventory.Quantity));
+                string stockFormat = string.Format(Constant.StockDataFormat,
+                        inventory.Stock.BreakingForce, inventory.Stock.GSM,
+                        inventory.Stock.Size, inventory.Stock.Weight,
+                        inventory.Quantity);
+                ExStockList.Add(stockFormat);
             }
         }
 
@@ -223,6 +227,7 @@ namespace ProjectStockManagement
         {
             dataTable = new DataTable();
             dataTable.TableName = "GridTempTable";
+            dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Client", typeof(string));
             dataTable.Columns.Add("BF", typeof(int));
             dataTable.Columns.Add("GSM", typeof(int));
@@ -237,14 +242,20 @@ namespace ProjectStockManagement
         {
             //Mock rows added.
             DataRow row = dataTable.NewRow();
-            row[0] = "abc";
-            row[1] = 23;
-            row[2] = 2;
-            row[3] = 23.12;
-            row[4] = 2.12;
-            row[5] = 12;
+            row[1] = cmbAddOrderPartyName.SelectedValue;
+
+            using (var paperStockManagementDB = new PaperStockManagementDBEntities())
+            {
+                StockInventory stockInventory = paperStockManagementDB.StockInventories.ToList()[cmbAddOrderDetail.SelectedIndex];
+                row[0] = stockInventory.ID;
+                row[2] = stockInventory.Stock.BreakingForce;
+                row[3] = stockInventory.Stock.GSM;
+                row[4] = stockInventory.Stock.Size;
+                row[5] = stockInventory.Stock.Weight;
+                row[6] = stockInventory.Quantity;
+            }
+            
             dataTable.Rows.Add(row);
-            gridControl1.DataSource = dataTable;
             gridControl1.RefreshDataSource();
         }
     }

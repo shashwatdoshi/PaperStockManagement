@@ -35,6 +35,7 @@
             DevExpress.XtraGrid.Columns.GridColumn Size;
             DevExpress.XtraGrid.Columns.GridColumn Weight;
             DevExpress.XtraGrid.Columns.GridColumn Quantity;
+            DevExpress.XtraGrid.Columns.GridColumn ID;
             this.mainNavigation = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.addStockNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.txtStockQuantity = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -48,6 +49,7 @@
             this.lblDate = new MaterialSkin.Controls.MaterialLabel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.addOrderNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cmbAddOrderDetail = new System.Windows.Forms.ComboBox();
@@ -102,10 +104,12 @@
             Size = new DevExpress.XtraGrid.Columns.GridColumn();
             Weight = new DevExpress.XtraGrid.Columns.GridColumn();
             Quantity = new DevExpress.XtraGrid.Columns.GridColumn();
+            ID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainNavigation)).BeginInit();
             this.mainNavigation.SuspendLayout();
             this.addStockNavigationPage.SuspendLayout();
             this.addOrderNavigationPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.dispatchNavigationPage.SuspendLayout();
@@ -181,6 +185,15 @@
             Quantity.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             Quantity.Visible = true;
             Quantity.VisibleIndex = 5;
+            // 
+            // ID
+            // 
+            ID.Caption = "ID";
+            ID.FieldName = "ID";
+            ID.Name = "ID";
+            ID.OptionsColumn.AllowEdit = false;
+            ID.OptionsColumn.ReadOnly = true;
+            ID.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             // 
             // mainNavigation
             // 
@@ -352,6 +365,7 @@
             // 
             this.addOrderNavigationPage.AutoSize = true;
             this.addOrderNavigationPage.Caption = "Add Order";
+            this.addOrderNavigationPage.Controls.Add(this.dataGridView1);
             this.addOrderNavigationPage.Controls.Add(this.gridControl1);
             this.addOrderNavigationPage.Controls.Add(this.cmbAddOrderDetail);
             this.addOrderNavigationPage.Controls.Add(this.cmbAddOrderPartyName);
@@ -361,14 +375,22 @@
             this.addOrderNavigationPage.Controls.Add(this.lblOrderDate);
             this.addOrderNavigationPage.Controls.Add(this.dtpStockDate);
             this.addOrderNavigationPage.Name = "addOrderNavigationPage";
-            this.addOrderNavigationPage.Size = new System.Drawing.Size(670, 373);
+            this.addOrderNavigationPage.Size = new System.Drawing.Size(681, 362);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(143, 181);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(8, 8);
+            this.dataGridView1.TabIndex = 13;
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(23, 170);
+            this.gridControl1.Location = new System.Drawing.Point(23, 159);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(400, 200);
+            this.gridControl1.Size = new System.Drawing.Size(655, 200);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -376,6 +398,7 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            ID,
             Client,
             BF,
             GSM,
@@ -916,6 +939,7 @@
             this.addStockNavigationPage.PerformLayout();
             this.addOrderNavigationPage.ResumeLayout(false);
             this.addOrderNavigationPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.dispatchNavigationPage.ResumeLayout(false);
@@ -1016,5 +1040,6 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
