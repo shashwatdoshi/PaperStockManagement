@@ -32,6 +32,11 @@
             this.btnAddGSM = new MaterialSkin.Controls.MaterialFlatButton();
             this.txtAddGSM = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblAddGSM = new MaterialSkin.Controls.MaterialLabel();
+            this.grdCtrlAddGSM = new DevExpress.XtraGrid.GridControl();
+            this.grdViewAddGSM = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCtrlAddGSM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewAddGSM)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancleGSM
@@ -96,21 +101,53 @@
             this.lblAddGSM.TabIndex = 4;
             this.lblAddGSM.Text = "Add GSM";
             // 
+            // grdCtrlAddGSM
+            // 
+            this.grdCtrlAddGSM.DataSource = typeof(ProjectStockManagement.PaperStockManagementDB.GSM);
+            this.grdCtrlAddGSM.Location = new System.Drawing.Point(73, 227);
+            this.grdCtrlAddGSM.MainView = this.grdViewAddGSM;
+            this.grdCtrlAddGSM.Name = "grdCtrlAddGSM";
+            this.grdCtrlAddGSM.Size = new System.Drawing.Size(400, 200);
+            this.grdCtrlAddGSM.TabIndex = 8;
+            this.grdCtrlAddGSM.UseEmbeddedNavigator = true;
+            this.grdCtrlAddGSM.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdViewAddGSM});
+            // 
+            // grdViewAddGSM
+            // 
+            this.grdViewAddGSM.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colValue});
+            this.grdViewAddGSM.GridControl = this.grdCtrlAddGSM;
+            this.grdViewAddGSM.Name = "grdViewAddGSM";
+            this.grdViewAddGSM.RowDeleted += new DevExpress.Data.RowDeletedEventHandler(this.grdViewAddGSM_RowDeleted);
+            this.grdViewAddGSM.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.grdViewAddGSM_RowUpdated);
+            // 
+            // colValue
+            // 
+            this.colValue.FieldName = "Value";
+            this.colValue.Name = "colValue";
+            this.colValue.ToolTip = "GSM Value";
+            this.colValue.Visible = true;
+            this.colValue.VisibleIndex = 0;
+            // 
             // AddGSM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 281);
+            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.grdCtrlAddGSM);
             this.Controls.Add(this.btnCancleGSM);
             this.Controls.Add(this.btnAddGSM);
             this.Controls.Add(this.txtAddGSM);
             this.Controls.Add(this.lblAddGSM);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(320, 320);
+            this.MaximumSize = new System.Drawing.Size(600, 500);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(320, 320);
+            this.MinimumSize = new System.Drawing.Size(600, 500);
             this.Name = "AddGSM";
             this.Text = "AddGSM";
+            ((System.ComponentModel.ISupportInitialize)(this.grdCtrlAddGSM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewAddGSM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +159,8 @@
         private MaterialSkin.Controls.MaterialFlatButton btnAddGSM;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtAddGSM;
         private MaterialSkin.Controls.MaterialLabel lblAddGSM;
+        private DevExpress.XtraGrid.GridControl grdCtrlAddGSM;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewAddGSM;
+        private DevExpress.XtraGrid.Columns.GridColumn colValue;
     }
 }

@@ -32,6 +32,11 @@
             this.txtAddBF = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnAddBF = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnCancleBF = new MaterialSkin.Controls.MaterialFlatButton();
+            this.grdCtrlAddBF = new DevExpress.XtraGrid.GridControl();
+            this.grdViewAddBF = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCtrlAddBF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewAddBF)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAddBF
@@ -96,22 +101,58 @@
             this.btnCancleBF.UseVisualStyleBackColor = true;
             this.btnCancleBF.Click += new System.EventHandler(this.btnCancleBF_Click);
             // 
+            // grdCtrlAddBF
+            // 
+            this.grdCtrlAddBF.DataSource = typeof(ProjectStockManagement.PaperStockManagementDB.BreakingForce);
+            this.grdCtrlAddBF.Location = new System.Drawing.Point(73, 225);
+            this.grdCtrlAddBF.MainView = this.grdViewAddBF;
+            this.grdCtrlAddBF.Name = "grdCtrlAddBF";
+            this.grdCtrlAddBF.Size = new System.Drawing.Size(400, 200);
+            this.grdCtrlAddBF.TabIndex = 4;
+            this.grdCtrlAddBF.UseEmbeddedNavigator = true;
+            this.grdCtrlAddBF.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdViewAddBF});
+            // 
+            // grdViewAddBF
+            // 
+            this.grdViewAddBF.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colValue});
+            this.grdViewAddBF.CustomizationFormBounds = new System.Drawing.Rectangle(387, 334, 252, 266);
+            this.grdViewAddBF.GridControl = this.grdCtrlAddBF;
+            this.grdViewAddBF.Name = "grdViewAddBF";
+            this.grdViewAddBF.RowDeleted += new DevExpress.Data.RowDeletedEventHandler(this.grdViewAddBF_RowDeleted);
+            this.grdViewAddBF.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.grdViewAddBF_RowUpdated);
+            // 
+            // colValue
+            // 
+            this.colValue.AppearanceHeader.Options.UseTextOptions = true;
+            this.colValue.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colValue.FieldName = "Value";
+            this.colValue.MinWidth = 10;
+            this.colValue.Name = "colValue";
+            this.colValue.Visible = true;
+            this.colValue.VisibleIndex = 0;
+            this.colValue.Width = 10;
+            // 
             // AddBF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancleBF;
-            this.ClientSize = new System.Drawing.Size(304, 281);
+            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.grdCtrlAddBF);
             this.Controls.Add(this.btnCancleBF);
             this.Controls.Add(this.btnAddBF);
             this.Controls.Add(this.txtAddBF);
             this.Controls.Add(this.lblAddBF);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(320, 320);
+            this.MaximumSize = new System.Drawing.Size(600, 500);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(320, 320);
+            this.MinimumSize = new System.Drawing.Size(600, 500);
             this.Name = "AddBF";
             this.Text = "Add Breaking Force (BF)";
+            ((System.ComponentModel.ISupportInitialize)(this.grdCtrlAddBF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewAddBF)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +164,8 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtAddBF;
         private MaterialSkin.Controls.MaterialFlatButton btnAddBF;
         private MaterialSkin.Controls.MaterialFlatButton btnCancleBF;
+        private DevExpress.XtraGrid.GridControl grdCtrlAddBF;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewAddBF;
+        private DevExpress.XtraGrid.Columns.GridColumn colValue;
     }
 }

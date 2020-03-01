@@ -32,6 +32,11 @@
             this.btnAddVehicle = new MaterialSkin.Controls.MaterialFlatButton();
             this.txtAddVehicle = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblAddVehicle = new MaterialSkin.Controls.MaterialLabel();
+            this.grdCtrlAddVehicle = new DevExpress.XtraGrid.GridControl();
+            this.grdViewAddVehicle = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCtrlAddVehicle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewAddVehicle)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancleVehicle
@@ -96,22 +101,53 @@
             this.lblAddVehicle.TabIndex = 4;
             this.lblAddVehicle.Text = "Add Vehicle Details";
             // 
+            // grdCtrlAddVehicle
+            // 
+            this.grdCtrlAddVehicle.DataSource = typeof(ProjectStockManagement.PaperStockManagementDB.Vehicle);
+            this.grdCtrlAddVehicle.Location = new System.Drawing.Point(73, 228);
+            this.grdCtrlAddVehicle.MainView = this.grdViewAddVehicle;
+            this.grdCtrlAddVehicle.Name = "grdCtrlAddVehicle";
+            this.grdCtrlAddVehicle.Size = new System.Drawing.Size(400, 200);
+            this.grdCtrlAddVehicle.TabIndex = 8;
+            this.grdCtrlAddVehicle.UseEmbeddedNavigator = true;
+            this.grdCtrlAddVehicle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdViewAddVehicle});
+            // 
+            // grdViewAddVehicle
+            // 
+            this.grdViewAddVehicle.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colNumber});
+            this.grdViewAddVehicle.GridControl = this.grdCtrlAddVehicle;
+            this.grdViewAddVehicle.Name = "grdViewAddVehicle";
+            this.grdViewAddVehicle.RowDeleted += new DevExpress.Data.RowDeletedEventHandler(this.grdViewAddVehicle_RowDeleted);
+            this.grdViewAddVehicle.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.grdViewAddVehicle_RowUpdated);
+            // 
+            // colNumber
+            // 
+            this.colNumber.FieldName = "Number";
+            this.colNumber.Name = "colNumber";
+            this.colNumber.Visible = true;
+            this.colNumber.VisibleIndex = 0;
+            // 
             // AddVehicle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 281);
+            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.grdCtrlAddVehicle);
             this.Controls.Add(this.btnCancleVehicle);
             this.Controls.Add(this.btnAddVehicle);
             this.Controls.Add(this.txtAddVehicle);
             this.Controls.Add(this.lblAddVehicle);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(320, 320);
+            this.MaximumSize = new System.Drawing.Size(600, 500);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(320, 320);
+            this.MinimumSize = new System.Drawing.Size(600, 500);
             this.Name = "AddVehicle";
             this.Text = "Add Vehicle Details";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddVehicle_KeyPress);
+            ((System.ComponentModel.ISupportInitialize)(this.grdCtrlAddVehicle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewAddVehicle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +159,8 @@
         private MaterialSkin.Controls.MaterialFlatButton btnAddVehicle;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtAddVehicle;
         private MaterialSkin.Controls.MaterialLabel lblAddVehicle;
+        private DevExpress.XtraGrid.GridControl grdCtrlAddVehicle;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewAddVehicle;
+        private DevExpress.XtraGrid.Columns.GridColumn colNumber;
     }
 }

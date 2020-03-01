@@ -38,6 +38,14 @@
             this.lblEmail = new MaterialSkin.Controls.MaterialLabel();
             this.addPartyDetails = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnCanclePartyDetail = new MaterialSkin.Controls.MaterialFlatButton();
+            this.grdCtrlAddParty = new DevExpress.XtraGrid.GridControl();
+            this.grdViewAddParty = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colContact = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCtrlAddParty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewAddParty)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -159,11 +167,64 @@
             this.btnCanclePartyDetail.UseVisualStyleBackColor = true;
             this.btnCanclePartyDetail.Click += new System.EventHandler(this.btnCanclePartyDetail_Click);
             // 
+            // grdCtrlAddParty
+            // 
+            this.grdCtrlAddParty.DataSource = typeof(ProjectStockManagement.PaperStockManagementDB.Client);
+            this.grdCtrlAddParty.Location = new System.Drawing.Point(34, 334);
+            this.grdCtrlAddParty.MainView = this.grdViewAddParty;
+            this.grdCtrlAddParty.Name = "grdCtrlAddParty";
+            this.grdCtrlAddParty.Size = new System.Drawing.Size(400, 200);
+            this.grdCtrlAddParty.TabIndex = 10;
+            this.grdCtrlAddParty.UseEmbeddedNavigator = true;
+            this.grdCtrlAddParty.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdViewAddParty});
+            // 
+            // grdViewAddParty
+            // 
+            this.grdViewAddParty.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colName,
+            this.colContact,
+            this.colAddress,
+            this.colEmail});
+            this.grdViewAddParty.GridControl = this.grdCtrlAddParty;
+            this.grdViewAddParty.Name = "grdViewAddParty";
+            this.grdViewAddParty.RowDeleted += new DevExpress.Data.RowDeletedEventHandler(this.grdViewAddParty_RowDeleted);
+            this.grdViewAddParty.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.grdViewAddParty_RowUpdated);
+            // 
+            // colName
+            // 
+            this.colName.FieldName = "Name";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 0;
+            // 
+            // colContact
+            // 
+            this.colContact.FieldName = "Contact";
+            this.colContact.Name = "colContact";
+            this.colContact.Visible = true;
+            this.colContact.VisibleIndex = 1;
+            // 
+            // colAddress
+            // 
+            this.colAddress.FieldName = "Address";
+            this.colAddress.Name = "colAddress";
+            this.colAddress.Visible = true;
+            this.colAddress.VisibleIndex = 2;
+            // 
+            // colEmail
+            // 
+            this.colEmail.FieldName = "Email";
+            this.colEmail.Name = "colEmail";
+            this.colEmail.Visible = true;
+            this.colEmail.VisibleIndex = 3;
+            // 
             // AddPartyDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 381);
+            this.ClientSize = new System.Drawing.Size(584, 661);
+            this.Controls.Add(this.grdCtrlAddParty);
             this.Controls.Add(this.btnCanclePartyDetail);
             this.Controls.Add(this.addPartyDetails);
             this.Controls.Add(this.txtEmail);
@@ -174,9 +235,13 @@
             this.Controls.Add(this.lblContactNo);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
+            this.MaximumSize = new System.Drawing.Size(600, 700);
+            this.MinimumSize = new System.Drawing.Size(600, 700);
             this.Name = "AddPartyDetail";
             this.Text = "Add Party Details";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddPartyDetail_KeyPress);
+            ((System.ComponentModel.ISupportInitialize)(this.grdCtrlAddParty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewAddParty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +259,11 @@
         private MaterialSkin.Controls.MaterialLabel lblEmail;
         private MaterialSkin.Controls.MaterialFlatButton addPartyDetails;
         private MaterialSkin.Controls.MaterialFlatButton btnCanclePartyDetail;
+        private DevExpress.XtraGrid.GridControl grdCtrlAddParty;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewAddParty;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colContact;
+        private DevExpress.XtraGrid.Columns.GridColumn colAddress;
+        private DevExpress.XtraGrid.Columns.GridColumn colEmail;
     }
 }
