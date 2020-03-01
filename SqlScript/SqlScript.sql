@@ -115,7 +115,7 @@ ALTER TABLE [dbo].[Vehicle] CHECK CONSTRAINT [FK_Table_Vehicle_Driver]
 GO
 
 CREATE TABLE [dbo].[AuthenticationUser](
-	[ID] [int] NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Username] [nchar](20) NOT NULL,
 	[Password] [char](128) NOT NULL,
  CONSTRAINT [PK_AuthenticationUser] PRIMARY KEY CLUSTERED 
@@ -130,7 +130,7 @@ CREATE TABLE [dbo].[AuthenticationUser](
 GO
 
 CREATE TABLE [dbo].[Order](
-	[ID] [int] NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[ClientID] [int] NOT NULL,
 	[StockID] [int] NOT NULL,
 	[StartDate] [datetime] NOT NULL,

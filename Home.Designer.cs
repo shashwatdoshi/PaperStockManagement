@@ -35,7 +35,8 @@
             DevExpress.XtraGrid.Columns.GridColumn Size;
             DevExpress.XtraGrid.Columns.GridColumn Weight;
             DevExpress.XtraGrid.Columns.GridColumn Quantity;
-            DevExpress.XtraGrid.Columns.GridColumn ID;
+            DevExpress.XtraGrid.Columns.GridColumn StockID;
+            DevExpress.XtraGrid.Columns.GridColumn ClientID;
             this.mainNavigation = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.addStockNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.txtStockQuantity = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -104,7 +105,8 @@
             Size = new DevExpress.XtraGrid.Columns.GridColumn();
             Weight = new DevExpress.XtraGrid.Columns.GridColumn();
             Quantity = new DevExpress.XtraGrid.Columns.GridColumn();
-            ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            StockID = new DevExpress.XtraGrid.Columns.GridColumn();
+            ClientID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainNavigation)).BeginInit();
             this.mainNavigation.SuspendLayout();
             this.addStockNavigationPage.SuspendLayout();
@@ -186,14 +188,23 @@
             Quantity.Visible = true;
             Quantity.VisibleIndex = 6;
             // 
-            // ID
+            // StockID
             // 
-            ID.Caption = "ID";
-            ID.FieldName = "ID";
-            ID.Name = "ID";
-            ID.OptionsColumn.AllowEdit = false;
-            ID.OptionsColumn.ReadOnly = true;
-            ID.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            StockID.Caption = "StockID";
+            StockID.FieldName = "ID";
+            StockID.Name = "StockID";
+            StockID.OptionsColumn.AllowEdit = false;
+            StockID.OptionsColumn.ReadOnly = true;
+            StockID.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            // 
+            // ClientID
+            // 
+            ClientID.Caption = "ClientID";
+            ClientID.FieldName = "ClientID";
+            ClientID.Name = "ClientID";
+            ClientID.OptionsColumn.AllowEdit = false;
+            ClientID.OptionsColumn.ReadOnly = true;
+            ClientID.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             // 
             // mainNavigation
             // 
@@ -399,13 +410,14 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            ID,
+            StockID,
             Client,
             BF,
             GSM,
             Size,
             Weight,
-            Quantity});
+            Quantity,
+            ClientID});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.MultiSelect = true;
@@ -453,6 +465,7 @@
             this.btnSaveOrder.TabIndex = 8;
             this.btnSaveOrder.Text = "SAVE";
             this.btnSaveOrder.UseVisualStyleBackColor = true;
+            this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
             // 
             // btnAddOrder
             // 

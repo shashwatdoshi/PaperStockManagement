@@ -6,10 +6,9 @@ using System.Windows.Forms;
 using DevExpress.XtraBars.Navigation;
 using ProjectStockManagement.PaperStockManagementDB;
 using ProjectStockManagement.Utility;
-using System.Collections.Generic;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraGrid.Columns;
+using System.Collections.Generic;
 
 namespace ProjectStockManagement
 {
@@ -34,7 +33,7 @@ namespace ProjectStockManagement
         /// Contains all added values for Stock detail.
         /// </summary>
         public static BindingList<StockInventory> StockList = new BindingList<StockInventory>();
-        
+
         /// <summary>
         /// Contains all added values for Stock detail in format.
         /// </summary>
@@ -230,13 +229,14 @@ namespace ProjectStockManagement
         {
             dataTable = new DataTable();
             dataTable.TableName = "GridTempTable";
-            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("StockID", typeof(int));
             dataTable.Columns.Add("Client", typeof(string));
             dataTable.Columns.Add("BF", typeof(int));
             dataTable.Columns.Add("GSM", typeof(int));
             dataTable.Columns.Add("Size", typeof(float));
             dataTable.Columns.Add("Weight", typeof(float));
             dataTable.Columns.Add("Quantity", typeof(long));
+            dataTable.Columns.Add("ClientID", typeof(int));
 
             return dataTable;
         }
@@ -256,8 +256,10 @@ namespace ProjectStockManagement
                 row[4] = stockInventory.Stock.Size;
                 row[5] = stockInventory.Stock.Weight;
                 row[6] = stockInventory.Quantity;
+                Client client = paperStockManagementDB.Clients.ToList()[cmbAddOrderPartyName.SelectedIndex];
+                row[7] = client.ID;
             }
-            
+
             dataTable.Rows.Add(row);
             gridControl1.RefreshDataSource();
         }
@@ -270,19 +272,7 @@ namespace ProjectStockManagement
 
             var id = (int)dataTable.Rows[listSourceRowIndex][0];
 
-            StockInventory stock = null;
-            using (var paperStockManagementDB = new PaperStockManagementDBEntities())
-            {
-                foreach (StockInventory stockInventory in
-                    paperStockManagementDB.StockInventories.ToList())
-                {
-                    if (stockInventory.ID == id)
-                    {
-                        stock = stockInventory;
-                    }
-                }
-;
-            }
+            StockInventory stock = GetStockInventoryFromInventoryByID(id);
 
             var quantity = int.Parse(view.GetRowCellValue(e.RowHandle, "Quantity").ToString());
 
@@ -290,6 +280,50 @@ namespace ProjectStockManagement
             {
                 e.Valid = false;
             }
+        }
+
+        private void btnSaveOrder_Click(object sender, EventArgs e)
+        {
+            using (var paperStockManagementDB = new PaperStockManagementDBEntities())
+            {
+                //List<StockInventory> stockInventoryList = paperStockManagementDB.StockInventories.ToList();
+                //List<Client> clientList = paperStockManagementDB.Clients.ToList();
+                for (int i = 0; i < gridView1.DataRowCount; i++)
+                {
+                    Order order = new Order();
+                    order.StartDate = DateTime.Now;
+
+                    var id = int.Parse(gridView1.GetRowCellValue(i, "StockID").ToString());
+                    StockInventory stockInventory = GetStockInventoryFromInventoryByID(id);
+                    stockInventory.Quantity -= int.Parse(gridView1.GetRowCellValue(i, "Quantity").ToString());
+                    order.StockID = stockInventory.StockID;
+                    order.ClientID = int.Parse(gridView1.GetRowCellValue(i, "ClientID").ToString());
+
+                    paperStockManagementDB.Orders.Add(order);
+                    paperStockManagementDB.SaveChanges();
+                }
+            }
+
+            dataTable.Rows.Clear();
+
+            gridControl1.RefreshDataSource();
+        }
+
+        private StockInventory GetStockInventoryFromInventoryByID(int id)
+        {
+            using (var paperStockManagementDB = new PaperStockManagementDBEntities())
+            {
+                foreach (StockInventory stockInventory in
+                    paperStockManagementDB.StockInventories.ToList())
+                {
+                    if (stockInventory.ID == id)
+                    {
+                        return stockInventory;
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }
