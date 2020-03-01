@@ -21,6 +21,7 @@ namespace ProjectStockManagement.PaperStockManagementDB
         public Nullable<System.DateTime> EndDate { get; set; }
         public bool Deleted { get; set; }
         public Nullable<long> VehicleID { get; set; }
+        public int Quantity { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Stock Stock { get; set; }

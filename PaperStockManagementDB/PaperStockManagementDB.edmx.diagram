@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="369b1c91f0a941d49b0d4b82f64e6186" Name="Diagram1">
-        <EntityTypeShape EntityType="PaperStockManagementDBModel.AuthenticationUser" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="PaperStockManagementDBModel.BreakingForce" Width="1.5" PointX="5.75" PointY="5" IsExpanded="true" />
+      <Diagram DiagramId="50fcd049c957443fa9fad33805c621fe" Name="Diagram1">
+        <EntityTypeShape EntityType="PaperStockManagementDBModel.AuthenticationUser" Width="1.5" PointX="5.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PaperStockManagementDBModel.BreakingForce" Width="1.5" PointX="5.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PaperStockManagementDBModel.Client" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PaperStockManagementDBModel.Driver" Width="1.5" PointX="1.5" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PaperStockManagementDBModel.GSM" Width="1.5" PointX="5.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="PaperStockManagementDBModel.Order" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PaperStockManagementDBModel.Driver" Width="1.5" PointX="1.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PaperStockManagementDBModel.GSM" Width="1.5" PointX="5.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PaperStockManagementDBModel.Order" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PaperStockManagementDBModel.Stock" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="PaperStockManagementDBModel.StockInventory" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PaperStockManagementDBModel.StockInventory" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PaperStockManagementDBModel.Vehicle" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <AssociationConnector Association="PaperStockManagementDBModel.FK_Order_Client" ManuallyRouted="false" />
         <AssociationConnector Association="PaperStockManagementDBModel.FK_Table_Vehicle_Driver" ManuallyRouted="false" />

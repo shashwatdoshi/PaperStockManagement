@@ -137,6 +137,7 @@ CREATE TABLE [dbo].[Order](
 	[EndDate] [datetime] NULL,
 	[Deleted] [bit] NOT NULL,
 	[VehicleID] [bigint] NULL,
+	[Quantity] [int] NOT NULL,
  CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -145,6 +146,9 @@ CREATE TABLE [dbo].[Order](
 GO
 
 ALTER TABLE [dbo].[Order] ADD  CONSTRAINT [DF_Order_Deleted]  DEFAULT ((0)) FOR [Deleted]
+GO
+
+ALTER TABLE [dbo].[Order] ADD  CONSTRAINT [DF_Order_Quantity]  DEFAULT ((0)) FOR [Quantity]
 GO
 
 ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Client] FOREIGN KEY([ClientID])

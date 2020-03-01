@@ -57,6 +57,7 @@
           <Property Name="EndDate" Type="datetime" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
           <Property Name="VehicleID" Type="bigint" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Stock">
           <Key>
@@ -235,6 +236,7 @@
           <Property Name="EndDate" Type="DateTime" Precision="3" />
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
           <Property Name="VehicleID" Type="Int64" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="Client" />
           <NavigationProperty Name="Stock" Relationship="Self.FK_Order_Stock" FromRole="Order" ToRole="Stock" />
           <NavigationProperty Name="Vehicle" Relationship="Self.FK_Order_Vehicle" FromRole="Order" ToRole="Vehicle" />
@@ -424,6 +426,7 @@
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
