@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectStockManagement.PaperStockManagementDB;
 
 namespace ProjectStockManagement
 {
+    /// <summary>
+    /// Contain necessary action for adding GSM details.
+    /// </summary>
     public partial class AddGSM : Form
     {
+        /// <summary>
+        /// Initialize insatance(constructor) of AddGSM.
+        /// </summary>
         public AddGSM()
         {
             InitializeComponent();

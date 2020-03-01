@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\Constant.cs" />
     <EmbeddedResource Include="AddGSM.resx">
       <DependentUpon>AddGSM.cs</DependentUpon>
     </EmbeddedResource>

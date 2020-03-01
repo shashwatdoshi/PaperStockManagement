@@ -1,18 +1,17 @@
 ﻿using ProjectStockManagement.PaperStockManagementDB;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectStockManagement
 {
+    /// <summary>
+    /// Contain necessary action for adding Vehicle info.
+    /// </summary>
     public partial class AddVehicle : Form
     {
+        /// <summary>
+        /// Initialize insatance(constructor) of AddVehicle.
+        /// </summary>
         public AddVehicle()
         {
             InitializeComponent();

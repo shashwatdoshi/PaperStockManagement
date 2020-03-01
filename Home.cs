@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraBars.Navigation;
 using ProjectStockManagement.PaperStockManagementDB;
+using ProjectStockManagement.Utility;
 
 namespace ProjectStockManagement
 {
@@ -28,7 +29,7 @@ namespace ProjectStockManagement
         /// <summary>
         /// Contains all added values for Stock detail.
         /// </summary>
-        public static BindingList<Stock> StockList = new BindingList<Stock>();
+        public static BindingList<StockInventory> StockList = new BindingList<StockInventory>();
         
         /// <summary>
         /// Contains all added values for Stock detail in format.
@@ -73,11 +74,14 @@ namespace ProjectStockManagement
                     PartyNameList.Add(client.Name);
                 }
 
-                foreach (Stock stock in paperStockManagementDB.Stocks.ToList())
+                foreach (StockInventory stockInventory in
+                    paperStockManagementDB.StockInventories.ToList())
                 {
-                    StockList.Add(stock);
-                    ExStockList.Add(string.Format("{0} | {1} | {2} | {3}",
-                        stock.BreakingForce, stock.GSM, stock.Size, stock.Weight));
+                    StockList.Add(stockInventory);
+                    ExStockList.Add(string.Format(Constant.StockDataFormat,
+                        stockInventory.Stock.BreakingForce, stockInventory.Stock.GSM,
+                        stockInventory.Stock.Size, stockInventory.Stock.Weight,
+                        stockInventory.Quantity));
                 }
             }
         }
@@ -178,6 +182,8 @@ namespace ProjectStockManagement
             BFList.ResetBindings();
             GSMList.ResetBindings();
             PartyNameList.ResetBindings();
+            ExStockList.ResetBindings();
+            StockList.ResetBindings();
         }
 
         /// <summary>
@@ -189,18 +195,26 @@ namespace ProjectStockManagement
         {
             using (var paperStockManagementDB = new PaperStockManagementDBEntities())
             {
+                // Add new stock values to database.
                 var stock = new Stock();
                 stock.BreakingForce = Int32.Parse(cmbBF.SelectedItem.ToString());
                 stock.GSM = Int32.Parse(cmbGSM.SelectedItem.ToString());
                 stock.Weight = Int32.Parse(txtWeight.Text);
                 stock.Size = Int32.Parse(txtSize.Text);
+                paperStockManagementDB.Stocks.Add(stock);
+
+                // Add new stock values with quantity to inventory records to databse.
                 var inventory = new StockInventory();
                 inventory.Date = dateTimePicker1.Value;
                 inventory.Stock = stock;
                 inventory.Quantity = Int32.Parse(txtStockQuantity.Text);
-                paperStockManagementDB.Stocks.Add(stock);
                 paperStockManagementDB.StockInventories.Add(inventory);
                 paperStockManagementDB.SaveChanges();
+
+                PaperStockManagement.StockList.Add(inventory);
+                PaperStockManagement.ExStockList.Add(string.Format(Constant.StockDataFormat,
+                        stock.BreakingForce, stock.GSM, stock.Size, stock.Weight,
+                        inventory.Quantity));
             }
         }
 
