@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.Columns.GridColumn Client;
+            DevExpress.XtraGrid.Columns.GridColumn BF;
+            DevExpress.XtraGrid.Columns.GridColumn GSM;
+            DevExpress.XtraGrid.Columns.GridColumn Size;
+            DevExpress.XtraGrid.Columns.GridColumn Weight;
+            DevExpress.XtraGrid.Columns.GridColumn Quantity;
             this.mainNavigation = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.addStockNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.txtStockQuantity = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -44,12 +50,6 @@
             this.addOrderNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Client = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.BF = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.GSM = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Size = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Weight = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Quantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbAddOrderDetail = new System.Windows.Forms.ComboBox();
             this.cmbAddOrderPartyName = new System.Windows.Forms.ComboBox();
             this.btnCancelOrder = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -96,6 +96,12 @@
             this.dlgPrintReport = new System.Windows.Forms.PrintDialog();
             this.toolTipAddOrder = new System.Windows.Forms.ToolTip(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            Client = new DevExpress.XtraGrid.Columns.GridColumn();
+            BF = new DevExpress.XtraGrid.Columns.GridColumn();
+            GSM = new DevExpress.XtraGrid.Columns.GridColumn();
+            Size = new DevExpress.XtraGrid.Columns.GridColumn();
+            Weight = new DevExpress.XtraGrid.Columns.GridColumn();
+            Quantity = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainNavigation)).BeginInit();
             this.mainNavigation.SuspendLayout();
             this.addStockNavigationPage.SuspendLayout();
@@ -111,6 +117,70 @@
             this.homeNavigationPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Client
+            // 
+            Client.Caption = "Client";
+            Client.FieldName = "Client";
+            Client.Name = "Client";
+            Client.OptionsColumn.AllowEdit = false;
+            Client.OptionsColumn.ReadOnly = true;
+            Client.UnboundType = DevExpress.Data.UnboundColumnType.String;
+            Client.Visible = true;
+            Client.VisibleIndex = 0;
+            // 
+            // BF
+            // 
+            BF.Caption = "BF";
+            BF.FieldName = "BF";
+            BF.Name = "BF";
+            BF.OptionsColumn.AllowEdit = false;
+            BF.OptionsColumn.ReadOnly = true;
+            BF.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            BF.Visible = true;
+            BF.VisibleIndex = 1;
+            // 
+            // GSM
+            // 
+            GSM.Caption = "GSM";
+            GSM.FieldName = "GSM";
+            GSM.Name = "GSM";
+            GSM.OptionsColumn.AllowEdit = false;
+            GSM.OptionsColumn.ReadOnly = true;
+            GSM.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            GSM.Visible = true;
+            GSM.VisibleIndex = 2;
+            // 
+            // Size
+            // 
+            Size.Caption = "Size";
+            Size.FieldName = "Size";
+            Size.Name = "Size";
+            Size.OptionsColumn.AllowEdit = false;
+            Size.OptionsColumn.ReadOnly = true;
+            Size.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            Size.Visible = true;
+            Size.VisibleIndex = 3;
+            // 
+            // Weight
+            // 
+            Weight.Caption = "Weight";
+            Weight.FieldName = "Weight";
+            Weight.Name = "Weight";
+            Weight.OptionsColumn.AllowEdit = false;
+            Weight.OptionsColumn.ReadOnly = true;
+            Weight.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            Weight.Visible = true;
+            Weight.VisibleIndex = 4;
+            // 
+            // Quantity
+            // 
+            Quantity.Caption = "Quantity";
+            Quantity.FieldName = "Quantity";
+            Quantity.Name = "Quantity";
+            Quantity.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            Quantity.Visible = true;
+            Quantity.VisibleIndex = 5;
             // 
             // mainNavigation
             // 
@@ -306,57 +376,15 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Client,
-            this.BF,
-            this.GSM,
-            this.Size,
-            this.Weight,
-            this.Quantity});
+            Client,
+            BF,
+            GSM,
+            Size,
+            Weight,
+            Quantity});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.MultiSelect = true;
-            // 
-            // Client
-            // 
-            this.Client.Caption = "Client";
-            this.Client.Name = "Client";
-            this.Client.Visible = true;
-            this.Client.VisibleIndex = 0;
-            // 
-            // BF
-            // 
-            this.BF.Caption = "BF";
-            this.BF.Name = "BF";
-            this.BF.Visible = true;
-            this.BF.VisibleIndex = 1;
-            // 
-            // GSM
-            // 
-            this.GSM.Caption = "GSM";
-            this.GSM.Name = "GSM";
-            this.GSM.Visible = true;
-            this.GSM.VisibleIndex = 2;
-            // 
-            // Size
-            // 
-            this.Size.Caption = "Size";
-            this.Size.Name = "Size";
-            this.Size.Visible = true;
-            this.Size.VisibleIndex = 3;
-            // 
-            // Weight
-            // 
-            this.Weight.Caption = "Weight";
-            this.Weight.Name = "Weight";
-            this.Weight.Visible = true;
-            this.Weight.VisibleIndex = 4;
-            // 
-            // Quantity
-            // 
-            this.Quantity.Caption = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Visible = true;
-            this.Quantity.VisibleIndex = 5;
             // 
             // cmbAddOrderDetail
             // 
@@ -987,12 +1015,6 @@
         private System.Windows.Forms.ToolTip toolTipAddOrder;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn Client;
-        private DevExpress.XtraGrid.Columns.GridColumn BF;
-        private DevExpress.XtraGrid.Columns.GridColumn GSM;
-        private DevExpress.XtraGrid.Columns.GridColumn Size;
-        private DevExpress.XtraGrid.Columns.GridColumn Weight;
-        private DevExpress.XtraGrid.Columns.GridColumn Quantity;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }

@@ -221,7 +221,17 @@ namespace ProjectStockManagement
 
         private void btnAddOrder_Click(object sender, EventArgs e)
         {
-
+            //Mock rows added.
+            DataRow row = dataTable.NewRow();
+            row[0] = "abc";
+            row[1] = 23;
+            row[2] = 2;
+            row[3] = 23.12;
+            row[4] = 2.12;
+            row[5] = 12;
+            dataTable.Rows.Add(row);
+            gridControl1.DataSource = dataTable;
+            gridControl1.RefreshDataSource();
         }
     }
 }
