@@ -40,6 +40,11 @@ namespace ProjectStockManagement
         public static BindingList<string> ExStockList = new BindingList<string>();
 
         /// <summary>
+        /// Contains all added values for Vehicle detail in format.
+        /// </summary>
+        public static BindingList<string> VehicleList = new BindingList<string>();
+
+        /// <summary>
         /// Initialize insatance(constructor) of PaperStockManagement.
         /// </summary>
         public PaperStockManagement()
@@ -87,6 +92,11 @@ namespace ProjectStockManagement
                         stockInventory.Quantity);
                     ExStockList.Add(stockFormat);
                 }
+
+                foreach (Vehicle vehicle in paperStockManagementDB.Vehicles.ToList())
+                {
+                    VehicleList.Add(vehicle.Number);
+                }
             }
         }
 
@@ -112,6 +122,9 @@ namespace ProjectStockManagement
 
             // Add data to BF | GSM | SIZE | WEIGHT | QUANTITY contained combobox.
             cmbAddOrderDetail.DataSource = ExStockList;
+
+            // Add data to Vheicle information contained combobox.
+            cmbVehicleInfo.DataSource = VehicleList;
         }
 
         /// <summary>
@@ -188,6 +201,7 @@ namespace ProjectStockManagement
             PartyNameList.ResetBindings();
             ExStockList.ResetBindings();
             StockList.ResetBindings();
+            VehicleList.ResetBindings();
         }
 
         /// <summary>
