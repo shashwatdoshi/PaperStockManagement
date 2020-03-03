@@ -309,8 +309,11 @@ namespace ProjectStockManagement
 
                     var id = int.Parse(gridView1.GetRowCellValue(i, "StockID").ToString());
                     StockInventory stockInventory = GetStockInventoryFromInventoryByID(id);
-                    stockInventory.Quantity -= int.Parse(gridView1.GetRowCellValue(i, "Quantity").ToString());
+                    int quantity = int.Parse(gridView1.GetRowCellValue(i, "Quantity").ToString());
+                    //stockInventory.Quantity -= quantity;
+                    paperStockManagementDB.StockInventories.Find(stockInventory.ID).Quantity -= quantity;
                     order.StockID = stockInventory.StockID;
+                    order.Quantity = quantity;
                     order.ClientID = int.Parse(gridView1.GetRowCellValue(i, "ClientID").ToString());
 
                     paperStockManagementDB.Orders.Add(order);
