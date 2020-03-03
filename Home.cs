@@ -320,8 +320,9 @@ namespace ProjectStockManagement
                     order.ClientID = int.Parse(gridView1.GetRowCellValue(i, "ClientID").ToString());
 
                     paperStockManagementDB.Orders.Add(order);
-                    paperStockManagementDB.SaveChanges();
                 }
+
+                paperStockManagementDB.SaveChanges();
             }
 
             dataTable.Rows.Clear();
