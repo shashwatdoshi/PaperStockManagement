@@ -52,7 +52,7 @@
             this.addOrderNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.addOrderGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cmbAddOrderDetail = new System.Windows.Forms.ComboBox();
             this.cmbAddOrderPartyName = new System.Windows.Forms.ComboBox();
             this.btnCancelOrder = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -61,6 +61,16 @@
             this.lblOrderDate = new MaterialSkin.Controls.MaterialLabel();
             this.dtpStockDate = new System.Windows.Forms.DateTimePicker();
             this.dispatchNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.dispatchOrderButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.dispatchOrderGridControl = new DevExpress.XtraGrid.GridControl();
+            this.dispatchOrderGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ColClient = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColBF = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColGSM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColSize = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColWeight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtDriverContactNo = new System.Windows.Forms.MaskedTextBox();
             this.txtDriverName = new System.Windows.Forms.MaskedTextBox();
             this.cmbVehicleInfo = new System.Windows.Forms.ComboBox();
@@ -99,6 +109,7 @@
             this.dlgPrintReport = new System.Windows.Forms.PrintDialog();
             this.toolTipAddOrder = new System.Windows.Forms.ToolTip(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             Client = new DevExpress.XtraGrid.Columns.GridColumn();
             BF = new DevExpress.XtraGrid.Columns.GridColumn();
             GSM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -113,8 +124,10 @@
             this.addOrderNavigationPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addOrderGridView)).BeginInit();
             this.dispatchNavigationPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dispatchOrderGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dispatchOrderGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpManualDispatch)).BeginInit();
             this.grpManualDispatch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpAutoDispatch)).BeginInit();
@@ -224,10 +237,10 @@
             this.addOrderNavigationPage,
             this.dispatchNavigationPage,
             this.reportsNavigationPage});
-            this.mainNavigation.RegularSize = new System.Drawing.Size(797, 429);
+            this.mainNavigation.RegularSize = new System.Drawing.Size(1028, 630);
             this.mainNavigation.SelectedPage = this.homeNavigationPage;
             this.mainNavigation.ShowToolTips = DevExpress.Utils.DefaultBoolean.True;
-            this.mainNavigation.Size = new System.Drawing.Size(797, 429);
+            this.mainNavigation.Size = new System.Drawing.Size(1028, 630);
             this.mainNavigation.TabIndex = 1;
             this.mainNavigation.SelectedPageChanging += new DevExpress.XtraBars.Navigation.SelectedPageChangingEventHandler(this.mainNavigation_SelectedPageChanging);
             // 
@@ -399,17 +412,17 @@
             // gridControl1
             // 
             this.gridControl1.Location = new System.Drawing.Point(23, 159);
-            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.MainView = this.addOrderGridView;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(655, 200);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.UseEmbeddedNavigator = true;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.addOrderGridView});
             // 
-            // gridView1
+            // addOrderGridView
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.addOrderGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             StockID,
             Client,
             BF,
@@ -418,11 +431,11 @@
             Weight,
             Quantity,
             ClientID});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.MultiSelect = true;
-            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
+            this.addOrderGridView.GridControl = this.gridControl1;
+            this.addOrderGridView.Name = "addOrderGridView";
+            this.addOrderGridView.OptionsSelection.MultiSelect = true;
+            this.addOrderGridView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.addOrderGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
             // 
             // cmbAddOrderDetail
             // 
@@ -503,6 +516,8 @@
             // dispatchNavigationPage
             // 
             this.dispatchNavigationPage.Caption = "Dispatch Order";
+            this.dispatchNavigationPage.Controls.Add(this.dispatchOrderButton);
+            this.dispatchNavigationPage.Controls.Add(this.dispatchOrderGridControl);
             this.dispatchNavigationPage.Controls.Add(this.txtDriverContactNo);
             this.dispatchNavigationPage.Controls.Add(this.txtDriverName);
             this.dispatchNavigationPage.Controls.Add(this.cmbVehicleInfo);
@@ -511,12 +526,111 @@
             this.dispatchNavigationPage.Controls.Add(this.materialLabel1);
             this.dispatchNavigationPage.Controls.Add(this.dateTimePicker2);
             this.dispatchNavigationPage.Name = "dispatchNavigationPage";
-            this.dispatchNavigationPage.Size = new System.Drawing.Size(670, 309);
+            this.dispatchNavigationPage.Size = new System.Drawing.Size(901, 557);
+            // 
+            // dispatchOrderButton
+            // 
+            this.dispatchOrderButton.Depth = 0;
+            this.dispatchOrderButton.Location = new System.Drawing.Point(360, 488);
+            this.dispatchOrderButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.dispatchOrderButton.Name = "dispatchOrderButton";
+            this.dispatchOrderButton.Primary = true;
+            this.dispatchOrderButton.Size = new System.Drawing.Size(92, 32);
+            this.dispatchOrderButton.TabIndex = 14;
+            this.dispatchOrderButton.Text = "Dispatch";
+            this.dispatchOrderButton.UseVisualStyleBackColor = true;
+            this.dispatchOrderButton.Click += new System.EventHandler(this.dispatchOrderButton_Click);
+            // 
+            // dispatchOrderGridControl
+            // 
+            this.dispatchOrderGridControl.DataSource = typeof(ProjectStockManagement.PaperStockManagementDB.Order);
+            this.dispatchOrderGridControl.Location = new System.Drawing.Point(17, 271);
+            this.dispatchOrderGridControl.MainView = this.dispatchOrderGridView;
+            this.dispatchOrderGridControl.Name = "dispatchOrderGridControl";
+            this.dispatchOrderGridControl.Size = new System.Drawing.Size(871, 200);
+            this.dispatchOrderGridControl.TabIndex = 13;
+            this.dispatchOrderGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dispatchOrderGridView});
+            // 
+            // dispatchOrderGridView
+            // 
+            this.dispatchOrderGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.ColClient,
+            this.ColBF,
+            this.ColGSM,
+            this.ColSize,
+            this.ColWeight,
+            this.colQuantity,
+            this.colStartDate,
+            this.colID});
+            this.dispatchOrderGridView.GridControl = this.dispatchOrderGridControl;
+            this.dispatchOrderGridView.Name = "dispatchOrderGridView";
+            this.dispatchOrderGridView.OptionsBehavior.Editable = false;
+            this.dispatchOrderGridView.OptionsFilter.ShowAllTableValuesInFilterPopup = true;
+            this.dispatchOrderGridView.OptionsSelection.MultiSelect = true;
+            this.dispatchOrderGridView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.dispatchOrderGridView.OptionsView.ShowAutoFilterRow = true;
+            // 
+            // ColClient
+            // 
+            this.ColClient.Caption = "Client Name";
+            this.ColClient.FieldName = "Client.Name";
+            this.ColClient.Name = "ColClient";
+            this.ColClient.Visible = true;
+            this.ColClient.VisibleIndex = 1;
+            // 
+            // ColBF
+            // 
+            this.ColBF.Caption = "BF";
+            this.ColBF.FieldName = "Stock.BreakingForce";
+            this.ColBF.Name = "ColBF";
+            this.ColBF.Visible = true;
+            this.ColBF.VisibleIndex = 2;
+            // 
+            // ColGSM
+            // 
+            this.ColGSM.Caption = "GSM";
+            this.ColGSM.FieldName = "Stock.GSM";
+            this.ColGSM.Name = "ColGSM";
+            this.ColGSM.Visible = true;
+            this.ColGSM.VisibleIndex = 3;
+            // 
+            // ColSize
+            // 
+            this.ColSize.Caption = "Size";
+            this.ColSize.FieldName = "Stock.Size";
+            this.ColSize.Name = "ColSize";
+            this.ColSize.Visible = true;
+            this.ColSize.VisibleIndex = 4;
+            // 
+            // ColWeight
+            // 
+            this.ColWeight.Caption = "Weight";
+            this.ColWeight.FieldName = "Stock.Weight";
+            this.ColWeight.Name = "ColWeight";
+            this.ColWeight.Visible = true;
+            this.ColWeight.VisibleIndex = 5;
+            // 
+            // colQuantity
+            // 
+            this.colQuantity.FieldName = "Quantity";
+            this.colQuantity.Name = "colQuantity";
+            this.colQuantity.OptionsColumn.AllowEdit = false;
+            this.colQuantity.Visible = true;
+            this.colQuantity.VisibleIndex = 6;
+            // 
+            // colStartDate
+            // 
+            this.colStartDate.FieldName = "StartDate";
+            this.colStartDate.Name = "colStartDate";
+            this.colStartDate.OptionsColumn.AllowEdit = false;
+            this.colStartDate.Visible = true;
+            this.colStartDate.VisibleIndex = 7;
             // 
             // txtDriverContactNo
             // 
             this.txtDriverContactNo.BeepOnError = true;
-            this.txtDriverContactNo.Location = new System.Drawing.Point(303, 275);
+            this.txtDriverContactNo.Location = new System.Drawing.Point(686, 50);
             this.txtDriverContactNo.Mask = "+91 00000-00000";
             this.txtDriverContactNo.Name = "txtDriverContactNo";
             this.txtDriverContactNo.Size = new System.Drawing.Size(104, 20);
@@ -525,7 +639,7 @@
             // txtDriverName
             // 
             this.txtDriverName.BeepOnError = true;
-            this.txtDriverName.Location = new System.Drawing.Point(144, 275);
+            this.txtDriverName.Location = new System.Drawing.Point(527, 50);
             this.txtDriverName.Name = "txtDriverName";
             this.txtDriverName.Size = new System.Drawing.Size(131, 20);
             this.txtDriverName.TabIndex = 11;
@@ -534,7 +648,7 @@
             // 
             this.cmbVehicleInfo.DisplayMember = "10";
             this.cmbVehicleInfo.FormattingEnabled = true;
-            this.cmbVehicleInfo.Location = new System.Drawing.Point(17, 275);
+            this.cmbVehicleInfo.Location = new System.Drawing.Point(400, 50);
             this.cmbVehicleInfo.Name = "cmbVehicleInfo";
             this.cmbVehicleInfo.Size = new System.Drawing.Size(100, 21);
             this.cmbVehicleInfo.TabIndex = 10;
@@ -678,6 +792,7 @@
             this.cmbPartyName.Size = new System.Drawing.Size(100, 21);
             this.cmbPartyName.TabIndex = 6;
             this.cmbPartyName.Text = "Party Name";
+            this.cmbPartyName.SelectedIndexChanged += new System.EventHandler(this.cmbPartyName_SelectedIndexChanged);
             // 
             // txtDispatchSize
             // 
@@ -741,7 +856,7 @@
             this.reportsNavigationPage.Controls.Add(this.lblFromDate);
             this.reportsNavigationPage.Controls.Add(this.dateTimePicker3);
             this.reportsNavigationPage.Name = "reportsNavigationPage";
-            this.reportsNavigationPage.Size = new System.Drawing.Size(670, 309);
+            this.reportsNavigationPage.Size = new System.Drawing.Size(873, 504);
             // 
             // btnPrintReport
             // 
@@ -848,12 +963,12 @@
             // 
             this.lblToDate.AutoSize = true;
             this.lblToDate.Depth = 0;
-            this.lblToDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblToDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblToDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblToDate.Location = new System.Drawing.Point(385, 9);
             this.lblToDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(69, 18);
+            this.lblToDate.Size = new System.Drawing.Size(70, 19);
             this.lblToDate.TabIndex = 9;
             this.lblToDate.Text = "To Date :";
             // 
@@ -868,12 +983,12 @@
             // 
             this.lblFromDate.AutoSize = true;
             this.lblFromDate.Depth = 0;
-            this.lblFromDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblFromDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblFromDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblFromDate.Location = new System.Drawing.Point(21, 9);
             this.lblFromDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(87, 18);
+            this.lblFromDate.Size = new System.Drawing.Size(87, 19);
             this.lblFromDate.TabIndex = 7;
             this.lblFromDate.Text = "From Date :";
             // 
@@ -892,7 +1007,7 @@
             this.homeNavigationPage.Controls.Add(this.btnAddVehicle);
             this.homeNavigationPage.Controls.Add(this.btnAddGF);
             this.homeNavigationPage.Name = "homeNavigationPage";
-            this.homeNavigationPage.Size = new System.Drawing.Size(670, 356);
+            this.homeNavigationPage.Size = new System.Drawing.Size(901, 557);
             // 
             // btnAddParty
             // 
@@ -942,9 +1057,14 @@
             // 
             this.toolTipAddOrder.ToolTipTitle = "Displaying Details in following order. BF | GSM | SIZE | WEIGHT | QUANTITY";
             // 
+            // colID
+            // 
+            this.colID.FieldName = "ID";
+            this.colID.Name = "colID";
+            // 
             // PaperStockManagement
             // 
-            this.ClientSize = new System.Drawing.Size(800, 497);
+            this.ClientSize = new System.Drawing.Size(1031, 645);
             this.Controls.Add(this.mainNavigation);
             this.Name = "PaperStockManagement";
             this.Text = "Paper Stock Management";
@@ -957,9 +1077,11 @@
             this.addOrderNavigationPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addOrderGridView)).EndInit();
             this.dispatchNavigationPage.ResumeLayout(false);
             this.dispatchNavigationPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dispatchOrderGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dispatchOrderGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpManualDispatch)).EndInit();
             this.grpManualDispatch.ResumeLayout(false);
             this.grpManualDispatch.PerformLayout();
@@ -1056,6 +1178,17 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        internal DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        internal DevExpress.XtraGrid.Views.Grid.GridView addOrderGridView;
+        private DevExpress.XtraGrid.GridControl dispatchOrderGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView dispatchOrderGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn colStartDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colQuantity;
+        private DevExpress.XtraGrid.Columns.GridColumn ColClient;
+        private DevExpress.XtraGrid.Columns.GridColumn ColBF;
+        private DevExpress.XtraGrid.Columns.GridColumn ColGSM;
+        private DevExpress.XtraGrid.Columns.GridColumn ColSize;
+        private DevExpress.XtraGrid.Columns.GridColumn ColWeight;
+        private MaterialSkin.Controls.MaterialRaisedButton dispatchOrderButton;
+        private DevExpress.XtraGrid.Columns.GridColumn colID;
     }
 }
