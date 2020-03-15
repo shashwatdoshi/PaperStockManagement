@@ -53,10 +53,10 @@ namespace ProjectStockManagement
             // Instantiate a new DBContext
             ProjectStockManagement.PaperStockManagementDB.PaperStockManagementDBEntities dbContext = new ProjectStockManagement.PaperStockManagementDB.PaperStockManagementDBEntities();
             // Call the LoadAsync method to asynchronously get the data for the given DbSet from the database.
-            dbContext.Orders.LoadAsync().ContinueWith(loadTask =>
+            dbContext.AddOrders.LoadAsync().ContinueWith(loadTask =>
             {
     // Bind data to control when loading complete
-    dispatchOrderGridControl.DataSource = dbContext.Orders.Local.ToBindingList();
+    dispatchOrderGridControl.DataSource = dbContext.AddOrders.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
 
@@ -332,10 +332,34 @@ namespace ProjectStockManagement
                 {
                     if (dispatchOrderGridView.IsRowSelected(i))
                     {
+                        var orderID = int.Parse(dispatchOrderGridView.GetRowCellValue(i, "OrderID").ToString());
+                        AddOrder addOrder = paperStockManagementDB.AddOrders.First(j => j.OrderID == orderID);
+                        paperStockManagementDB.AddOrders.Remove(addOrder);
 
+                        DispatchOrder dispatchOrder = new DispatchOrder();
+                        dispatchOrder.Date = dateTimePicker2.Value;
+                        dispatchOrder.OrderID = addOrder.OrderID;
+                        dispatchOrder.DriverName = txtDriverName.Text;
+                        dispatchOrder.DriverNumber = txtDriverContactNo.Text;
+                        dispatchOrder.VehicleNumber = txtVehicleNumber.Text;
+
+                        paperStockManagementDB.DispatchOrders.Add(dispatchOrder);
                     }
                 }
+
+                paperStockManagementDB.SaveChanges();
             }
+
+            PaperStockManagementDBEntities dbContext = new PaperStockManagementDBEntities();
+
+            // Call the LoadAsync method to asynchronously get the data for the given DbSet from the database.
+            dbContext.AddOrders.LoadAsync().ContinueWith(loadTask =>
+            {
+                // Bind data to control when loading complete
+                dispatchOrderGridControl.DataSource = dbContext.AddOrders.Local.ToBindingList();
+            }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+
+            dispatchOrderGridControl.RefreshDataSource();
         }
     }
 }
