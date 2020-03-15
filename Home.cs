@@ -289,8 +289,10 @@ namespace ProjectStockManagement
                     order.ClientID = int.Parse(addOrderGridView.GetRowCellValue(i, "ClientID").ToString());
 
                     paperStockManagementDB.Orders.Add(order);
+
                     AddOrder addOrder = new AddOrder();
                     addOrder.Order = order;
+
                     paperStockManagementDB.AddOrders.Add(addOrder);
                 }
 
@@ -332,10 +334,14 @@ namespace ProjectStockManagement
                 {
                     if (dispatchOrderGridView.IsRowSelected(i))
                     {
+                        //Get order id
                         var orderID = int.Parse(dispatchOrderGridView.GetRowCellValue(i, "OrderID").ToString());
+
+                        //Remove add oreder
                         AddOrder addOrder = paperStockManagementDB.AddOrders.First(j => j.OrderID == orderID);
                         paperStockManagementDB.AddOrders.Remove(addOrder);
 
+                        //Dispatch order
                         DispatchOrder dispatchOrder = new DispatchOrder();
                         dispatchOrder.Date = dateTimePicker2.Value;
                         dispatchOrder.OrderID = addOrder.OrderID;
@@ -343,6 +349,7 @@ namespace ProjectStockManagement
                         dispatchOrder.DriverNumber = txtDriverContactNo.Text;
                         dispatchOrder.VehicleNumber = txtVehicleNumber.Text;
 
+                        //Add Dispatch order
                         paperStockManagementDB.DispatchOrders.Add(dispatchOrder);
                     }
                 }

@@ -31,10 +31,12 @@ namespace ProjectStockManagement
                 {
                     if (grdViewDeleteOrder.IsRowSelected(i))
                     {
+                        //Delete order
                         var orderID = int.Parse(grdViewDeleteOrder.GetRowCellValue(i, "ID").ToString());
                         Order order = paperStockManagementDB.Orders.First(j => j.ID == orderID);
                         paperStockManagementDB.Orders.Remove(order);
 
+                        //Add stock quantity back to main stock
                         paperStockManagementDB.Stocks.First(j => j.ID == order.StockID).Quantity += order.Quantity;
                     }
                 }
