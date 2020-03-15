@@ -104,6 +104,7 @@
             this.lblFromDate = new MaterialSkin.Controls.MaterialLabel();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.homeNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnAddParty = new System.Windows.Forms.Button();
             this.btnAddGSM = new System.Windows.Forms.Button();
             this.btnAddGF = new System.Windows.Forms.Button();
@@ -1014,11 +1015,22 @@
             // homeNavigationPage
             // 
             this.homeNavigationPage.Caption = "Home Page";
+            this.homeNavigationPage.Controls.Add(this.button1);
             this.homeNavigationPage.Controls.Add(this.btnAddParty);
             this.homeNavigationPage.Controls.Add(this.btnAddGSM);
             this.homeNavigationPage.Controls.Add(this.btnAddGF);
             this.homeNavigationPage.Name = "homeNavigationPage";
             this.homeNavigationPage.Size = new System.Drawing.Size(901, 557);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(119, 133);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 41);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Delete Order";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAddParty
             // 
@@ -1186,5 +1198,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colOrderID;
         private System.Windows.Forms.MaskedTextBox txtVehicleNumber;
+        private System.Windows.Forms.Button button1;
     }
 }

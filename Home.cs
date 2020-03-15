@@ -361,5 +361,11 @@ namespace ProjectStockManagement
 
             dispatchOrderGridControl.RefreshDataSource();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DeleteOrder deleteOrder = new DeleteOrder();
+            deleteOrder.Show();
+        }
     }
 }
