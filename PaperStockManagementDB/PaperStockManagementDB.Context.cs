@@ -25,14 +25,13 @@ namespace ProjectStockManagement.PaperStockManagementDB
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AddOrder> AddOrders { get; set; }
         public virtual DbSet<AuthenticationUser> AuthenticationUsers { get; set; }
         public virtual DbSet<BreakingForce> BreakingForces { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
-        public virtual DbSet<Driver> Drivers { get; set; }
+        public virtual DbSet<DispatchOrder> DispatchOrders { get; set; }
         public virtual DbSet<GSM> GSMs { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
-        public virtual DbSet<StockInventory> StockInventories { get; set; }
-        public virtual DbSet<Vehicle> Vehicles { get; set; }
     }
 }

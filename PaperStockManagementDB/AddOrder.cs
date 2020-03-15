@@ -12,13 +12,11 @@ namespace ProjectStockManagement.PaperStockManagementDB
     using System;
     using System.Collections.Generic;
     
-    public partial class StockInventory
+    public partial class AddOrder
     {
         public int ID { get; set; }
-        public int StockID { get; set; }
-        public long Quantity { get; set; }
-        public System.DateTime Date { get; set; }
+        public int OrderID { get; set; }
     
-        public virtual Stock Stock { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

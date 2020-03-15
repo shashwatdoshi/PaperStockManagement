@@ -58,60 +58,12 @@ CREATE TABLE [dbo].[Stock](
 	[BreakingForce] [int] NOT NULL,
 	[Size] [float] NOT NULL,
 	[Weight] [float] NOT NULL,
+	[Quantity] [int] NOT NULL,
  CONSTRAINT [PK_Stock] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-
-CREATE TABLE [dbo].[StockInventory](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[StockID] [int] NOT NULL,
-	[Quantity] [bigint] NOT NULL,
-	[Date] [datetime] NOT NULL,
- CONSTRAINT [PK_StockInventory] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[StockInventory]  WITH CHECK ADD  CONSTRAINT [FK_Stock] FOREIGN KEY([StockID])
-REFERENCES [dbo].[Stock] ([ID])
-GO
-
-ALTER TABLE [dbo].[StockInventory] CHECK CONSTRAINT [FK_Stock]
-GO
-
-CREATE TABLE [dbo].[Driver](
-	[ID] [bigint] IDENTITY(1,1) NOT NULL,
-	[Name] [nchar](50) NOT NULL,
-	[Number] [nvarchar](10) NULL,
-	[Image] [nvarchar](300) NULL,
- CONSTRAINT [PK_Driver] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-CREATE TABLE [dbo].[Vehicle](
-	[ID] [bigint] IDENTITY(1,1) NOT NULL,
-	[Number] [nvarchar](20) NOT NULL,
-	[Driver] [bigint] NULL,
- CONSTRAINT [PK_Vehicle] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[Vehicle]  WITH CHECK ADD  CONSTRAINT [FK_Table_Vehicle_Driver] FOREIGN KEY([Driver])
-REFERENCES [dbo].[Driver] ([ID])
-GO
-
-ALTER TABLE [dbo].[Vehicle] CHECK CONSTRAINT [FK_Table_Vehicle_Driver]
 GO
 
 CREATE TABLE [dbo].[AuthenticationUser](
@@ -133,19 +85,13 @@ CREATE TABLE [dbo].[Order](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[ClientID] [int] NOT NULL,
 	[StockID] [int] NOT NULL,
-	[StartDate] [datetime] NOT NULL,
-	[EndDate] [datetime] NULL,
-	[Deleted] [bit] NOT NULL,
-	[VehicleID] [bigint] NULL,
+	[AddedDate] [datetime] NOT NULL,
 	[Quantity] [int] NOT NULL,
  CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[Order] ADD  CONSTRAINT [DF_Order_Deleted]  DEFAULT ((0)) FOR [Deleted]
 GO
 
 ALTER TABLE [dbo].[Order] ADD  CONSTRAINT [DF_Order_Quantity]  DEFAULT ((0)) FOR [Quantity]
@@ -165,9 +111,40 @@ GO
 ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Stock]
 GO
 
-ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Vehicle] FOREIGN KEY([VehicleID])
-REFERENCES [dbo].[Vehicle] ([ID])
+CREATE TABLE [dbo].[AddOrder](
+	[ID] [int] NOT NULL,
+	[OrderID] [int] NOT NULL,
+ CONSTRAINT [PK_AddOrder] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Vehicle]
+ALTER TABLE [dbo].[AddOrder]  WITH CHECK ADD  CONSTRAINT [FK_AddOrder_Order] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[Order] ([ID])
+GO
+
+ALTER TABLE [dbo].[AddOrder] CHECK CONSTRAINT [FK_AddOrder_Order]
+GO
+
+CREATE TABLE [dbo].[DispatchOrder](
+	[ID] [int] NOT NULL,
+	[OrderID] [int] NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[VehicleNumber] [nvarchar](15) NOT NULL,
+	[DriverName] [nchar](50) NOT NULL,
+	[DriverNumber] [nchar](12) NULL,
+ CONSTRAINT [PK_DispatchOrder] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[DispatchOrder]  WITH CHECK ADD  CONSTRAINT [FK_DispatchOrder_Order] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[Order] ([ID])
+GO
+
+ALTER TABLE [dbo].[DispatchOrder] CHECK CONSTRAINT [FK_DispatchOrder_Order]
 GO

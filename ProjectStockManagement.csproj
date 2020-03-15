@@ -140,6 +140,9 @@
     <Compile Include="AddBF.Designer.cs">
       <DependentUpon>AddBF.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaperStockManagementDB\AddOrder.cs">
+      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="PaperStockManagementDB\AuthenticationUser.cs">
       <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
     </Compile>
@@ -149,7 +152,7 @@
     <Compile Include="PaperStockManagementDB\Client.cs">
       <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="PaperStockManagementDB\Driver.cs">
+    <Compile Include="PaperStockManagementDB\DispatchOrder.cs">
       <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
     </Compile>
     <Compile Include="PaperStockManagementDB\GSM.cs">
@@ -174,12 +177,6 @@
       <DependentUpon>PaperStockManagementDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="PaperStockManagementDB\Stock.cs">
-      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PaperStockManagementDB\StockInventory.cs">
-      <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PaperStockManagementDB\Vehicle.cs">
       <DependentUpon>PaperStockManagementDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
