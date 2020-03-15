@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e9e741f6a16d49a89bbbc4221b4e54d8" Name="Diagram1">
+      <Diagram DiagramId="1b31b8d7d7774c93b158021ccdee71f8" Name="Diagram1">
         <EntityTypeShape EntityType="PaperStockManagementDBModel.AddOrder" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="PaperStockManagementDBModel.AuthenticationUser" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PaperStockManagementDBModel.BreakingForce" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />

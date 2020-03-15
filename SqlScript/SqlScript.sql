@@ -112,7 +112,7 @@ ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Stock]
 GO
 
 CREATE TABLE [dbo].[AddOrder](
-	[ID] [int] NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[OrderID] [int] NOT NULL,
  CONSTRAINT [PK_AddOrder] PRIMARY KEY CLUSTERED 
 (
@@ -129,7 +129,7 @@ ALTER TABLE [dbo].[AddOrder] CHECK CONSTRAINT [FK_AddOrder_Order]
 GO
 
 CREATE TABLE [dbo].[DispatchOrder](
-	[ID] [int] NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[OrderID] [int] NOT NULL,
 	[Date] [datetime] NOT NULL,
 	[VehicleNumber] [nvarchar](15) NOT NULL,

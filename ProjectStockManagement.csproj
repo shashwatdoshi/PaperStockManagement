@@ -109,12 +109,6 @@
     <Compile Include="AddPartyDetail.Designer.cs">
       <DependentUpon>AddPartyDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddVehicle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddVehicle.Designer.cs">
-      <DependentUpon>AddVehicle.cs</DependentUpon>
-    </Compile>
     <Compile Include="Data\Client.cs" />
     <Compile Include="Data\DateTracker.cs" />
     <Compile Include="Data\Driver.cs" />
@@ -187,9 +181,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddPartyDetail.resx">
       <DependentUpon>AddPartyDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddVehicle.resx">
-      <DependentUpon>AddVehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteOrder.resx">
       <DependentUpon>DeleteOrder.cs</DependentUpon>

@@ -71,6 +71,7 @@
             this.ColWeight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtDriverContactNo = new System.Windows.Forms.MaskedTextBox();
             this.txtDriverName = new System.Windows.Forms.MaskedTextBox();
             this.cmbVehicleInfo = new System.Windows.Forms.ComboBox();
@@ -104,12 +105,10 @@
             this.homeNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.btnAddParty = new System.Windows.Forms.Button();
             this.btnAddGSM = new System.Windows.Forms.Button();
-            this.btnAddVehicle = new System.Windows.Forms.Button();
             this.btnAddGF = new System.Windows.Forms.Button();
             this.dlgPrintReport = new System.Windows.Forms.PrintDialog();
             this.toolTipAddOrder = new System.Windows.Forms.ToolTip(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             Client = new DevExpress.XtraGrid.Columns.GridColumn();
             BF = new DevExpress.XtraGrid.Columns.GridColumn();
             GSM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -627,6 +626,11 @@
             this.colStartDate.Visible = true;
             this.colStartDate.VisibleIndex = 7;
             // 
+            // colID
+            // 
+            this.colID.FieldName = "ID";
+            this.colID.Name = "colID";
+            // 
             // txtDriverContactNo
             // 
             this.txtDriverContactNo.BeepOnError = true;
@@ -1004,7 +1008,6 @@
             this.homeNavigationPage.Caption = "Home Page";
             this.homeNavigationPage.Controls.Add(this.btnAddParty);
             this.homeNavigationPage.Controls.Add(this.btnAddGSM);
-            this.homeNavigationPage.Controls.Add(this.btnAddVehicle);
             this.homeNavigationPage.Controls.Add(this.btnAddGF);
             this.homeNavigationPage.Name = "homeNavigationPage";
             this.homeNavigationPage.Size = new System.Drawing.Size(901, 557);
@@ -1029,16 +1032,6 @@
             this.btnAddGSM.UseVisualStyleBackColor = true;
             this.btnAddGSM.Click += new System.EventHandler(this.btnAddGSM_Click);
             // 
-            // btnAddVehicle
-            // 
-            this.btnAddVehicle.Location = new System.Drawing.Point(119, 133);
-            this.btnAddVehicle.Name = "btnAddVehicle";
-            this.btnAddVehicle.Size = new System.Drawing.Size(99, 41);
-            this.btnAddVehicle.TabIndex = 2;
-            this.btnAddVehicle.Text = "Add Vehicle";
-            this.btnAddVehicle.UseVisualStyleBackColor = true;
-            this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
-            // 
             // btnAddGF
             // 
             this.btnAddGF.Location = new System.Drawing.Point(119, 54);
@@ -1056,11 +1049,6 @@
             // toolTipAddOrder
             // 
             this.toolTipAddOrder.ToolTipTitle = "Displaying Details in following order. BF | GSM | SIZE | WEIGHT | QUANTITY";
-            // 
-            // colID
-            // 
-            this.colID.FieldName = "ID";
-            this.colID.Name = "colID";
             // 
             // PaperStockManagement
             // 
@@ -1124,7 +1112,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage dispatchNavigationPage;
         private System.Windows.Forms.Button btnAddGF;
         private DevExpress.XtraBars.Navigation.NavigationPage reportsNavigationPage;
-        private System.Windows.Forms.Button btnAddVehicle;
         private System.Windows.Forms.Button btnAddParty;
         private System.Windows.Forms.Button btnAddGSM;
         private MaterialSkin.Controls.MaterialLabel lblDate;

@@ -31,19 +31,9 @@ namespace ProjectStockManagement
         public static BindingList<string> PartyNameList = new BindingList<string>();
 
         /// <summary>
-        /// Contains all added values for Stock detail.
-        /// </summary>
-        public static BindingList<StockInventory> StockList = new BindingList<StockInventory>();
-
-        /// <summary>
         /// Contains all added values for Stock detail in format.
         /// </summary>
         public static BindingList<string> ExStockList = new BindingList<string>();
-
-        /// <summary>
-        /// Contains all added values for Vehicle detail in format.
-        /// </summary>
-        public static BindingList<string> VehicleList = new BindingList<string>();
 
         /// <summary>
         /// Initialize insatance(constructor) of PaperStockManagement.
@@ -92,20 +82,14 @@ namespace ProjectStockManagement
                     PartyNameList.Add(client.Name);
                 }
 
-                foreach (StockInventory stockInventory in
-                    paperStockManagementDB.StockInventories.ToList())
+                foreach (Stock stockInventory in
+                    paperStockManagementDB.Stocks.ToList())
                 {
-                    StockList.Add(stockInventory);
                     string stockFormat = string.Format(Constant.StockDataFormat,
-                        stockInventory.Stock.BreakingForce, stockInventory.Stock.GSM,
-                        stockInventory.Stock.Size, stockInventory.Stock.Weight,
+                        stockInventory.BreakingForce, stockInventory.GSM,
+                        stockInventory.Size, stockInventory.Weight,
                         stockInventory.Quantity);
                     ExStockList.Add(stockFormat);
-                }
-
-                foreach (Vehicle vehicle in paperStockManagementDB.Vehicles.ToList())
-                {
-                    VehicleList.Add(vehicle.Number);
                 }
             }
         }
@@ -132,9 +116,6 @@ namespace ProjectStockManagement
 
             // Add data to BF | GSM | SIZE | WEIGHT | QUANTITY contained combobox.
             cmbAddOrderDetail.DataSource = ExStockList;
-
-            // Add data to Vheicle information contained combobox.
-            cmbVehicleInfo.DataSource = VehicleList;
         }
 
         /// <summary>
@@ -171,17 +152,6 @@ namespace ProjectStockManagement
         }
 
         /// <summary>
-        /// Open Add Vehicle form on button click.
-        /// </summary>
-        /// <param name="sender">Instance of Object.</param>
-        /// <param name="e">Instance of EventArgs.</param>
-        private void btnAddVehicle_Click(object sender, EventArgs e)
-        {
-            AddVehicle addVehicle = new AddVehicle();
-            addVehicle.Show();
-        }
-
-        /// <summary>
         /// Open Print dailog on button click.
         /// </summary>
         /// <param name="sender"></param>
@@ -210,8 +180,6 @@ namespace ProjectStockManagement
             GSMList.ResetBindings();
             PartyNameList.ResetBindings();
             ExStockList.ResetBindings();
-            StockList.ResetBindings();
-            VehicleList.ResetBindings();
         }
 
         /// <summary>
@@ -229,21 +197,14 @@ namespace ProjectStockManagement
                 stock.GSM = Int32.Parse(cmbGSM.SelectedItem.ToString());
                 stock.Weight = Int32.Parse(txtWeight.Text);
                 stock.Size = Int32.Parse(txtSize.Text);
+                stock.Quantity = Int32.Parse(txtStockQuantity.Text);
                 paperStockManagementDB.Stocks.Add(stock);
-
-                // Add new stock values with quantity to inventory records to databse.
-                var inventory = new StockInventory();
-                inventory.Date = dateTimePicker1.Value;
-                inventory.Stock = stock;
-                inventory.Quantity = Int32.Parse(txtStockQuantity.Text);
-                paperStockManagementDB.StockInventories.Add(inventory);
                 paperStockManagementDB.SaveChanges();
 
-                PaperStockManagement.StockList.Add(inventory);
                 string stockFormat = string.Format(Constant.StockDataFormat,
-                        inventory.Stock.BreakingForce, inventory.Stock.GSM,
-                        inventory.Stock.Size, inventory.Stock.Weight,
-                        inventory.Quantity);
+                        stock.BreakingForce, stock.GSM,
+                        stock.Size, stock.Weight,
+                        stock.Quantity);
                 ExStockList.Add(stockFormat);
             }
         }
@@ -273,13 +234,13 @@ namespace ProjectStockManagement
 
             using (var paperStockManagementDB = new PaperStockManagementDBEntities())
             {
-                StockInventory stockInventory = paperStockManagementDB.StockInventories.ToList()[cmbAddOrderDetail.SelectedIndex];
-                row[0] = stockInventory.ID;
-                row[2] = stockInventory.Stock.BreakingForce;
-                row[3] = stockInventory.Stock.GSM;
-                row[4] = stockInventory.Stock.Size;
-                row[5] = stockInventory.Stock.Weight;
-                row[6] = stockInventory.Quantity;
+                Stock stock = paperStockManagementDB.Stocks.ToList()[cmbAddOrderDetail.SelectedIndex];
+                row[0] = stock.ID;
+                row[2] = stock.BreakingForce;
+                row[3] = stock.GSM;
+                row[4] = stock.Size;
+                row[5] = stock.Weight;
+                row[6] = stock.Quantity;
                 Client client = paperStockManagementDB.Clients.ToList()[cmbAddOrderPartyName.SelectedIndex];
                 row[7] = client.ID;
             }
@@ -296,7 +257,7 @@ namespace ProjectStockManagement
 
             var id = (int)dataTable.Rows[listSourceRowIndex][0];
 
-            StockInventory stock = GetStockInventoryFromInventoryByID(id);
+            Stock stock = GetStockInventoryFromInventoryByID(id);
 
             var quantity = int.Parse(view.GetRowCellValue(e.RowHandle, "Quantity").ToString());
 
@@ -313,21 +274,24 @@ namespace ProjectStockManagement
                 for (int i = 0; i < addOrderGridView.DataRowCount; i++)
                 {
                     Order order = new Order();
-                    order.StartDate = DateTime.Now;
+                    order.AddedDate = DateTime.Now;
 
                     var id = int.Parse(addOrderGridView.GetRowCellValue(i, "StockID").ToString());
 
-                    StockInventory stockInventory = GetStockInventoryFromInventoryByID(id);
+                    Stock stock = GetStockInventoryFromInventoryByID(id);
 
                     int quantity = int.Parse(addOrderGridView.GetRowCellValue(i, "Quantity").ToString());
 
-                    paperStockManagementDB.StockInventories.Find(stockInventory.ID).Quantity -= quantity;
+                    paperStockManagementDB.Stocks.Find(stock.ID).Quantity -= quantity;
 
-                    order.StockID = stockInventory.StockID;
+                    order.StockID = stock.ID;
                     order.Quantity = quantity;
                     order.ClientID = int.Parse(addOrderGridView.GetRowCellValue(i, "ClientID").ToString());
 
                     paperStockManagementDB.Orders.Add(order);
+                    AddOrder addOrder = new AddOrder();
+                    addOrder.Order = order;
+                    paperStockManagementDB.AddOrders.Add(addOrder);
                 }
 
                 paperStockManagementDB.SaveChanges();
@@ -338,16 +302,16 @@ namespace ProjectStockManagement
             gridControl1.RefreshDataSource();
         }
 
-        private StockInventory GetStockInventoryFromInventoryByID(int id)
+        private Stock GetStockInventoryFromInventoryByID(int id)
         {
             using (var paperStockManagementDB = new PaperStockManagementDBEntities())
             {
-                foreach (StockInventory stockInventory in
-                    paperStockManagementDB.StockInventories.ToList())
+                foreach (Stock stocks in
+                    paperStockManagementDB.Stocks.ToList())
                 {
-                    if (stockInventory.ID == id)
+                    if (stocks.ID == id)
                     {
-                        return stockInventory;
+                        return stocks;
                     }
                 }
             }
